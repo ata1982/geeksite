@@ -1,0 +1,502 @@
+/* 
+ * Global Manufacturing Careers
+ * top.css - トップページ専用スタイル
+ */
+
+/* ヒーローセクション */
+.hero-section {
+    background: linear-gradient(135deg, rgba(13, 44, 84, 0.9), rgba(0, 69, 126, 0.9)), url('../images/hero/manufacturing_hero.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--text-color-light);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/hero/pattern_overlay.svg');
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.hero-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-color-light);
+    line-height: 1.2;
+    font-family: 'Montserrat', sans-serif;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    animation: fadeInUp 0.8s 0.2s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-search {
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s 0.4s ease-out forwards;
+    opacity: 0;
+}
+
+.search-box {
+    display: flex;
+    background: var(--bg-color);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    padding: 1.25rem;
+    font-size: 1.1rem;
+    outline: none;
+}
+
+.search-btn {
+    background-color: var(--accent-color);
+    color: var(--text-color-light);
+    border: none;
+    padding: 0 2rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: var(--accent-light);
+}
+
+/* 強みセクション */
+.strengths-section {
+    padding: 5rem 0;
+    background-color: var(--bg-color);
+}
+
+.strengths-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.strength-item {
+    text-align: center;
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.strength-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.strength-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(13, 44, 84, 0.05);
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.strength-item:hover .strength-icon {
+    background-color: rgba(255, 103, 0, 0.1);
+}
+
+.strength-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+.strength-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.strength-item p {
+    color: var(--text-color-medium);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+}
+
+/* ピックアップ求人セクション */
+.featured-jobs-section {
+    background-color: var(--bg-color-alt);
+    padding: 5rem 0;
+}
+
+.featured-jobs-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.job-card {
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.job-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+}
+
+.company-logo {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color-alt);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+}
+
+.company-logo img {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.job-tag {
+    background-color: rgba(13, 44, 84, 0.06);
+    color: var(--primary-color);
+    font-size: var(--font-size-xs);
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    font-weight: 500;
+}
+
+.job-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    line-height: 1.3;
+}
+
+.job-info {
+    margin-bottom: 1rem;
+}
+
+.job-company, .job-location, .job-salary {
+    font-size: var(--font-size-sm);
+    color: var(--text-color-medium);
+    margin-bottom: 0.35rem;
+}
+
+.job-description {
+    margin-bottom: 1.5rem;
+    color: var(--text-color-medium);
+    line-height: 1.6;
+    font-size: var(--font-size-base);
+}
+
+.job-card .btn {
+    margin-top: auto;
+}
+
+.more-btn-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* 転職成功事例セクション */
+.success-stories-section {
+    padding: 5rem 0;
+    background-color: var(--bg-color);
+}
+
+.stories-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.story-card {
+    display: flex;
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.story-image {
+    width: 300px;
+    overflow: hidden;
+}
+
+.story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.story-card:hover .story-image img {
+    transform: scale(1.05);
+}
+
+.story-content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.story-content h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.story-profile {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.story-profile p {
+    color: var(--text-color-medium);
+    font-size: var(--font-size-sm);
+}
+
+.story-summary {
+    font-size: var(--font-size-base);
+    color: var(--text-color-medium);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* 転職ノウハウセクション */
+.knowhow-section {
+    background-color: var(--bg-color-alt);
+    padding: 5rem 0;
+}
+
+.knowhow-list {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+}
+
+.knowhow-item {
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.knowhow-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.knowhow-date {
+    color: var(--text-color-medium);
+    font-size: var(--font-size-xs);
+    margin-bottom: 0.5rem;
+}
+
+.knowhow-title {
+    font-size: var(--font-size-md);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.knowhow-title a {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.knowhow-title a:hover {
+    color: var(--accent-color);
+}
+
+.knowhow-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.knowhow-tags span {
+    background-color: rgba(13, 44, 84, 0.06);
+    color: var(--primary-color);
+    font-size: var(--font-size-xs);
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+}
+
+/* CTA セクション */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 5rem 0;
+    color: var(--text-color-light);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/hero/pattern_overlay.svg');
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.cta-section h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: 2.5rem;
+    color: var(--text-color-light);
+    line-height: 1.4;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.cta-section .btn-secondary {
+    background-color: transparent;
+    color: var(--text-color-light);
+    border: 2px solid var(--text-color-light);
+}
+
+.cta-section .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* メディアクエリ */
+@media (max-width: 991px) {
+    .strengths-container {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+    }
+    
+    .featured-jobs-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .story-card {
+        flex-direction: column;
+    }
+    
+    .story-image {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section p {
+        font-size: 1.25rem;
+    }
+    
+    .search-box {
+        flex-direction: column;
+    }
+    
+    .search-box input {
+        padding: 1rem;
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .search-btn {
+        padding: 1rem;
+    }
+    
+    .featured-jobs-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-section h2 {
+        font-size: var(--font-size-xl);
+    }
+}

@@ -1,0 +1,287 @@
+/* 
+ * Global Manufacturing Careers
+ * header.css - ヘッダー専用スタイル
+ */
+
+#site-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    padding: 0.75rem 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+#site-header.scrolled {
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    display: block;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* グローバルナビゲーション */
+.global-nav {
+    display: flex;
+}
+
+.global-nav ul {
+    display: flex;
+    align-items: center;
+}
+
+.global-nav li {
+    position: relative;
+    margin-right: 1.5rem;
+}
+
+.global-nav a {
+    display: block;
+    color: var(--text-color-dark);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.global-nav a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.global-nav a:hover {
+    color: var(--accent-color);
+}
+
+.global-nav a:hover:after,
+.global-nav a.active:after {
+    width: 100%;
+}
+
+/* ドロップダウンメニュー */
+.has-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: auto;
+    min-width: 200px;
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu h4 {
+    color: var(--primary-color);
+    font-size: var(--font-size-sm);
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.dropdown-menu ul {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.dropdown-menu li {
+    width: 100%;
+    margin-right: 0;
+}
+
+.dropdown-menu a {
+    padding: 0.5rem 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-color-medium);
+    transition: all 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    color: var(--accent-color);
+    padding-left: 5px;
+}
+
+/* セクションを横並びにする */
+.dropdown-menu.wide {
+    display: flex;
+    min-width: 450px;
+}
+
+.dropdown-section {
+    flex: 1;
+    padding: 0 1rem;
+}
+
+.dropdown-section:not(:last-child) {
+    border-right: 1px solid var(--border-color);
+}
+
+/* ヘッダー右側要素 */
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.language-switch {
+    display: flex;
+    align-items: center;
+    margin-right: 1.5rem;
+}
+
+.language-switch a {
+    font-size: var(--font-size-sm);
+    color: var(--text-color-medium);
+    padding: 0 0.25rem;
+    transition: color 0.2s ease;
+}
+
+.language-switch a.active,
+.language-switch a:hover {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.language-switch span {
+    color: var(--text-color-medium);
+    padding: 0 0.25rem;
+}
+
+.register-btn {
+    margin-right: 0.75rem;
+}
+
+/* ハンバーガーメニュー */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger-menu span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--text-color-dark);
+    transition: all 0.3s ease;
+}
+
+/* メディアクエリ */
+@media (max-width: 991px) {
+    .global-nav {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    .language-switch {
+        margin-right: 1rem;
+    }
+    
+    .register-btn, .login-btn {
+        display: none;
+    }
+    
+    /* モバイルメニュー用 */
+    .mobile-menu-active .global-nav {
+        display: block;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--bg-color);
+        padding: 2rem;
+        overflow-y: auto;
+        z-index: 100;
+    }
+    
+    .mobile-menu-active .global-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .mobile-menu-active .global-nav li {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .mobile-menu-active .hamburger-menu span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .mobile-menu-active .hamburger-menu span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-active .hamburger-menu span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .mobile-menu-active .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        padding: 0.5rem 0 0.5rem 1rem;
+        margin-top: 0.5rem;
+        display: none;
+    }
+    
+    .mobile-menu-active .has-dropdown.open .dropdown-menu {
+        display: block;
+    }
+}

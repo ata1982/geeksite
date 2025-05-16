@@ -1,0 +1,321 @@
+/* 
+ * Global Manufacturing Careers
+ * style.css - 全体のスタイル
+ */
+
+:root {
+    /* カラーパレット */
+    --primary-color: #0D2C54;      /* ダークブルー - プライマリカラー */
+    --secondary-color: #00457E;    /* ミディアムブルー - セカンダリカラー */
+    --accent-color: #FF6700;       /* オレンジ - アクセントカラー */
+    --accent-light: #FF8A3C;       /* ライトオレンジ */
+    --text-color-dark: #2C3E50;    /* 濃いテキスト */
+    --text-color-medium: #5D6D7E;  /* 中間テキスト */
+    --text-color-light: #FFFFFF;   /* 白テキスト */
+    --bg-color: #FFFFFF;           /* 背景白 */
+    --bg-color-alt: #F8F9FA;       /* 代替背景 */
+    --border-color: #E5E8ED;       /* 境界線 */
+    --error-color: #E74C3C;        /* エラー */
+    --success-color: #27AE60;      /* 成功 */
+    
+    /* フォントサイズ */
+    --font-size-xs: 0.75rem;       /* 12px */
+    --font-size-sm: 0.875rem;      /* 14px */
+    --font-size-base: 1rem;        /* 16px */
+    --font-size-md: 1.125rem;      /* 18px */
+    --font-size-lg: 1.25rem;       /* 20px */
+    --font-size-xl: 1.5rem;        /* 24px */
+    --font-size-2xl: 2rem;         /* 32px */
+    --font-size-3xl: 2.5rem;       /* 40px */
+    --font-size-4xl: 3rem;         /* 48px */
+    
+    /* その他の変数 */
+    --container-max-width: 1200px;
+    --container-padding: 1.5rem;
+    --border-radius-sm: 6px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --box-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+/* リセットとベース */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-color-dark);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: var(--font-size-4xl);
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: var(--font-size-2xl);
+    color: var (--primary-color);
+}
+
+h3 {
+    font-size: var(--font-size-xl);
+}
+
+h4 {
+    font-size: var(--font-size-lg);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--accent-light);
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button, input, select, textarea {
+    font-family: 'Noto Sans JP', 'Helvetica Neue', Arial, sans-serif;
+    font-size: var(--font-size-base);
+}
+
+button {
+    cursor: pointer;
+}
+
+/* グローバルレイアウト */
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: var(--font-size-2xl);
+}
+
+.section-title span {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.section-title:after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ボタンスタイル */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    font-size: var(--font-size-base);
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-speed) ease;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    box-shadow: 0 4px 6px rgba(13, 44, 84, 0.15);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(13, 44, 84, 0.2);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+}
+
+.btn-accent {
+    background-color: var(--accent-color);
+    color: var(--text-color-light);
+    box-shadow: 0 4px 6px rgba(255, 103, 0, 0.15);
+}
+
+.btn-accent:hover {
+    background-color: var(--accent-light);
+    color: var(--text-color-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(255, 103, 0, 0.2);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color-light);
+}
+
+/* ユーティリティクラス */
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mb-1 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 1rem;
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
+}
+
+.mb-5 {
+    margin-bottom: 3rem;
+}
+
+.mt-1 {
+    margin-top: 0.5rem;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.mt-3 {
+    margin-top: 1.5rem;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+.mt-5 {
+    margin-top: 3rem;
+}
+
+.py-5 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.py-6 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* スクロールスパイ */
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    z-index: 1000;
+    width: 0;
+    transition: width 0.2s ease-in-out;
+}

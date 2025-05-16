@@ -1,0 +1,608 @@
+/* 
+ * Global Manufacturing Careers
+ * services.css - 転職支援サービスページ用スタイル
+ */
+
+.services-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* サービスヘッダー */
+.services-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-color-light);
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.services-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/hero/pattern_overlay.svg');
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.services-header-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.services-header h1 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: 1.5rem;
+    color: var(--text-color-light);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.services-header p {
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.services-header .btn {
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-md);
+}
+
+/* サービス概要 */
+.services-overview {
+    padding: 5rem 0;
+}
+
+.services-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    align-items: center;
+}
+
+.services-overview-content h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.services-overview-content p {
+    margin-bottom: 1.5rem;
+    color: var(--text-color-medium);
+    line-height: 1.8;
+    font-size: var(--font-size-md);
+}
+
+.services-overview-image {
+    position: relative;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--box-shadow-lg);
+}
+
+.services-overview-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* サービスの特徴 */
+.services-features {
+    padding: 5rem 0;
+    background-color: var(--bg-color-alt);
+}
+
+.features-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.services-features h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.feature-item {
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius-md);
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(13, 44, 84, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.feature-item:hover .feature-icon {
+    background-color: rgba(255, 103, 0, 0.1);
+}
+
+.feature-icon img {
+    width: 35px;
+    height: 35px;
+}
+
+.feature-item h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.feature-item p {
+    font-size: var(--font-size-base);
+    color: var(--text-color-medium);
+    line-height: 1.6;
+}
+
+/* サービスの流れ */
+.service-flow {
+    padding: 5rem 0;
+}
+
+.service-flow-title {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.flow-steps {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.flow-step {
+    display: flex;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.flow-step:last-child {
+    margin-bottom: 0;
+}
+
+.flow-step:not(:last-child::after {
+    content: '';
+    position: absolute;
+    top: 70px;
+    left: 40px;
+    width: 2px;
+    height: calc(100% + 3rem);
+    background-color: var(--border-color);
+    z-index: -1;
+}
+
+.flow-step-number {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2rem;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 5px 15px rgba(13, 44, 84, 0.2);
+}
+
+.flow-step-content {
+    flex: 1;
+    padding-top: 0.5rem;
+}
+
+.flow-step-content h3 {
+    font-size: var(--font-size-lg);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.flow-step-content p {
+    color: var(--text-color-medium);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* キャリアコンサルタント紹介 */
+.consultants {
+    padding: 5rem 0;
+    background-color: var(--bg-color-alt);
+}
+
+.consultants-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.consultant-card {
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.consultant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.consultant-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.consultant-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.consultant-card:hover .consultant-image img {
+    transform: scale(1.05);
+}
+
+.consultant-content {
+    padding: 1.5rem;
+}
+
+.consultant-name {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.consultant-title {
+    color: var(--accent-color);
+    font-size: var(--font-size-sm);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.consultant-info {
+    color: var(--text-color-medium);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.consultant-specialties {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.consultant-specialty {
+    background-color: rgba(13, 44, 84, 0.05);
+    color: var(--primary-color);
+    font-size: var(--font-size-xs);
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+}
+
+/* レジュメ添削サービス */
+.resume-support {
+    padding: 5rem 0;
+}
+
+.resume-support-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    align-items: center;
+}
+
+.resume-support-content h2 {
+    color: var(--primary-color);
+    font-size: var(--font-size-2xl);
+    margin-bottom: 1.5rem;
+}
+
+.resume-support-content p {
+    color: var(--text-color-medium);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.resume-support-features {
+    margin: 2rem 0;
+}
+
+.resume-support-feature {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.resume-support-feature i {
+    color: var(--accent-color);
+    margin-right: 1rem;
+    font-size: 1.25rem;
+}
+
+.resume-support-feature p {
+    margin-bottom: 0;
+}
+
+.resume-support-image {
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--box-shadow-lg);
+}
+
+.resume-support-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* お客様の声 */
+.testimonials {
+    padding: 5rem 0;
+    background-color: var(--bg-color-alt);
+}
+
+.testimonials-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius-md);
+    padding: 2.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.testimonial-card:last-child {
+    margin-bottom: 0;
+}
+
+.testimonial-quote {
+    font-size: var(--font-size-md);
+    color: var(--text-color-dark);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.testimonial-quote::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 4rem;
+    color: rgba(13, 44, 84, 0.1);
+    line-height: 1;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-author-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1rem;
+}
+
+.testimonial-author-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-author-info h4 {
+    font-size: var(--font-size-base);
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+}
+
+.testimonial-author-info p {
+    font-size: var(--font-size-sm);
+    color: var(--text-color-medium);
+}
+
+/* FAQ セクション */
+.faq-section {
+    padding: 5rem 0;
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-container h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+}
+
+.faq-question {
+    background-color: var(--bg-color);
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    color: var(--primary-color);
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: rgba(13, 44, 84, 0.03);
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+    color: var(--text-color-light);
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    padding: 1.5rem;
+    max-height: 500px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* CTAセクション */
+.services-cta {
+    background: linear-gradient(135deg, rgba(13, 44, 84, 0.9), rgba(0, 69, 126, 0.9)), url('../images/hero/manufacturing_cta.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 5rem 0;
+    color: var(--text-color-light);
+    text-align: center;
+    position: relative;
+}
+
+.services-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/hero/pattern_overlay.svg');
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.services-cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.services-cta h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: 1.5rem;
+    color: var(--text-color-light);
+}
+
+.services-cta p {
+    font-size: var(--font-size-md);
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+}
+
+.services-cta .btn {
+    padding: 1rem 2.5rem;
+    font-size: var(--font-size-md);
+}
+
+/* メディアクエリ */
+@media (max-width: 991px) {
+    .services-overview-grid,
+    .resume-support-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .services-overview-image {
+        order: -1;
+    }
+    
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .consultants-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .flow-step {
+        flex-direction: column;
+    }
+    
+    .flow-step-number {
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+    }
+    
+    .flow-step:not(:last-child::after {
+        left: 40px;
+        top: 80px;
+        height: calc(100% + 1.5rem);
+    }
+    
+    .consultants-grid {
+        grid-template-columns: 1fr;
+    }
+}

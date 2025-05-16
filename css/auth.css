@@ -1,0 +1,182 @@
+/* 
+ * Global Manufacturing Careers
+ * auth.css - 認証（登録・ログイン）ページ用スタイル
+ */
+
+.auth-container {
+    max-width: 600px;
+    margin: 3rem auto 5rem;
+    padding: 0 1.5rem;
+}
+
+.auth-box {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-header h1 {
+    font-size: 1.75rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+    color: var(--text-color-medium);
+    font-size: 0.95rem;
+}
+
+.auth-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.auth-form .required::after {
+    content: '*';
+    color: var(--accent-color);
+    margin-left: 4px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(255, 103, 0, 0.1);
+}
+
+.auth-form select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: white;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 0.85rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.auth-footer p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: white;
+    font-size: 0.9rem;
+    color: var(--text-color-dark);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.social-btn:hover {
+    background-color: #f8f8f8;
+}
+
+.social-btn img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.auth-separator {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+    color: var(--text-color-medium);
+    font-size: 0.9rem;
+}
+
+.auth-separator::before,
+.auth-separator::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.auth-separator::before {
+    margin-right: 0.5rem;
+}
+
+.auth-separator::after {
+    margin-left: 0.5rem;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.privacy-note {
+    font-size: 0.8rem;
+    color: var(--text-color-medium);
+    margin-top: 1rem;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 640px) {
+    .auth-box {
+        padding: 1.5rem;
+    }
+}
