@@ -1,0 +1,146 @@
+/* 
+ * Global Manufacturing Careers
+ * footer.css - Apple風フッタースタイル
+ */
+
+#site-footer {
+  background-color: var(--bg-color-alt);
+  color: var(--text-color-dark);
+  margin-top: 4rem;
+  font-size: var(--font-size-sm);
+  letter-spacing: -0.011em;
+}
+
+/* メインフッター部分 - Apple風 */
+.footer-main {
+  padding: 4rem 0 3rem;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+}
+
+.footer-column h3 {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  letter-spacing: -0.011em;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-column a {
+  color: var(--text-color-medium);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: var(--accent-color);
+}
+
+/* フッターボトム部分 - Apple風 */
+.footer-bottom {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright {
+  font-size: var(--font-size-xs);
+  color: var(--text-color-medium);
+  letter-spacing: -0.01em;
+}
+
+/* ソーシャルリンク - Apple風 */
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.social-links a:hover {
+  background-color: var(--primary-color);
+}
+
+.social-links img {
+  width: 16px;
+  height: 16px;
+  transition: filter 0.2s ease;
+}
+
+.social-links a:hover img {
+  filter: brightness(0) invert(1);
+}
+
+/* フッターメニュー - Apple風 */
+.footer-menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-menu a {
+  color: var(--text-color-medium);
+  font-size: var(--font-size-xs);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  letter-spacing: -0.01em;
+}
+
+.footer-menu a:hover {
+  color: var(--accent-color);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 991px) {
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-bottom-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .footer-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

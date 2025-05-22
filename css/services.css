@@ -1,6 +1,6 @@
 /* 
  * Global Manufacturing Careers
- * services.css - 転職支援サービスページ用スタイル
+ * services.css - Appleスタイル転職支援サービスページ
  */
 
 .services-container {
@@ -9,11 +9,11 @@
     padding: 0 var(--container-padding);
 }
 
-/* サービスヘッダー */
+/* サービスヘッダー - Apple風 */
 .services-header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--text-color-light);
-    padding: 5rem 0;
+    background: var(--bg-color);
+    color: var(--text-color-dark);
+    padding: 8rem 0 5rem;
     position: relative;
     overflow: hidden;
 }
@@ -31,7 +31,7 @@
 }
 
 .services-header-content {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
     text-align: center;
     position: relative;
@@ -39,34 +39,39 @@
 }
 
 .services-header h1 {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-4xl);
     margin-bottom: 1.5rem;
-    color: var(--text-color-light);
-    line-height: 1.2;
-    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: -0.04em;
 }
 
 .services-header p {
     font-size: var(--font-size-lg);
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.47059;
+    margin-bottom: 2.5rem;
+    color: var(--text-color-medium);
+    letter-spacing: -0.022em;
 }
 
 .services-header .btn {
-    padding: 0.75rem 2rem;
+    padding: 0.8rem 2.5rem;
     font-size: var(--font-size-md);
+    border-radius: 50px;
+    letter-spacing: -0.011em;
 }
 
-/* サービス概要 */
+/* サービス概要 - Apple風 */
 .services-overview {
-    padding: 5rem 0;
+    padding: 6rem 0;
+    background-color: var(--bg-color-alt);
 }
 
 .services-overview-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    gap: 4rem;
     align-items: center;
 }
 
@@ -74,13 +79,17 @@
     font-size: var(--font-size-2xl);
     margin-bottom: 1.5rem;
     color: var(--primary-color);
+    letter-spacing: -0.03em;
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 .services-overview-content p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
     color: var(--text-color-medium);
-    line-height: 1.8;
+    line-height: 1.47059;
     font-size: var(--font-size-md);
+    letter-spacing: -0.011em;
 }
 
 .services-overview-image {
@@ -96,10 +105,10 @@
     display: block;
 }
 
-/* サービスの特徴 */
+/* サービスの特徴 - Apple風 */
 .services-features {
-    padding: 5rem 0;
-    background-color: var(--bg-color-alt);
+    padding: 6rem 0;
+    background-color: var(--bg-color);
 }
 
 .features-container {
@@ -109,7 +118,10 @@
 
 .services-features h2 {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
+    font-size: var(--font-size-2xl);
+    letter-spacing: -0.03em;
+    font-weight: 600;
 }
 
 .feature-grid {
@@ -121,31 +133,29 @@
 .feature-item {
     background-color: var(--bg-color);
     border-radius: var(--border-radius-md);
-    padding: 2rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 2.5rem 2rem;
+    transition: transform 0.3s ease;
     position: relative;
 }
 
 .feature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
 }
 
 .feature-icon {
     width: 70px;
     height: 70px;
-    background-color: rgba(13, 44, 84, 0.05);
+    background-color: var(--bg-color-alt);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
     transition: background-color 0.3s ease;
 }
 
 .feature-item:hover .feature-icon {
-    background-color: rgba(255, 103, 0, 0.1);
+    background-color: rgba(0, 102, 204, 0.1);
 }
 
 .feature-icon img {
@@ -157,22 +167,33 @@
     font-size: var(--font-size-lg);
     margin-bottom: 1rem;
     color: var(--primary-color);
+    letter-spacing: -0.022em;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .feature-item p {
     font-size: var(--font-size-base);
     color: var(--text-color-medium);
-    line-height: 1.6;
+    line-height: 1.47059;
+    letter-spacing: -0.011em;
 }
 
-/* サービスの流れ */
+/* サービスの流れ - Apple風 */
 .service-flow {
-    padding: 5rem 0;
+    padding: 6rem 0;
+    background-color: var(--bg-color-alt);
 }
 
 .service-flow-title {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
+}
+
+.service-flow-title h2 {
+    font-size: var(--font-size-2xl);
+    letter-spacing: -0.03em;
+    font-weight: 600;
 }
 
 .flow-steps {
@@ -183,22 +204,22 @@
 .flow-step {
     display: flex;
     position: relative;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .flow-step:last-child {
     margin-bottom: 0;
 }
 
-.flow-step:not(:last-child::after {
+.flow-step:not(:last-child)::after {
     content: '';
     position: absolute;
     top: 70px;
     left: 40px;
-    width: 2px;
-    height: calc(100% + 3rem);
+    width: 1px;
+    height: calc(100% + 4rem);
     background-color: var(--border-color);
-    z-index: -1;
+    z-index: 1;
 }
 
 .flow-step-number {
@@ -208,14 +229,14 @@
     background-color: var(--primary-color);
     color: var(--text-color-light);
     font-size: var(--font-size-xl);
-    font-weight: 700;
+    font-weight: 600;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 2rem;
+    margin-right: 2.5rem;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     box-shadow: 0 5px 15px rgba(13, 44, 84, 0.2);
 }
 
@@ -228,43 +249,62 @@
     font-size: var(--font-size-lg);
     color: var(--primary-color);
     margin-bottom: 1rem;
+    letter-spacing: -0.022em;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .flow-step-content p {
     color: var(--text-color-medium);
-    line-height: 1.6;
+    line-height: 1.47059;
     margin-bottom: 1rem;
+    letter-spacing: -0.011em;
 }
 
-/* キャリアコンサルタント紹介 */
+/* キャリアコンサルタント紹介 - Apple風 */
 .consultants {
-    padding: 5rem 0;
-    background-color: var(--bg-color-alt);
+    padding: 6rem 0;
+    background-color: var(--bg-color);
+}
+
+.consultants h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: var(--font-size-2xl);
+    letter-spacing: -0.03em;
+    font-weight: 600;
+}
+
+.consultants p.section-intro {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 3.5rem;
+    color: var(--text-color-medium);
+    font-size: var(--font-size-md);
+    line-height: 1.47059;
+    letter-spacing: -0.011em;
 }
 
 .consultants-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 2.5rem;
 }
 
 .consultant-card {
     background-color: var(--bg-color);
     border-radius: var(--border-radius-md);
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .consultant-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
 }
 
 .consultant-image {
     width: 100%;
-    height: 250px;
+    height: 280px;
     overflow: hidden;
 }
 
@@ -272,15 +312,15 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.8s ease;
 }
 
 .consultant-card:hover .consultant-image img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .consultant-content {
-    padding: 1.5rem;
+    padding: 2rem;
 }
 
 .consultant-name {
@@ -288,20 +328,24 @@
     font-weight: 600;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
+    letter-spacing: -0.022em;
+    line-height: 1.3;
 }
 
 .consultant-title {
     color: var(--accent-color);
     font-size: var(--font-size-sm);
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     font-weight: 500;
+    letter-spacing: -0.011em;
 }
 
 .consultant-info {
     color: var(--text-color-medium);
     font-size: var(--font-size-base);
-    line-height: 1.6;
+    line-height: 1.47059;
     margin-bottom: 1.5rem;
+    letter-spacing: -0.011em;
 }
 
 .consultant-specialties {
@@ -312,22 +356,24 @@
 }
 
 .consultant-specialty {
-    background-color: rgba(13, 44, 84, 0.05);
-    color: var(--primary-color);
+    background-color: var(--bg-color-alt);
+    color: var(--text-color-medium);
     font-size: var(--font-size-xs);
-    padding: 0.25rem 0.75rem;
-    border-radius: 2rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    letter-spacing: -0.01em;
 }
 
-/* レジュメ添削サービス */
+/* レジュメ添削サービス - Apple風 */
 .resume-support {
-    padding: 5rem 0;
+    padding: 6rem 0;
+    background-color: var(--bg-color-alt);
 }
 
 .resume-support-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    gap: 4rem;
     align-items: center;
 }
 
@@ -335,16 +381,20 @@
     color: var(--primary-color);
     font-size: var(--font-size-2xl);
     margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 .resume-support-content p {
     color: var(--text-color-medium);
-    line-height: 1.7;
+    line-height: 1.47059;
     margin-bottom: 1.5rem;
+    letter-spacing: -0.011em;
 }
 
 .resume-support-features {
-    margin: 2rem 0;
+    margin: 2.5rem 0;
 }
 
 .resume-support-feature {
@@ -366,7 +416,6 @@
 .resume-support-image {
     border-radius: var(--border-radius-md);
     overflow: hidden;
-    box-shadow: var(--box-shadow-lg);
 }
 
 .resume-support-image img {
@@ -375,10 +424,18 @@
     display: block;
 }
 
-/* お客様の声 */
+/* お客様の声 - Apple風 */
 .testimonials {
-    padding: 5rem 0;
-    background-color: var(--bg-color-alt);
+    padding: 6rem 0;
+    background-color: var(--bg-color);
+}
+
+.testimonials h2 {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    font-size: var(--font-size-2xl);
+    letter-spacing: -0.03em;
+    font-weight: 600;
 }
 
 .testimonials-container {
@@ -387,11 +444,10 @@
 }
 
 .testimonial-card {
-    background-color: var(--bg-color);
+    background-color: var(--bg-color-alt);
     border-radius: var(--border-radius-md);
-    padding: 2.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    margin-bottom: 2rem;
+    padding: 3rem;
+    margin-bottom: 2.5rem;
     position: relative;
 }
 
@@ -402,10 +458,11 @@
 .testimonial-quote {
     font-size: var(--font-size-md);
     color: var(--text-color-dark);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
+    line-height: 1.52947;
+    margin-bottom: 2rem;
     position: relative;
-    padding-left: 2rem;
+    padding-left: 2.5rem;
+    letter-spacing: -0.011em;
 }
 
 .testimonial-quote::before {
@@ -414,7 +471,8 @@
     left: 0;
     top: -10px;
     font-size: 4rem;
-    color: rgba(13, 44, 84, 0.1);
+    color: var(--accent-color);
+    opacity: 0.2;
     line-height: 1;
 }
 
@@ -428,7 +486,7 @@
     height: 60px;
     border-radius: 50%;
     overflow: hidden;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
 }
 
 .testimonial-author-image img {
@@ -441,85 +499,92 @@
     font-size: var(--font-size-base);
     margin-bottom: 0.25rem;
     color: var(--primary-color);
+    font-weight: 600;
+    letter-spacing: -0.011em;
 }
 
 .testimonial-author-info p {
     font-size: var(--font-size-sm);
     color: var(--text-color-medium);
+    letter-spacing: -0.011em;
 }
 
-/* FAQ セクション */
+/* FAQ セクション - Apple風 */
 .faq-section {
-    padding: 5rem 0;
+    padding: 6rem 0;
+    background-color: var(--bg-color-alt);
 }
 
 .faq-container {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .faq-container h2 {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
+    font-size: var(--font-size-2xl);
+    letter-spacing: -0.03em;
+    font-weight: 600;
 }
 
 .faq-item {
-    margin-bottom: 1.5rem;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-sm);
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius-md);
     overflow: hidden;
+    background-color: var(--bg-color);
 }
 
 .faq-question {
     background-color: var(--bg-color);
-    padding: 1.5rem;
+    padding: 1.5rem 2rem;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 500;
-    color: var(--primary-color);
-    transition: background-color 0.3s ease;
+    color: var(--text-color-dark);
+    transition: all 0.3s ease;
+    letter-spacing: -0.011em;
 }
 
 .faq-question:hover {
-    background-color: rgba(13, 44, 84, 0.03);
+    color: var(--accent-color);
 }
 
 .faq-question i {
     transition: transform 0.3s ease;
+    color: var(--accent-color);
 }
 
 .faq-item.active .faq-question {
-    background-color: var(--primary-color);
-    color: var(--text-color-light);
+    color: var(--accent-color);
+    font-weight: 600;
 }
 
 .faq-item.active .faq-question i {
     transform: rotate(180deg);
-    color: var(--text-color-light);
 }
 
 .faq-answer {
-    padding: 0 1.5rem;
+    padding: 0 2rem;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease, padding 0.3s ease;
+    line-height: 1.47059;
+    letter-spacing: -0.011em;
+    color: var(--text-color-medium);
 }
 
 .faq-item.active .faq-answer {
-    padding: 1.5rem;
+    padding: 0 2rem 2rem;
     max-height: 500px;
-    border-top: 1px solid var(--border-color);
 }
 
-/* CTAセクション */
+/* CTAセクション - Apple風 */
 .services-cta {
-    background: linear-gradient(135deg, rgba(13, 44, 84, 0.9), rgba(0, 69, 126, 0.9)), url('../images/hero/manufacturing_cta.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 5rem 0;
-    color: var(--text-color-light);
+    background-color: var(--bg-color);
+    padding: 8rem 0;
     text-align: center;
     position: relative;
 }
@@ -539,26 +604,32 @@
 .services-cta-content {
     position: relative;
     z-index: 1;
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
 .services-cta h2 {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-3xl);
     margin-bottom: 1.5rem;
-    color: var(--text-color-light);
+    color: var(--primary-color);
+    letter-spacing: -0.03em;
+    font-weight: 600;
+    line-height: 1.1;
 }
 
 .services-cta p {
     font-size: var(--font-size-md);
-    margin-bottom: 2.5rem;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.7;
+    margin-bottom: 3rem;
+    color: var(--text-color-medium);
+    line-height: 1.47059;
+    letter-spacing: -0.011em;
 }
 
 .services-cta .btn {
-    padding: 1rem 2.5rem;
+    padding: 1rem 3rem;
     font-size: var(--font-size-md);
+    border-radius: 50px;
+    letter-spacing: -0.011em;
 }
 
 /* メディアクエリ */
@@ -566,7 +637,7 @@
     .services-overview-grid,
     .resume-support-container {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 3rem;
     }
     
     .services-overview-image {
@@ -579,6 +650,10 @@
     
     .consultants-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .services-header h1 {
+        font-size: var(--font-size-3xl);
     }
 }
 
@@ -596,13 +671,19 @@
         margin-bottom: 1.5rem;
     }
     
-    .flow-step:not(:last-child::after {
-        left: 40px;
-        top: 80px;
-        height: calc(100% + 1.5rem);
+    .flow-step:not(:last-child)::after {
+        display: none;
     }
     
     .consultants-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .testimonial-card {
+        padding: 2rem;
+    }
+    
+    .services-cta h2 {
+        font-size: var(--font-size-2xl);
     }
 }
