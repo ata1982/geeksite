@@ -1,49 +1,89 @@
-name: Deploy Static HTML to Vercel
+name: Build Test & Deploy to Vercel
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
-  deploy:
-    name: Deploy to Vercel
+  build-test:
+    name: Build Test & Deploy
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Build Test - Check File Structure
+      run: |
+        echo "🔍 Checking project structure..."
+        
+        # Count HTML files
+        HTML_COUNT=$(find . -name "*.html" -not -path "./node_modules/*" | wc -l)
+        echo "📄 Found $HTML_COUNT HTML files"
+        
+        # Check main files exist
+        if [ -f "css/style.css" ]; then
+          echo "✅ Main CSS file exists"
+        else
+          echo "❌ Main CSS file missing"
+          exit 1
+        fi
+        
+        if [ -f "js/bundle.js" ]; then
+          echo "✅ Main JS file exists"
+        else
+          echo "⚠️  Main JS file missing (may be optional)"
+        fi
+        
+        if [ -f "index.html" ]; then
+          echo "✅ Main index.html exists"
+        else
+          echo "❌ Main index.html missing"
+          exit 1
+        fi
+        
+        if [ -f "vercel.json" ]; then
+          echo "✅ Vercel config exists"
+        else
+          echo "❌ Vercel config missing"
+          exit 1
+        fi
+        
+        echo "🎉 Build test completed successfully!"
+        
+    - name: Basic HTML Syntax Check
+      run: |
+        echo "🔍 Checking HTML syntax..."
+        for file in $(find . -name "*.html" -not -path "./node_modules/*"); do
+          echo "Checking $file..."
+          if ! grep -q "<!DOCTYPE\|<html" "$file"; then
+            echo "⚠️  $file may be missing DOCTYPE or html tag"
+          fi
+        done
+        echo "✅ HTML syntax check completed"
 
-      - name: Deploy to Vercel (Preview)
-        if: github.event_name == 'pull_request'
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: ./
+    - name: Deploy to Vercel (Preview)
+      if: github.event_name == 'pull_request'
+      uses: amondnet/vercel-action@v25
+      with:
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+        working-directory: ./
 
-      - name: Deploy to Vercel (Production)
-        if: github.ref == 'refs/heads/main'
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
-          working-directory: ./
-
-      - name: Comment PR
-        if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '🚀 Preview deployed! Check your changes at the preview URL.'
-            })
+    - name: Deploy to Vercel (Production)
+      if: github.ref == 'refs/heads/main'
+      uses: amondnet/vercel-action@v25
+      with:
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+        vercel-args: '--prod'
+        working-directory: ./
