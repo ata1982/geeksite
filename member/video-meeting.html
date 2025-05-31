@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Global Manufacturing Careers - ビデオ面談機能。オンラインで面接や相談を行えます。">
+    <title>ビデオ面談 | Global Manufacturing Careers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .video-meeting-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .sidebar {
+            background: var(--bg-color);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--box-shadow);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .user-profile {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--bg-color-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: var(--text-color-medium);
+        }
+        
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-menu li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-menu a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            color: var(--text-color-dark);
+            text-decoration: none;
+            border-radius: var(--border-radius-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: var(--accent-color);
+            color: var(--text-color-light);
+        }
+        
+        .nav-menu i {
+            margin-right: 0.75rem;
+            width: 16px;
+        }
+        
+        .main-content {
+            background: var(--bg-color);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .meeting-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .meeting-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border-color);
+            background: var(--bg-color-alt);
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .tab-button.active {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+        
+        .video-room {
+            background: #1a1a1a;
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-placeholder {
+            text-align: center;
+            color: #888;
+        }
+        
+        .video-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .video-controls {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .control-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .control-button.mute {
+            background: #ff3b30;
+            color: white;
+        }
+        
+        .control-button.camera {
+            background: #007aff;
+            color: white;
+        }
+        
+        .control-button.screen {
+            background: #34c759;
+            color: white;
+        }
+        
+        .control-button.hang-up {
+            background: #ff3b30;
+            color: white;
+            width: 60px;
+            height: 60px;
+        }
+        
+        .control-button:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+        
+        .control-button.muted {
+            background: #666;
+        }
+        
+        .meeting-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-card {
+            background: var(--bg-color-alt);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-md);
+            text-align: center;
+        }
+        
+        .info-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .info-value {
+            color: var(--text-color-medium);
+            font-size: var(--font-size-sm);
+        }
+        
+        .scheduled-meetings {
+            margin-bottom: 2rem;
+        }
+        
+        .meeting-item {
+            background: var(--bg-color-alt);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .meeting-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: var(--font-size-xs);
+            font-weight: 500;
+        }
+        
+        .status-upcoming {
+            background: rgba(0, 102, 204, 0.1);
+            color: var(--accent-color);
+        }
+        
+        .status-live {
+            background: rgba(255, 59, 48, 0.1);
+            color: var(--error-color);
+            animation: pulse 2s infinite;
+        }
+        
+        .status-completed {
+            background: rgba(52, 199, 89, 0.1);
+            color: var(--success-color);
+        }
+        
+        .meeting-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            padding-right: 4rem;
+        }
+        
+        .meeting-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .meeting-detail {
+            display: flex;
+            align-items: center;
+            color: var(--text-color-medium);
+            font-size: var(--font-size-sm);
+        }
+        
+        .meeting-detail i {
+            margin-right: 0.5rem;
+            width: 16px;
+        }
+        
+        .meeting-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .quick-setup {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .setup-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .setup-form {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1rem;
+            align-items: end;
+        }
+        
+        .form-group {
+            margin-bottom: 0;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius-sm);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .device-test {
+            background: var(--bg-color-alt);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .test-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .test-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .test-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .test-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: var(--font-size-xs);
+            font-weight: 500;
+        }
+        
+        .status-good {
+            background: rgba(52, 199, 89, 0.1);
+            color: var(--success-color);
+        }
+        
+        .status-warning {
+            background: rgba(255, 193, 7, 0.1);
+            color: #ff8500;
+        }
+        
+        .status-error {
+            background: rgba(255, 59, 48, 0.1);
+            color: var(--error-color);
+        }
+        
+        .test-preview {
+            width: 100%;
+            height: 200px;
+            background: #000;
+            border-radius: var(--border-radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+        
+        .device-select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            background: white;
+        }
+        
+        @media (max-width: 991px) {
+            .video-meeting-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .sidebar {
+                position: static;
+                order: -1;
+            }
+            
+            .meeting-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .meeting-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .meeting-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .meeting-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .setup-form {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .main-content {
+                padding: 1rem;
+            }
+            
+            .video-room {
+                padding: 1rem;
+                min-height: 300px;
+            }
+            
+            .video-controls {
+                bottom: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            
+            .meeting-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header id="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo/logo.svg" alt="Global Manufacturing Careers">
+                </a>
+            </div>
+            
+            <nav class="global-nav">
+                <ul>
+                    <li class="has-dropdown">
+                        <a href="../jobs/search.html">求人を探す</a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-section">
+                                <h4>職種別</h4>
+                                <ul>
+                                    <li><a href="../jobs/search.html?category=engineering">エンジニアリング</a></li>
+                                    <li><a href="../jobs/search.html?category=rd">研究開発（R&D）</a></li>
+                                    <li><a href="../jobs/search.html?category=production">生産管理</a></li>
+                                    <li><a href="../jobs/search.html?category=scm">サプライチェーン</a></li>
+                                    <li><a href="../jobs/search.html?category=qaqc">品質管理</a></li>
+                                    <li><a href="../jobs/search.html?category=sales">セールス/マーケティング</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-section">
+                                <h4>業種別</h4>
+                                <ul>
+                                    <li><a href="../jobs/search.html?industry=automotive">自動車・輸送機器</a></li>
+                                    <li><a href="../jobs/search.html?industry=aerospace">航空宇宙</a></li>
+                                    <li><a href="../jobs/search.html?industry=electronics">電機・電子</a></li>
+                                    <li><a href="../jobs/search.html?industry=machinery">産業機械</a></li>
+                                    <li><a href="../jobs/search.html?industry=chemical">化学・素材</a></li>
+                                    <li><a href="../jobs/search.html?industry=medical">医療機器</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="../services/index.html">転職支援サービス</a>
+                        <div class="dropdown-menu">
+                            <ul>
+                                <li><a href="../services/flow.html">サービスの流れ</a></li>
+                                <li><a href="../services/consultants.html">キャリアコンサルタント紹介</a></li>
+                                <li><a href="../services/resume_support.html">英文レジュメ添削サービス</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="../knowhow/index.html">外資系・製造業転職ノウハウ</a></li>
+                    <li><a href="../success_stories/index.html">転職成功事例</a></li>
+                    <li><a href="../recruiters/index.html">企業様へ</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-right">
+                <div class="language-switch">
+                    <a href="#" class="active">JP</a>
+                    <span>|</span>
+                    <a href="#">EN</a>
+                </div>
+                <a href="profile.html" class="btn btn-primary">プロフィール</a>
+                <a href="../auth/logout.html" class="btn btn-secondary">ログアウト</a>
+            </div>
+            
+            <button class="hamburger-menu" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- メインコンテンツ -->
+    <main>
+        <section style="padding: 2rem 0;">
+            <div class="container">
+                <div class="video-meeting-container">
+                    <!-- サイドバー -->
+                    <div class="sidebar">
+                        <div class="user-profile">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3 style="margin-bottom: 0.25rem;">田中 太郎</h3>
+                            <p style="color: var(--text-color-medium); font-size: var(--font-size-sm); margin: 0;">機械設計エンジニア</p>
+                        </div>
+                        
+                        <ul class="nav-menu">
+                            <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i>ダッシュボード</a></li>
+                            <li><a href="applications.html"><i class="fas fa-file-alt"></i>応募履歴</a></li>
+                            <li><a href="scouts.html"><i class="fas fa-star"></i>スカウト</a></li>
+                            <li><a href="bookmarks.html"><i class="fas fa-bookmark"></i>お気に入り求人</a></li>
+                            <li><a href="ai-matching.html"><i class="fas fa-robot"></i>AIマッチング</a></li>
+                            <li><a href="profile.html"><i class="fas fa-user-edit"></i>プロフィール編集</a></li>
+                            <li><a href="resume.html"><i class="fas fa-file-pdf"></i>レジュメ管理</a></li>
+                            <li><a href="notifications.html"><i class="fas fa-bell"></i>通知設定</a></li>
+                            <li><a href="video-meeting.html" class="active"><i class="fas fa-video"></i>ビデオ面談</a></li>
+                            <li><a href="consultant.html"><i class="fas fa-comments"></i>コンサルタントとの相談</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- メインコンテンツ -->
+                    <div class="main-content">
+                        <div class="meeting-header">
+                            <div>
+                                <h2>ビデオ面談</h2>
+                                <p style="color: var(--text-color-medium); margin: 0;">オンライン面接や相談をサポートします</p>
+                            </div>
+                            <button class="btn btn-primary" onclick="startInstantMeeting()">
+                                <i class="fas fa-video" style="margin-right: 0.5rem;"></i>
+                                即座に開始
+                            </button>
+                        </div>
+                        
+                        <!-- タブナビゲーション -->
+                        <div class="meeting-tabs">
+                            <button class="tab-button active" onclick="switchTab('room')">ミーティングルーム</button>
+                            <button class="tab-button" onclick="switchTab('schedule')">予定された面談</button>
+                            <button class="tab-button" onclick="switchTab('test')">デバイステスト</button>
+                        </div>
+                        
+                        <!-- ミーティングルームタブ -->
+                        <div id="room-tab" class="tab-content">
+                            <!-- 接続情報 -->
+                            <div class="meeting-info">
+                                <div class="info-card">
+                                    <div class="info-icon">
+                                        <i class="fas fa-signal"></i>
+                                    </div>
+                                    <div class="info-title">接続品質</div>
+                                    <div class="info-value">良好</div>
+                                </div>
+                                <div class="info-card">
+                                    <div class="info-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="info-title">参加者</div>
+                                    <div class="info-value">1人</div>
+                                </div>
+                                <div class="info-card">
+                                    <div class="info-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="info-title">経過時間</div>
+                                    <div class="info-value" id="meeting-timer">00:00</div>
+                                </div>
+                            </div>
+                            
+                            <!-- ビデオルーム -->
+                            <div class="video-room" id="video-room">
+                                <div class="video-placeholder">
+                                    <i class="fas fa-video-slash"></i>
+                                    <p>カメラが無効になっています</p>
+                                    <p style="font-size: var(--font-size-sm);">下のコントロールからカメラを有効にしてください</p>
+                                </div>
+                                
+                                <!-- ビデオコントロール -->
+                                <div class="video-controls">
+                                    <button class="control-button mute" id="mute-btn" onclick="toggleMute()" title="マイクON/OFF">
+                                        <i class="fas fa-microphone"></i>
+                                    </button>
+                                    <button class="control-button camera" id="camera-btn" onclick="toggleCamera()" title="カメラON/OFF">
+                                        <i class="fas fa-video"></i>
+                                    </button>
+                                    <button class="control-button screen" id="screen-btn" onclick="toggleScreen()" title="画面共有">
+                                        <i class="fas fa-desktop"></i>
+                                    </button>
+                                    <button class="control-button hang-up" onclick="endMeeting()" title="通話終了">
+                                        <i class="fas fa-phone-slash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- クイック設定 -->
+                            <div class="quick-setup">
+                                <div class="setup-title">新しいミーティングを開始</div>
+                                <div class="setup-form">
+                                    <div class="form-group">
+                                        <label class="form-label">ミーティング名</label>
+                                        <input type="text" class="form-input" placeholder="例：Global Electronics Inc. との面接" id="meeting-name">
+                                    </div>
+                                    <button class="btn" style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3);" onclick="createMeeting()">
+                                        <i class="fas fa-plus" style="margin-right: 0.5rem;"></i>
+                                        作成
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 予定された面談タブ -->
+                        <div id="schedule-tab" class="tab-content" style="display: none;">
+                            <div class="scheduled-meetings">
+                                <div class="meeting-item">
+                                    <div class="meeting-status status-live">開催中</div>
+                                    <div class="meeting-title">Global Electronics Inc. 最終面接</div>
+                                    <div class="meeting-details">
+                                        <div class="meeting-detail">
+                                            <i class="fas fa-calendar"></i>
+                                            2025年5月31日 15:00
+                                        </div>
+                                        <div class="meeting-detail">
+                                            <i class="fas fa-clock"></i>
+                                            60分
+                                        </div>
+                                        <div class="meeting-detail">
+                                            <i class="fas fa-users"></i>
+                                            田中様, 人事部長, エンジニアリング部長
+                                        </div>
+                                    </div>
+                                    <div class="meeting-actions">
+                                        <button class="btn btn-primary" onclick="joinMeeting('live-001')">
+                                            <i class="fas fa-video" style="margin-right: 0.5rem;"></i>
+                                            参加する
+                                        </button>
+                                        <button class="btn btn-outline">詳細</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="meeting-item">
+                                    <div class="meeting-status status-upcoming">予定</div>
+                                    <div class="meeting-title">MedTech Solutions キャリア相談</div>
+                                    <div class="meeting-details">
+                                        <div class="meeting-detail">
+                                            <i class="fas fa-calendar"></i>
+                                            2025年6月2日 14:00
+                                        </div>
+                                        <div class="meeting-detail">
+                                            <i class="fas fa-clock"></i>
+                                            30分
+                                        </div>
+                                        <div class="meeting-detail">
+                                            <i class="fas fa-users"></i>
+                                            田中様, キャリアコンサルタント
+                                        </div>
+                                    </div>
+                                    <div class="meeting-actions">
+                                        <button class="btn btn-outline" disabled>
+                                            <i class="fas fa-calendar-plus" style="margin-right: 0.5rem;"></i>
+                                            カレンダーに追加
+                                        </button>
+                                        <button class="btn btn-outline">詳細</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="meeting-item">
+                                    <div class="meeting-status status-completed">完了</div>
+                                    <div class="meeting-title">Automotive Precision Co. 一次面接</div>
+                                    <div class="meeting-details">
+                                        <div class="meeting-detail">
+                                            <i class="fas fa-calendar"></i>
+                                            2025年5月28日 16:00
+                                        </div>
+                                        <div class="meeting-detail">
+                                            <i class="fas fa-clock"></i>
+                                            45分
+                                        </div>
+                                        <div class="meeting-detail">
+                                            <i class="fas fa-users"></i>
+                                            田中様, 技術部長
+                                        </div>
+                                    </div>
+                                    <div class="meeting-actions">
+                                        <button class="btn btn-outline">
+                                            <i class="fas fa-download" style="margin-right: 0.5rem;"></i>
+                                            録画を見る
+                                        </button>
+                                        <button class="btn btn-outline">詳細</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- デバイステストタブ -->
+                        <div id="test-tab" class="tab-content" style="display: none;">
+                            <div class="device-test">
+                                <!-- カメラテスト -->
+                                <div class="test-section">
+                                    <div class="test-header">
+                                        <h3>カメラテスト</h3>
+                                        <span class="test-status status-good">正常</span>
+                                    </div>
+                                    <div class="test-preview">
+                                        <i class="fas fa-video" style="font-size: 3rem; color: #888;"></i>
+                                        <p style="margin-top: 1rem;">カメラプレビュー</p>
+                                    </div>
+                                    <select class="device-select">
+                                        <option>内蔵カメラ (Built-in Camera)</option>
+                                        <option>外部Webカメラ (USB Camera)</option>
+                                    </select>
+                                    <div style="margin-top: 0.5rem;">
+                                        <button class="btn btn-outline" onclick="testCamera()">カメラテスト開始</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- マイクテスト -->
+                                <div class="test-section">
+                                    <div class="test-header">
+                                        <h3>マイクテスト</h3>
+                                        <span class="test-status status-good">正常</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                        <button class="btn btn-primary" onclick="testMicrophone()">
+                                            <i class="fas fa-microphone" style="margin-right: 0.5rem;"></i>
+                                            録音テスト
+                                        </button>
+                                        <div style="flex: 1; height: 8px; background: var(--border-color); border-radius: 4px; overflow: hidden;">
+                                            <div id="mic-level" style="height: 100%; background: var(--success-color); width: 0%; transition: width 0.1s ease;"></div>
+                                        </div>
+                                    </div>
+                                    <select class="device-select">
+                                        <option>内蔵マイク (Built-in Microphone)</option>
+                                        <option>外部マイク (USB Microphone)</option>
+                                        <option>ヘッドセット (Bluetooth Headset)</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- スピーカーテスト -->
+                                <div class="test-section">
+                                    <div class="test-header">
+                                        <h3>スピーカーテスト</h3>
+                                        <span class="test-status status-good">正常</span>
+                                    </div>
+                                    <div style="margin-bottom: 1rem;">
+                                        <button class="btn btn-primary" onclick="testSpeaker()">
+                                            <i class="fas fa-volume-up" style="margin-right: 0.5rem;"></i>
+                                            テスト音声再生
+                                        </button>
+                                        <p style="color: var(--text-color-medium); font-size: var(--font-size-sm); margin-top: 0.5rem;">
+                                            「テスト音声です。この音声が聞こえていれば、スピーカーは正常に動作しています。」
+                                        </p>
+                                    </div>
+                                    <select class="device-select">
+                                        <option>内蔵スピーカー (Built-in Speakers)</option>
+                                        <option>ヘッドフォン (Headphones)</option>
+                                        <option>外部スピーカー (External Speakers)</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- 接続テスト -->
+                                <div class="test-section">
+                                    <div class="test-header">
+                                        <h3>接続テスト</h3>
+                                        <span class="test-status status-good">良好</span>
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                                        <div style="text-align: center;">
+                                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--success-color);">45ms</div>
+                                            <div style="font-size: var(--font-size-sm); color: var(--text-color-medium);">レイテンシ</div>
+                                        </div>
+                                        <div style="text-align: center;">
+                                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--success-color);">98%</div>
+                                            <div style="font-size: var(--font-size-sm); color: var(--text-color-medium);">接続品質</div>
+                                        </div>
+                                        <div style="text-align: center;">
+                                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--success-color);">50Mbps</div>
+                                            <div style="font-size: var(--font-size-sm); color: var(--text-color-medium);">帯域幅</div>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: 1rem;">
+                                        <button class="btn btn-outline" onclick="runConnectionTest()">接続品質を再テスト</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- フッター -->
+    <footer id="site-footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-columns">
+                    <!-- サイトマップ -->
+                    <div class="footer-column">
+                        <h3>サイトマップ</h3>
+                        <ul>
+                            <li><a href="../jobs/search.html">求人を探す</a></li>
+                            <li><a href="../services/index.html">転職支援サービス</a></li>
+                            <li><a href="../knowhow/index.html">外資系・製造業転職ノウハウ</a></li>
+                            <li><a href="../success_stories/index.html">転職成功事例</a></li>
+                            <li><a href="../recruiters/index.html">企業様へ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>職種別求人</h3>
+                        <ul>
+                            <li><a href="../jobs/search.html?category=engineering">エンジニアリング</a></li>
+                            <li><a href="../jobs/search.html?category=rd">研究開発（R&D）</a></li>
+                            <li><a href="../jobs/search.html?category=production">生産管理</a></li>
+                            <li><a href="../jobs/search.html?category=scm">サプライチェーン（SCM）</a></li>
+                            <li><a href="../jobs/search.html?category=qaqc">品質管理（QA/QC）</a></li>
+                            <li><a href="../jobs/search.html?category=sales">セールス/マーケティング</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>業種別求人</h3>
+                        <ul>
+                            <li><a href="../jobs/search.html?industry=automotive">自動車・輸送機器</a></li>
+                            <li><a href="../jobs/search.html?industry=aerospace">航空宇宙</a></li>
+                            <li><a href="../jobs/search.html?industry=electronics">電機・電子</a></li>
+                            <li><a href="../jobs/search.html?industry=machinery">産業機械</a></li>
+                            <li><a href="../jobs/search.html?industry=chemical">化学・素材</a></li>
+                            <li><a href="../jobs/search.html?industry=medical">医療機器</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>会社情報</h3>
+                        <ul>
+                            <li><a href="../corporate/about.html">会社概要</a></li>
+                            <li><a href="../contact/index.html">お問い合わせ</a></li>
+                            <li><a href="../faq/index.html">よくある質問</a></li>
+                            <li><a href="../legal/privacy.html">プライバシーポリシー</a></li>
+                            <li><a href="../legal/terms.html">利用規約</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2025 Global Manufacturing Careers. All Rights Reserved.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><img src="../images/icons/linkedin_icon.svg" alt="LinkedIn" loading="lazy"></a>
+                        <a href="#" aria-label="Twitter"><img src="../images/icons/twitter_icon.svg" alt="Twitter" loading="lazy"></a>
+                        <a href="#" aria-label="Facebook"><img src="../images/icons/facebook_icon.svg" alt="Facebook" loading="lazy"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        let isMuted = false;
+        let isCameraOn = false;
+        let isScreenSharing = false;
+        let meetingStartTime = null;
+        let timerInterval = null;
+        
+        // タブ切り替え機能
+        function switchTab(tabName) {
+            // タブボタンの状態更新
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // タブコンテンツの表示切り替え
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            document.getElementById(tabName + '-tab').style.display = 'block';
+        }
+        
+        // マイクトグル
+        function toggleMute() {
+            isMuted = !isMuted;
+            const btn = document.getElementById('mute-btn');
+            const icon = btn.querySelector('i');
+            
+            if (isMuted) {
+                btn.classList.add('muted');
+                icon.className = 'fas fa-microphone-slash';
+                showToast('マイクをミュートしました', 'info');
+            } else {
+                btn.classList.remove('muted');
+                icon.className = 'fas fa-microphone';
+                showToast('マイクをオンにしました', 'success');
+            }
+        }
+        
+        // カメラトグル
+        function toggleCamera() {
+            isCameraOn = !isCameraOn;
+            const btn = document.getElementById('camera-btn');
+            const icon = btn.querySelector('i');
+            const videoRoom = document.getElementById('video-room');
+            const placeholder = videoRoom.querySelector('.video-placeholder');
+            
+            if (isCameraOn) {
+                icon.className = 'fas fa-video';
+                placeholder.innerHTML = `
+                    <i class="fas fa-video"></i>
+                    <p>カメラが有効になっています</p>
+                    <p style="font-size: var(--font-size-sm);">実際の面談では、ここにビデオが表示されます</p>
+                `;
+                showToast('カメラをオンにしました', 'success');
+            } else {
+                icon.className = 'fas fa-video-slash';
+                placeholder.innerHTML = `
+                    <i class="fas fa-video-slash"></i>
+                    <p>カメラが無効になっています</p>
+                    <p style="font-size: var(--font-size-sm);">下のコントロールからカメラを有効にしてください</p>
+                `;
+                showToast('カメラをオフにしました', 'info');
+            }
+        }
+        
+        // 画面共有トグル
+        function toggleScreen() {
+            isScreenSharing = !isScreenSharing;
+            const btn = document.getElementById('screen-btn');
+            
+            if (isScreenSharing) {
+                btn.style.background = '#ff3b30';
+                showToast('画面共有を開始しました', 'success');
+            } else {
+                btn.style.background = '#34c759';
+                showToast('画面共有を停止しました', 'info');
+            }
+        }
+        
+        // ミーティング終了
+        function endMeeting() {
+            if (confirm('ミーティングを終了しますか？')) {
+                if (timerInterval) {
+                    clearInterval(timerInterval);
+                    timerInterval = null;
+                }
+                
+                // リセット
+                isMuted = false;
+                isCameraOn = false;
+                isScreenSharing = false;
+                meetingStartTime = null;
+                
+                // UI更新
+                document.getElementById('meeting-timer').textContent = '00:00';
+                document.querySelector('.info-value').textContent = '0人';
+                
+                showToast('ミーティングを終了しました', 'info');
+            }
+        }
+        
+        // 即座にミーティング開始
+        function startInstantMeeting() {
+            meetingStartTime = new Date();
+            startTimer();
+            
+            // 参加者数を更新
+            document.querySelectorAll('.info-value')[1].textContent = '1人';
+            
+            showToast('ミーティングを開始しました', 'success');
+        }
+        
+        // ミーティング作成
+        function createMeeting() {
+            const meetingName = document.getElementById('meeting-name').value;
+            if (!meetingName.trim()) {
+                showToast('ミーティング名を入力してください', 'error');
+                return;
+            }
+            
+            startInstantMeeting();
+            showToast(`「${meetingName}」を作成しました`, 'success');
+            
+            // 入力フィールドをクリア
+            document.getElementById('meeting-name').value = '';
+        }
+        
+        // ミーティング参加
+        function joinMeeting(meetingId) {
+            showToast('ミーティングに参加しています...', 'info');
+            
+            setTimeout(() => {
+                startInstantMeeting();
+                // タブをミーティングルームに切り替え
+                document.querySelector('.tab-button').click();
+            }, 2000);
+        }
+        
+        // タイマー開始
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            
+            timerInterval = setInterval(() => {
+                if (meetingStartTime) {
+                    const elapsed = new Date() - meetingStartTime;
+                    const minutes = Math.floor(elapsed / 60000);
+                    const seconds = Math.floor((elapsed % 60000) / 1000);
+                    
+                    document.getElementById('meeting-timer').textContent = 
+                        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                }
+            }, 1000);
+        }
+        
+        // デバイステスト関数
+        function testCamera() {
+            showToast('カメラテストを開始します...', 'info');
+            // 実際の実装では getUserMedia を使用
+            setTimeout(() => {
+                showToast('カメラテスト完了', 'success');
+            }, 2000);
+        }
+        
+        function testMicrophone() {
+            showToast('マイクテストを開始します...', 'info');
+            
+            // マイクレベルのシミュレーション
+            let level = 0;
+            const micLevelBar = document.getElementById('mic-level');
+            
+            const levelInterval = setInterval(() => {
+                level = Math.random() * 100;
+                micLevelBar.style.width = level + '%';
+            }, 100);
+            
+            setTimeout(() => {
+                clearInterval(levelInterval);
+                micLevelBar.style.width = '0%';
+                showToast('マイクテスト完了', 'success');
+            }, 3000);
+        }
+        
+        function testSpeaker() {
+            showToast('テスト音声を再生しています...', 'info');
+            // 実際の実装では Audio オブジェクトを使用
+            setTimeout(() => {
+                showToast('スピーカーテスト完了', 'success');
+            }, 3000);
+        }
+        
+        function runConnectionTest() {
+            showToast('接続品質をテストしています...', 'info');
+            setTimeout(() => {
+                showToast('接続テスト完了 - 品質良好', 'success');
+            }, 2000);
+        }
+        
+        // トースト通知表示
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#34c759' : type === 'error' ? '#ff3b30' : '#0066CC'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                z-index: 1001;
+                transform: translateX(400px);
+                transition: transform 0.3s ease;
+                max-width: 300px;
+            `;
+            toast.textContent = message;
+            
+            document.body.appendChild(toast);
+            
+            // アニメーション
+            setTimeout(() => {
+                toast.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // 3秒後に削除
+            setTimeout(() => {
+                toast.style.transform = 'translateX(400px)';
+                setTimeout(() => {
+                    if (document.body.contains(toast)) {
+                        document.body.removeChild(toast);
+                    }
+                }, 300);
+            }, 3000);
+        }
+        
+        // ページロード時の初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            // メディアデバイスのサポート確認
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                console.log('WebRTC機能が利用可能です');
+            } else {
+                showToast('お使いのブラウザはビデオ通話機能をサポートしていません', 'error');
+            }
+        });
+    </script>
+    
+    <script src="../js/bundle.js" defer></script>
+</body>
+</html>

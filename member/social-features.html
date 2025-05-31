@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Global Manufacturing Careers - ソーシャル機能。友人紹介や企業レビューで転職活動をサポートします。">
+    <title>ソーシャル機能 | Global Manufacturing Careers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .social-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .sidebar {
+            background: var(--bg-color);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--box-shadow);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .user-profile {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--bg-color-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: var(--text-color-medium);
+        }
+        
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-menu li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-menu a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            color: var(--text-color-dark);
+            text-decoration: none;
+            border-radius: var(--border-radius-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: var(--accent-color);
+            color: var(--text-color-light);
+        }
+        
+        .nav-menu i {
+            margin-right: 0.75rem;
+            width: 16px;
+        }
+        
+        .main-content {
+            background: var(--bg-color);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .social-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .social-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border-color);
+            background: var(--bg-color-alt);
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .tab-button.active {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+        
+        .referral-overview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .overview-card {
+            background: var(--bg-color-alt);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-md);
+            text-align: center;
+        }
+        
+        .overview-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .overview-label {
+            color: var(--text-color-medium);
+            font-size: var(--font-size-sm);
+        }
+        
+        .referral-form {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .form-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius-sm);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius-sm);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .referral-list {
+            margin-bottom: 2rem;
+        }
+        
+        .referral-item {
+            background: var(--bg-color-alt);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .referral-info {
+            flex: 1;
+        }
+        
+        .referral-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--primary-color);
+        }
+        
+        .referral-email {
+            color: var(--text-color-medium);
+            font-size: var(--font-size-sm);
+            margin-bottom: 0.25rem;
+        }
+        
+        .referral-date {
+            color: var(--text-color-medium);
+            font-size: var(--font-size-xs);
+        }
+        
+        .referral-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: var(--font-size-xs);
+            font-weight: 500;
+        }
+        
+        .status-pending {
+            background: rgba(255, 193, 7, 0.1);
+            color: #ff8500;
+        }
+        
+        .status-registered {
+            background: rgba(52, 199, 89, 0.1);
+            color: var(--success-color);
+        }
+        
+        .status-hired {
+            background: rgba(0, 102, 204, 0.1);
+            color: var(--accent-color);
+        }
+        
+        .referral-reward {
+            text-align: center;
+            margin-left: 1rem;
+        }
+        
+        .reward-amount {
+            font-weight: 600;
+            color: var(--success-color);
+            font-size: 1.1rem;
+        }
+        
+        .reward-label {
+            font-size: var(--font-size-xs);
+            color: var(--text-color-medium);
+        }
+        
+        .review-section {
+            margin-bottom: 2rem;
+        }
+        
+        .review-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            background: white;
+        }
+        
+        .review-item {
+            background: var(--bg-color-alt);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .company-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--border-radius-sm);
+            background: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+        
+        .company-details h3 {
+            margin: 0 0 0.25rem;
+            color: var(--primary-color);
+        }
+        
+        .company-details p {
+            margin: 0;
+            color: var(--text-color-medium);
+            font-size: var(--font-size-sm);
+        }
+        
+        .review-rating {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        
+        .rating-stars {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .star {
+            color: #ffd700;
+        }
+        
+        .star.empty {
+            color: var(--border-color);
+        }
+        
+        .rating-score {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+        
+        .review-content {
+            margin-bottom: 1rem;
+        }
+        
+        .review-text {
+            line-height: 1.6;
+            color: var(--text-color-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .review-pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .pros-cons-section h4 {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .pros-cons-section ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .pros-cons-section li {
+            font-size: var(--font-size-sm);
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .pros-cons-section li i {
+            margin-right: 0.5rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+        
+        .pros li i {
+            color: var(--success-color);
+        }
+        
+        .cons li i {
+            color: var(--error-color);
+        }
+        
+        .review-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .review-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: var(--font-size-sm);
+            color: var(--text-color-medium);
+        }
+        
+        .review-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .action-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            color: var(--text-color-medium);
+            transition: all 0.2s ease;
+            font-size: var(--font-size-sm);
+        }
+        
+        .action-btn:hover {
+            background: var(--bg-color);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+        
+        .write-review-form {
+            background: var(--bg-color-alt);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .rating-input {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .star-rating {
+            display: flex;
+            gap: 0.25rem;
+        }
+        
+        .star-input {
+            font-size: 1.5rem;
+            color: var(--border-color);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        
+        .star-input:hover,
+        .star-input.active {
+            color: #ffd700;
+        }
+        
+        .company-search {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+        }
+        
+        .search-result-item {
+            padding: 0.75rem;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.2s ease;
+        }
+        
+        .search-result-item:hover {
+            background: var(--bg-color-alt);
+        }
+        
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .leaderboard {
+            background: var(--bg-color-alt);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: white;
+            border-radius: var(--border-radius-sm);
+            margin-bottom: 0.75rem;
+        }
+        
+        .rank-number {
+            width: 30px;
+            height: 30px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: 600;
+            font-size: var(--font-size-sm);
+        }
+        
+        .rank-number.top3 {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #333;
+        }
+        
+        .user-info {
+            flex: 1;
+        }
+        
+        .user-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .user-stats {
+            color: var(--text-color-medium);
+            font-size: var(--font-size-sm);
+        }
+        
+        .reward-earned {
+            text-align: right;
+        }
+        
+        .reward-value {
+            font-weight: 600;
+            color: var(--success-color);
+            font-size: 1.1rem;
+        }
+        
+        .reward-desc {
+            font-size: var(--font-size-xs);
+            color: var(--text-color-medium);
+        }
+        
+        @media (max-width: 991px) {
+            .social-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .sidebar {
+                position: static;
+                order: -1;
+            }
+            
+            .referral-overview {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .review-pros-cons {
+                grid-template-columns: 1fr;
+            }
+            
+            .review-filters {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .main-content {
+                padding: 1rem;
+            }
+            
+            .social-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .social-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .review-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .review-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .rating-input {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header id="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo/logo.svg" alt="Global Manufacturing Careers">
+                </a>
+            </div>
+            
+            <nav class="global-nav">
+                <ul>
+                    <li class="has-dropdown">
+                        <a href="../jobs/search.html">求人を探す</a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-section">
+                                <h4>職種別</h4>
+                                <ul>
+                                    <li><a href="../jobs/search.html?category=engineering">エンジニアリング</a></li>
+                                    <li><a href="../jobs/search.html?category=rd">研究開発（R&D）</a></li>
+                                    <li><a href="../jobs/search.html?category=production">生産管理</a></li>
+                                    <li><a href="../jobs/search.html?category=scm">サプライチェーン</a></li>
+                                    <li><a href="../jobs/search.html?category=qaqc">品質管理</a></li>
+                                    <li><a href="../jobs/search.html?category=sales">セールス/マーケティング</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-section">
+                                <h4>業種別</h4>
+                                <ul>
+                                    <li><a href="../jobs/search.html?industry=automotive">自動車・輸送機器</a></li>
+                                    <li><a href="../jobs/search.html?industry=aerospace">航空宇宙</a></li>
+                                    <li><a href="../jobs/search.html?industry=electronics">電機・電子</a></li>
+                                    <li><a href="../jobs/search.html?industry=machinery">産業機械</a></li>
+                                    <li><a href="../jobs/search.html?industry=chemical">化学・素材</a></li>
+                                    <li><a href="../jobs/search.html?industry=medical">医療機器</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="../services/index.html">転職支援サービス</a>
+                        <div class="dropdown-menu">
+                            <ul>
+                                <li><a href="../services/flow.html">サービスの流れ</a></li>
+                                <li><a href="../services/consultants.html">キャリアコンサルタント紹介</a></li>
+                                <li><a href="../services/resume_support.html">英文レジュメ添削サービス</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="../knowhow/index.html">外資系・製造業転職ノウハウ</a></li>
+                    <li><a href="../success_stories/index.html">転職成功事例</a></li>
+                    <li><a href="../recruiters/index.html">企業様へ</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-right">
+                <div class="language-switch">
+                    <a href="#" class="active">JP</a>
+                    <span>|</span>
+                    <a href="#">EN</a>
+                </div>
+                <a href="profile.html" class="btn btn-primary">プロフィール</a>
+                <a href="../auth/logout.html" class="btn btn-secondary">ログアウト</a>
+            </div>
+            
+            <button class="hamburger-menu" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- メインコンテンツ -->
+    <main>
+        <section style="padding: 2rem 0;">
+            <div class="container">
+                <div class="social-container">
+                    <!-- サイドバー -->
+                    <div class="sidebar">
+                        <div class="user-profile">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3 style="margin-bottom: 0.25rem;">田中 太郎</h3>
+                            <p style="color: var(--text-color-medium); font-size: var(--font-size-sm); margin: 0;">機械設計エンジニア</p>
+                        </div>
+                        
+                        <ul class="nav-menu">
+                            <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i>ダッシュボード</a></li>
+                            <li><a href="applications.html"><i class="fas fa-file-alt"></i>応募履歴</a></li>
+                            <li><a href="scouts.html"><i class="fas fa-star"></i>スカウト</a></li>
+                            <li><a href="bookmarks.html"><i class="fas fa-bookmark"></i>お気に入り求人</a></li>
+                            <li><a href="ai-matching.html"><i class="fas fa-robot"></i>AIマッチング</a></li>
+                            <li><a href="profile.html"><i class="fas fa-user-edit"></i>プロフィール編集</a></li>
+                            <li><a href="resume.html"><i class="fas fa-file-pdf"></i>レジュメ管理</a></li>
+                            <li><a href="notifications.html"><i class="fas fa-bell"></i>通知設定</a></li>
+                            <li><a href="video-meeting.html"><i class="fas fa-video"></i>ビデオ面談</a></li>
+                            <li><a href="analytics.html"><i class="fas fa-chart-bar"></i>データ分析</a></li>
+                            <li><a href="chat-support.html"><i class="fas fa-comments"></i>チャットサポート</a></li>
+                            <li><a href="job-alerts.html"><i class="fas fa-bell-exclamation"></i>求人アラート</a></li>
+                            <li><a href="skill-assessment.html"><i class="fas fa-certificate"></i>スキル評価・認定</a></li>
+                            <li><a href="social-features.html" class="active"><i class="fas fa-users"></i>ソーシャル機能</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- メインコンテンツ -->
+                    <div class="main-content">
+                        <div class="social-header">
+                            <div>
+                                <h2>ソーシャル機能</h2>
+                                <p style="color: var(--text-color-medium); margin: 0;">友人紹介と企業レビューで転職コミュニティに貢献</p>
+                            </div>
+                            <button class="btn btn-primary" onclick="showReferralProgram()">
+                                <i class="fas fa-gift" style="margin-right: 0.5rem;"></i>
+                                紹介プログラム詳細
+                            </button>
+                        </div>
+                        
+                        <!-- タブナビゲーション -->
+                        <div class="social-tabs">
+                            <button class="tab-button active" onclick="switchTab('referrals')">友人紹介</button>
+                            <button class="tab-button" onclick="switchTab('reviews')">企業レビュー</button>
+                            <button class="tab-button" onclick="switchTab('write-review')">レビュー投稿</button>
+                            <button class="tab-button" onclick="switchTab('leaderboard')">ランキング</button>
+                        </div>
+                        
+                        <!-- 友人紹介タブ -->
+                        <div id="referrals-tab" class="tab-content">
+                            <!-- 紹介概要 -->
+                            <div class="referral-overview">
+                                <div class="overview-card">
+                                    <div class="overview-number">5</div>
+                                    <div class="overview-label">紹介済み人数</div>
+                                </div>
+                                <div class="overview-card">
+                                    <div class="overview-number">2</div>
+                                    <div class="overview-label">登録完了</div>
+                                </div>
+                                <div class="overview-card">
+                                    <div class="overview-number">50,000円</div>
+                                    <div class="overview-label">獲得報酬</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 紹介フォーム -->
+                            <div class="referral-form">
+                                <div class="form-title">友人を紹介して報酬を獲得</div>
+                                <p style="margin-bottom: 1.5rem; opacity: 0.9;">製造業・エンジニアリング分野で転職を検討中の友人を紹介しませんか？</p>
+                                
+                                <form onsubmit="submitReferral(event)">
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label class="form-label">友人のお名前</label>
+                                            <input type="text" class="form-input" placeholder="山田 太郎" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">メールアドレス</label>
+                                            <input type="email" class="form-input" placeholder="yamada@example.com" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">紹介メッセージ（任意）</label>
+                                        <textarea class="form-textarea" placeholder="Global Manufacturing Careersは製造業・エンジニア専門の転職サイトです。あなたのキャリアアップに最適だと思います。"></textarea>
+                                    </div>
+                                    
+                                    <div style="text-align: center;">
+                                        <button type="submit" class="btn" style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3);">
+                                            <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i>
+                                            紹介メール送信
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <!-- 紹介履歴 -->
+                            <div class="referral-list">
+                                <h3 style="margin-bottom: 1.5rem;">紹介履歴</h3>
+                                
+                                <div class="referral-item">
+                                    <div class="referral-info">
+                                        <div class="referral-name">山田 花子</div>
+                                        <div class="referral-email">hanako.yamada@example.com</div>
+                                        <div class="referral-date">紹介日: 2025年5月20日</div>
+                                    </div>
+                                    <div class="referral-status status-hired">転職成功</div>
+                                    <div class="referral-reward">
+                                        <div class="reward-amount">30,000円</div>
+                                        <div class="reward-label">獲得報酬</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="referral-item">
+                                    <div class="referral-info">
+                                        <div class="referral-name">佐藤 健一</div>
+                                        <div class="referral-email">kenichi.sato@example.com</div>
+                                        <div class="referral-date">紹介日: 2025年5月15日</div>
+                                    </div>
+                                    <div class="referral-status status-registered">登録完了</div>
+                                    <div class="referral-reward">
+                                        <div class="reward-amount">20,000円</div>
+                                        <div class="reward-label">獲得報酬</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="referral-item">
+                                    <div class="referral-info">
+                                        <div class="referral-name">鈴木 雄介</div>
+                                        <div class="referral-email">yusuke.suzuki@example.com</div>
+                                        <div class="referral-date">紹介日: 2025年5月10日</div>
+                                    </div>
+                                    <div class="referral-status status-pending">メール送信済み</div>
+                                    <div class="referral-reward">
+                                        <div class="reward-amount">-</div>
+                                        <div class="reward-label">登録待ち</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 企業レビュータブ -->
+                        <div id="reviews-tab" class="tab-content" style="display: none;">
+                            <!-- レビューフィルター -->
+                            <div class="review-filters">
+                                <select class="filter-select" onchange="filterReviews('industry', this.value)">
+                                    <option value="">すべての業界</option>
+                                    <option value="automotive">自動車</option>
+                                    <option value="electronics">電機・電子</option>
+                                    <option value="medical">医療機器</option>
+                                    <option value="aerospace">航空宇宙</option>
+                                </select>
+                                
+                                <select class="filter-select" onchange="filterReviews('rating', this.value)">
+                                    <option value="">すべての評価</option>
+                                    <option value="5">5つ星</option>
+                                    <option value="4">4つ星以上</option>
+                                    <option value="3">3つ星以上</option>
+                                </select>
+                                
+                                <select class="filter-select" onchange="filterReviews('sort', this.value)">
+                                    <option value="newest">新着順</option>
+                                    <option value="rating">評価順</option>
+                                    <option value="helpful">参考になった順</option>
+                                </select>
+                            </div>
+                            
+                            <!-- レビューリスト -->
+                            <div class="review-section">
+                                <div class="review-item">
+                                    <div class="review-header">
+                                        <div class="company-info">
+                                            <div class="company-logo">
+                                                <img src="../images/dummy/company_logo1.svg" alt="企業ロゴ" loading="lazy">
+                                            </div>
+                                            <div class="company-details">
+                                                <h3>Global Electronics Inc.</h3>
+                                                <p>電機・電子機器製造業 | 従業員数: 5,000名</p>
+                                            </div>
+                                        </div>
+                                        <div class="review-rating">
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star star"></i>
+                                                <i class="fas fa-star star"></i>
+                                                <i class="fas fa-star star"></i>
+                                                <i class="fas fa-star star"></i>
+                                                <i class="fas fa-star star empty"></i>
+                                            </div>
+                                            <div class="rating-score">4.0/5.0</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="review-content">
+                                        <div class="review-text">
+                                            グローバル企業として技術力が高く、最新の電子機器開発に携われる環境が整っています。英語を使う機会も多く、国際的なプロジェクトに参加できるのは大きな魅力です。ワークライフバランスも良好で、リモートワークも推進されています。
+                                        </div>
+                                        
+                                        <div class="review-pros-cons">
+                                            <div class="pros-cons-section pros">
+                                                <h4>良い点</h4>
+                                                <ul>
+                                                    <li><i class="fas fa-plus"></i>最新技術に触れられる</li>
+                                                    <li><i class="fas fa-plus"></i>国際的な環境</li>
+                                                    <li><i class="fas fa-plus"></i>研修制度が充実</li>
+                                                    <li><i class="fas fa-plus"></i>給与水準が高い</li>
+                                                </ul>
+                                            </div>
+                                            <div class="pros-cons-section cons">
+                                                <h4>改善点</h4>
+                                                <ul>
+                                                    <li><i class="fas fa-minus"></i>プロジェクトによっては激務</li>
+                                                    <li><i class="fas fa-minus"></i>昇進に時間がかかる</li>
+                                                    <li><i class="fas fa-minus"></i>部署間の連携が課題</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="review-footer">
+                                        <div class="review-meta">
+                                            <span><i class="fas fa-user"></i>機械設計エンジニア</span>
+                                            <span><i class="fas fa-calendar"></i>2025年5月28日</span>
+                                            <span><i class="fas fa-building"></i>在籍3年</span>
+                                        </div>
+                                        <div class="review-actions">
+                                            <button class="action-btn" onclick="likeReview('review1')">
+                                                <i class="fas fa-thumbs-up"></i> 参考になった (15)
+                                            </button>
+                                            <button class="action-btn" onclick="reportReview('review1')">
+                                                <i class="fas fa-flag"></i> 報告
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-item">
+                                    <div class="review-header">
+                                        <div class="company-info">
+                                            <div class="company-logo">
+                                                <img src="../images/dummy/company_logo2.svg" alt="企業ロゴ" loading="lazy">
+                                            </div>
+                                            <div class="company-details">
+                                                <h3>MedTech Solutions GmbH</h3>
+                                                <p>医療機器製造業 | 従業員数: 1,200名</p>
+                                            </div>
+                                        </div>
+                                        <div class="review-rating">
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star star"></i>
+                                                <i class="fas fa-star star"></i>
+                                                <i class="fas fa-star star"></i>
+                                                <i class="fas fa-star star"></i>
+                                                <i class="fas fa-star star"></i>
+                                            </div>
+                                            <div class="rating-score">5.0/5.0</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="review-content">
+                                        <div class="review-text">
+                                            医療機器分野のリーディングカンパニーとして、やりがいのある仕事に携われます。患者様の命に関わる製品を扱っているため、品質への責任感が強く、技術者として成長できる環境です。チームワークも良く、上司のサポートも手厚いです。
+                                        </div>
+                                        
+                                        <div class="review-pros-cons">
+                                            <div class="pros-cons-section pros">
+                                                <h4>良い点</h4>
+                                                <ul>
+                                                    <li><i class="fas fa-plus"></i>社会貢献度が高い</li>
+                                                    <li><i class="fas fa-plus"></i>チームワークが良い</li>
+                                                    <li><i class="fas fa-plus"></i>上司のサポートが手厚い</li>
+                                                    <li><i class="fas fa-plus"></i>安定した経営基盤</li>
+                                                </ul>
+                                            </div>
+                                            <div class="pros-cons-section cons">
+                                                <h4>改善点</h4>
+                                                <ul>
+                                                    <li><i class="fas fa-minus"></i>規制が多く時間がかかる</li>
+                                                    <li><i class="fas fa-minus"></i>保守的な文化</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="review-footer">
+                                        <div class="review-meta">
+                                            <span><i class="fas fa-user"></i>品質保証エンジニア</span>
+                                            <span><i class="fas fa-calendar"></i>2025年5月25日</span>
+                                            <span><i class="fas fa-building"></i>在籍2年</span>
+                                        </div>
+                                        <div class="review-actions">
+                                            <button class="action-btn" onclick="likeReview('review2')">
+                                                <i class="fas fa-thumbs-up"></i> 参考になった (22)
+                                            </button>
+                                            <button class="action-btn" onclick="reportReview('review2')">
+                                                <i class="fas fa-flag"></i> 報告
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- レビュー投稿タブ -->
+                        <div id="write-review-tab" class="tab-content" style="display: none;">
+                            <div class="write-review-form">
+                                <h3 style="margin-bottom: 2rem;">企業レビューを投稿</h3>
+                                
+                                <form onsubmit="submitReview(event)">
+                                    <div class="form-group">
+                                        <label class="form-label">企業名</label>
+                                        <div class="company-search">
+                                            <input type="text" class="form-input" placeholder="企業名を検索..." oninput="searchCompanies(this.value)">
+                                            <div class="search-results" id="company-search-results">
+                                                <div class="search-result-item" onclick="selectCompany('Global Electronics Inc.')">Global Electronics Inc.</div>
+                                                <div class="search-result-item" onclick="selectCompany('MedTech Solutions GmbH')">MedTech Solutions GmbH</div>
+                                                <div class="search-result-item" onclick="selectCompany('Automotive Precision Co.')">Automotive Precision Co.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">総合評価</label>
+                                        <div class="rating-input">
+                                            <div class="star-rating">
+                                                <i class="fas fa-star star-input" onclick="setRating(1)"></i>
+                                                <i class="fas fa-star star-input" onclick="setRating(2)"></i>
+                                                <i class="fas fa-star star-input" onclick="setRating(3)"></i>
+                                                <i class="fas fa-star star-input" onclick="setRating(4)"></i>
+                                                <i class="fas fa-star star-input" onclick="setRating(5)"></i>
+                                            </div>
+                                            <span id="rating-text">評価を選択してください</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">職種</label>
+                                        <select class="form-input" required>
+                                            <option value="">選択してください</option>
+                                            <option value="mechanical">機械設計エンジニア</option>
+                                            <option value="electrical">電気・電子エンジニア</option>
+                                            <option value="software">ソフトウェアエンジニア</option>
+                                            <option value="quality">品質保証エンジニア</option>
+                                            <option value="production">生産技術エンジニア</option>
+                                            <option value="research">研究開発エンジニア</option>
+                                            <option value="project">プロジェクトマネージャー</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">在籍期間</label>
+                                        <select class="form-input" required>
+                                            <option value="">選択してください</option>
+                                            <option value="less-than-1">1年未満</option>
+                                            <option value="1-3">1年〜3年</option>
+                                            <option value="3-5">3年〜5年</option>
+                                            <option value="5-10">5年〜10年</option>
+                                            <option value="more-than-10">10年以上</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">レビュー内容</label>
+                                        <textarea class="form-textarea" placeholder="企業の働きやすさ、技術力、成長機会、文化などについて詳しく教えてください..." required style="min-height: 150px;"></textarea>
+                                    </div>
+                                    
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label class="form-label">良い点</label>
+                                            <textarea class="form-textarea" placeholder="この企業の良い点を箇条書きで教えてください..."></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">改善点</label>
+                                            <textarea class="form-textarea" placeholder="改善が必要だと思う点を箇条書きで教えてください..."></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="text-align: center; margin-top: 2rem;">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i>
+                                            レビューを投稿
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- ランキングタブ -->
+                        <div id="leaderboard-tab" class="tab-content" style="display: none;">
+                            <div class="leaderboard">
+                                <h3 style="margin-bottom: 1.5rem;">紹介ランキング（今月）</h3>
+                                
+                                <div class="leaderboard-item">
+                                    <div class="rank-number top3">1</div>
+                                    <div class="user-info">
+                                        <div class="user-name">佐藤 美咲</div>
+                                        <div class="user-stats">紹介人数: 15人 | 転職成功: 8人</div>
+                                    </div>
+                                    <div class="reward-earned">
+                                        <div class="reward-value">240,000円</div>
+                                        <div class="reward-desc">今月の報酬</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="leaderboard-item">
+                                    <div class="rank-number top3">2</div>
+                                    <div class="user-info">
+                                        <div class="user-name">田村 健一</div>
+                                        <div class="user-stats">紹介人数: 12人 | 転職成功: 6人</div>
+                                    </div>
+                                    <div class="reward-earned">
+                                        <div class="reward-value">180,000円</div>
+                                        <div class="reward-desc">今月の報酬</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="leaderboard-item">
+                                    <div class="rank-number top3">3</div>
+                                    <div class="user-info">
+                                        <div class="user-name">山田 雄介</div>
+                                        <div class="user-stats">紹介人数: 9人 | 転職成功: 5人</div>
+                                    </div>
+                                    <div class="reward-earned">
+                                        <div class="reward-value">150,000円</div>
+                                        <div class="reward-desc">今月の報酬</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="leaderboard-item" style="background: linear-gradient(90deg, rgba(0, 102, 204, 0.1), rgba(0, 102, 204, 0.05));">
+                                    <div class="rank-number">8</div>
+                                    <div class="user-info">
+                                        <div class="user-name">田中 太郎（あなた）</div>
+                                        <div class="user-stats">紹介人数: 5人 | 転職成功: 2人</div>
+                                    </div>
+                                    <div class="reward-earned">
+                                        <div class="reward-value">50,000円</div>
+                                        <div class="reward-desc">今月の報酬</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- フッター -->
+    <footer id="site-footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-columns">
+                    <!-- サイトマップ -->
+                    <div class="footer-column">
+                        <h3>サイトマップ</h3>
+                        <ul>
+                            <li><a href="../jobs/search.html">求人を探す</a></li>
+                            <li><a href="../services/index.html">転職支援サービス</a></li>
+                            <li><a href="../knowhow/index.html">外資系・製造業転職ノウハウ</a></li>
+                            <li><a href="../success_stories/index.html">転職成功事例</a></li>
+                            <li><a href="../recruiters/index.html">企業様へ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>職種別求人</h3>
+                        <ul>
+                            <li><a href="../jobs/search.html?category=engineering">エンジニアリング</a></li>
+                            <li><a href="../jobs/search.html?category=rd">研究開発（R&D）</a></li>
+                            <li><a href="../jobs/search.html?category=production">生産管理</a></li>
+                            <li><a href="../jobs/search.html?category=scm">サプライチェーン（SCM）</a></li>
+                            <li><a href="../jobs/search.html?category=qaqc">品質管理（QA/QC）</a></li>
+                            <li><a href="../jobs/search.html?category=sales">セールス/マーケティング</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>業種別求人</h3>
+                        <ul>
+                            <li><a href="../jobs/search.html?industry=automotive">自動車・輸送機器</a></li>
+                            <li><a href="../jobs/search.html?industry=aerospace">航空宇宙</a></li>
+                            <li><a href="../jobs/search.html?industry=electronics">電機・電子</a></li>
+                            <li><a href="../jobs/search.html?industry=machinery">産業機械</a></li>
+                            <li><a href="../jobs/search.html?industry=chemical">化学・素材</a></li>
+                            <li><a href="../jobs/search.html?industry=medical">医療機器</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>会社情報</h3>
+                        <ul>
+                            <li><a href="../corporate/about.html">会社概要</a></li>
+                            <li><a href="../contact/index.html">お問い合わせ</a></li>
+                            <li><a href="../faq/index.html">よくある質問</a></li>
+                            <li><a href="../legal/privacy.html">プライバシーポリシー</a></li>
+                            <li><a href="../legal/terms.html">利用規約</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2025 Global Manufacturing Careers. All Rights Reserved.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><img src="../images/icons/linkedin_icon.svg" alt="LinkedIn" loading="lazy"></a>
+                        <a href="#" aria-label="Twitter"><img src="../images/icons/twitter_icon.svg" alt="Twitter" loading="lazy"></a>
+                        <a href="#" aria-label="Facebook"><img src="../images/icons/facebook_icon.svg" alt="Facebook" loading="lazy"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        let selectedRating = 0;
+        
+        // タブ切り替え機能
+        function switchTab(tabName) {
+            // タブボタンの状態更新
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // タブコンテンツの表示切り替え
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            document.getElementById(tabName + '-tab').style.display = 'block';
+        }
+        
+        // 紹介フォーム送信
+        function submitReferral(event) {
+            event.preventDefault();
+            
+            showToast('紹介メールを送信しました', 'success');
+            
+            // フォームリセット
+            event.target.reset();
+            
+            // 紹介リストに追加のシミュレーション
+            setTimeout(() => {
+                showToast('紹介が完了しました。友人の登録をお待ちください。', 'info');
+            }, 2000);
+        }
+        
+        // 企業検索
+        function searchCompanies(query) {
+            const results = document.getElementById('company-search-results');
+            if (query.length > 0) {
+                results.style.display = 'block';
+            } else {
+                results.style.display = 'none';
+            }
+        }
+        
+        // 企業選択
+        function selectCompany(companyName) {
+            const input = document.querySelector('.company-search input');
+            input.value = companyName;
+            
+            const results = document.getElementById('company-search-results');
+            results.style.display = 'none';
+        }
+        
+        // 評価設定
+        function setRating(rating) {
+            selectedRating = rating;
+            const stars = document.querySelectorAll('.star-input');
+            const ratingText = document.getElementById('rating-text');
+            
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+            
+            const ratingLabels = ['', '非常に不満', '不満', '普通', '満足', '非常に満足'];
+            ratingText.textContent = ratingLabels[rating];
+        }
+        
+        // レビュー投稿
+        function submitReview(event) {
+            event.preventDefault();
+            
+            if (selectedRating === 0) {
+                showToast('評価を選択してください', 'error');
+                return;
+            }
+            
+            showToast('レビューを投稿しました。審査後に公開されます。', 'success');
+            
+            // フォームリセット
+            event.target.reset();
+            selectedRating = 0;
+            
+            // 星の表示リセット
+            document.querySelectorAll('.star-input').forEach(star => {
+                star.classList.remove('active');
+            });
+            document.getElementById('rating-text').textContent = '評価を選択してください';
+        }
+        
+        // レビューフィルター
+        function filterReviews(type, value) {
+            showToast(`${type}フィルターを適用: ${value}`, 'info');
+            // 実際の実装では、ここでレビューリストをフィルタリング
+        }
+        
+        // レビューに「いいね」
+        function likeReview(reviewId) {
+            showToast('参考になったに投票しました', 'success');
+        }
+        
+        // レビュー報告
+        function reportReview(reviewId) {
+            if (confirm('このレビューを不適切として報告しますか？')) {
+                showToast('レビューを報告しました。内容を確認いたします。', 'info');
+            }
+        }
+        
+        // 紹介プログラム詳細表示
+        function showReferralProgram() {
+            showToast('紹介プログラムの詳細は以下の通りです：\n・友人登録完了：20,000円\n・転職成功：追加30,000円', 'info');
+        }
+        
+        // トースト通知表示
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#34c759' : type === 'error' ? '#ff3b30' : '#0066CC'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                z-index: 1001;
+                transform: translateX(400px);
+                transition: transform 0.3s ease;
+                max-width: 300px;
+                white-space: pre-line;
+            `;
+            toast.textContent = message;
+            
+            document.body.appendChild(toast);
+            
+            // アニメーション
+            setTimeout(() => {
+                toast.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // 4秒後に削除（プログラム詳細の場合は長めに表示）
+            const duration = type === 'info' && message.includes('友人登録') ? 6000 : 3000;
+            setTimeout(() => {
+                toast.style.transform = 'translateX(400px)';
+                setTimeout(() => {
+                    if (document.body.contains(toast)) {
+                        document.body.removeChild(toast);
+                    }
+                }, 300);
+            }, duration);
+        }
+        
+        // ページロード時の初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 企業検索結果のクリック時に検索結果を非表示
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.company-search')) {
+                    document.getElementById('company-search-results').style.display = 'none';
+                }
+            });
+            
+            // スターレーティングのホバー効果
+            const starInputs = document.querySelectorAll('.star-input');
+            starInputs.forEach((star, index) => {
+                star.addEventListener('mouseenter', function() {
+                    for (let i = 0; i <= index; i++) {
+                        starInputs[i].style.color = '#ffd700';
+                    }
+                });
+                
+                star.addEventListener('mouseleave', function() {
+                    starInputs.forEach((s, i) => {
+                        if (i < selectedRating) {
+                            s.style.color = '#ffd700';
+                        } else {
+                            s.style.color = 'var(--border-color)';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    
+    <script src="../js/bundle.js" defer></script>
+</body>
+</html>

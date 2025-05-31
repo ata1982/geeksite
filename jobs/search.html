@@ -9,9 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -96,8 +93,11 @@
                 <div class="search-filters">
                     <form id="job-search-form" action="search.html" method="get">
                         <div class="search-row">
-                            <div class="search-field keyword-field">
-                                <input type="text" name="keyword" placeholder="キーワード（職種、スキル、企業名など）" value="">
+                            <div class="search-field keyword-field" style="position: relative;">
+                                <input type="text" name="keyword" id="keywordInput" placeholder="キーワード（職種、スキル、企業名など）" value="" autocomplete="off">
+                                <div id="keywordSuggestions" class="keyword-suggestions" style="display: none;">
+                                    <!-- 候補がここに表示される -->
+                                </div>
                             </div>
                             <div class="search-field location-field">
                                 <select name="location">
@@ -496,6 +496,112 @@
         </div>
     </footer>
     
+    <!-- スタイル追加 -->
+    <style>
+        .keyword-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-top: none;
+            border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .suggestion-item {
+            padding: 0.75rem;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .suggestion-item:hover,
+        .suggestion-item.highlighted {
+            background: var(--bg-color-alt);
+        }
+        
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+        
+        .suggestion-icon {
+            margin-right: 0.5rem;
+            color: var(--text-color-medium);
+            width: 16px;
+        }
+        
+        .suggestion-text {
+            flex: 1;
+        }
+        
+        .suggestion-category {
+            font-size: var(--font-size-xs);
+            color: var(--text-color-medium);
+            background: var(--bg-color-alt);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+        
+        .recent-searches {
+            background: var(--bg-color-alt);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius-sm);
+        }
+        
+        .recent-searches h4 {
+            margin-bottom: 0.5rem;
+            font-size: var(--font-size-sm);
+            color: var(--primary-color);
+        }
+        
+        .recent-search-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .recent-tag {
+            background: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: var(--font-size-xs);
+            color: var(--text-color-medium);
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+        
+        .recent-tag:hover {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+        
+        .save-search-btn {
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .save-search-btn:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+    </style>
+    
     <!-- JavaScript - 詳細検索用のトグル機能 -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -521,7 +627,198 @@
                 advancedPanel.style.display = 'block';
                 toggleIcon.textContent = '-';
             }
+            
+            // キーワード候補機能
+            initKeywordSuggestions();
+            
+            // 最近の検索履歴を表示
+            showRecentSearches();
         });
+        
+        // キーワード候補機能
+        function initKeywordSuggestions() {
+            const keywordInput = document.getElementById('keywordInput');
+            const suggestions = document.getElementById('keywordSuggestions');
+            
+            // 候補データ
+            const suggestionData = [
+                { text: 'エンジニア', category: '職種', icon: 'fas fa-cog' },
+                { text: '機械設計', category: 'スキル', icon: 'fas fa-drafting-compass' },
+                { text: '電子回路', category: 'スキル', icon: 'fas fa-microchip' },
+                { text: '品質管理', category: '職種', icon: 'fas fa-check-circle' },
+                { text: '生産管理', category: '職種', icon: 'fas fa-industry' },
+                { text: 'CAD', category: 'スキル', icon: 'fas fa-cube' },
+                { text: 'AutoCAD', category: 'ツール', icon: 'fas fa-tools' },
+                { text: 'SolidWorks', category: 'ツール', icon: 'fas fa-tools' },
+                { text: 'Toyota', category: '企業', icon: 'fas fa-building' },
+                { text: 'Panasonic', category: '企業', icon: 'fas fa-building' },
+                { text: 'Sony', category: '企業', icon: 'fas fa-building' },
+                { text: 'Siemens', category: '企業', icon: 'fas fa-building' },
+                { text: 'プロジェクトマネージャー', category: '職種', icon: 'fas fa-tasks' },
+                { text: 'ISO9001', category: '資格', icon: 'fas fa-certificate' },
+                { text: 'リーダーシップ', category: 'スキル', icon: 'fas fa-users' }
+            ];
+            
+            let selectedIndex = -1;
+            
+            keywordInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                
+                if (query.length === 0) {
+                    suggestions.style.display = 'none';
+                    return;
+                }
+                
+                // フィルタリング
+                const filtered = suggestionData.filter(item => 
+                    item.text.toLowerCase().includes(query)
+                ).slice(0, 8); // 最大8件
+                
+                if (filtered.length > 0) {
+                    showSuggestions(filtered);
+                } else {
+                    suggestions.style.display = 'none';
+                }
+                
+                selectedIndex = -1;
+            });
+            
+            // キーボードナビゲーション
+            keywordInput.addEventListener('keydown', function(e) {
+                const items = suggestions.querySelectorAll('.suggestion-item');
+                
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
+                    updateSelection(items);
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    selectedIndex = Math.max(selectedIndex - 1, -1);
+                    updateSelection(items);
+                } else if (e.key === 'Enter' && selectedIndex >= 0) {
+                    e.preventDefault();
+                    items[selectedIndex].click();
+                } else if (e.key === 'Escape') {
+                    suggestions.style.display = 'none';
+                    selectedIndex = -1;
+                }
+            });
+            
+            // フォーカス外で候補を非表示
+            document.addEventListener('click', function(e) {
+                if (!keywordInput.contains(e.target) && !suggestions.contains(e.target)) {
+                    suggestions.style.display = 'none';
+                }
+            });
+            
+            function showSuggestions(items) {
+                suggestions.innerHTML = '';
+                
+                items.forEach((item, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'suggestion-item';
+                    div.innerHTML = `
+                        <i class="${item.icon} suggestion-icon"></i>
+                        <span class="suggestion-text">${item.text}</span>
+                        <span class="suggestion-category">${item.category}</span>
+                    `;
+                    
+                    div.addEventListener('click', function() {
+                        keywordInput.value = item.text;
+                        suggestions.style.display = 'none';
+                        
+                        // 検索履歴に追加
+                        addToRecentSearches(item.text);
+                    });
+                    
+                    suggestions.appendChild(div);
+                });
+                
+                suggestions.style.display = 'block';
+            }
+            
+            function updateSelection(items) {
+                items.forEach((item, index) => {
+                    if (index === selectedIndex) {
+                        item.classList.add('highlighted');
+                    } else {
+                        item.classList.remove('highlighted');
+                    }
+                });
+            }
+        }
+        
+        // 最近の検索履歴
+        function showRecentSearches() {
+            const searches = getRecentSearches();
+            if (searches.length === 0) return;
+            
+            const container = document.querySelector('.search-filters');
+            const recentDiv = document.createElement('div');
+            recentDiv.className = 'recent-searches';
+            recentDiv.innerHTML = `
+                <h4><i class="fas fa-clock" style="margin-right: 0.5rem;"></i>最近の検索</h4>
+                <div class="recent-search-tags">
+                    ${searches.map(search => 
+                        `<a href="#" class="recent-tag" onclick="fillKeyword('${search}')">${search}</a>`
+                    ).join('')}
+                </div>
+            `;
+            
+            container.insertBefore(recentDiv, container.firstChild);
+        }
+        
+        function getRecentSearches() {
+            const searches = localStorage.getItem('recentSearches');
+            return searches ? JSON.parse(searches) : [];
+        }
+        
+        function addToRecentSearches(keyword) {
+            let searches = getRecentSearches();
+            
+            // 重複削除
+            searches = searches.filter(s => s !== keyword);
+            
+            // 先頭に追加
+            searches.unshift(keyword);
+            
+            // 最大5件まで
+            searches = searches.slice(0, 5);
+            
+            localStorage.setItem('recentSearches', JSON.stringify(searches));
+        }
+        
+        function fillKeyword(keyword) {
+            document.getElementById('keywordInput').value = keyword;
+            event.preventDefault();
+        }
+        
+        // 検索保存機能
+        function saveCurrentSearch() {
+            const form = document.getElementById('job-search-form');
+            const formData = new FormData(form);
+            const searchParams = {};
+            
+            for (let [key, value] of formData.entries()) {
+                if (value) {
+                    searchParams[key] = value;
+                }
+            }
+            
+            if (Object.keys(searchParams).length > 0) {
+                const searchName = prompt('検索条件に名前をつけてください:');
+                if (searchName) {
+                    savePersistentSearch(searchName, searchParams);
+                    alert('検索条件を保存しました');
+                }
+            }
+        }
+        
+        function savePersistentSearch(name, params) {
+            let savedSearches = JSON.parse(localStorage.getItem('savedSearches') || '[]');
+            savedSearches.push({ name, params, date: new Date().toISOString() });
+            localStorage.setItem('savedSearches', JSON.stringify(savedSearches));
+        }
     </script>
     
     <script src="../js/bundle.js" defer></script>

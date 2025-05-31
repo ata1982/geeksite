@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Global Manufacturing Careers - データ分析ダッシュボード。転職活動の進捗と成果を詳細に分析・可視化します。">
+    <title>データ分析 | Global Manufacturing Careers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .analytics-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .sidebar {
+            background: var(--bg-color);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--box-shadow);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .user-profile {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--bg-color-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: var(--text-color-medium);
+        }
+        
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-menu li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-menu a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            color: var(--text-color-dark);
+            text-decoration: none;
+            border-radius: var(--border-radius-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: var(--accent-color);
+            color: var(--text-color-light);
+        }
+        
+        .nav-menu i {
+            margin-right: 0.75rem;
+            width: 16px;
+        }
+        
+        .main-content {
+            background: var(--bg-color);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .analytics-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .period-selector {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .period-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            background: var(--bg-color-alt);
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: var(--font-size-sm);
+        }
+        
+        .period-btn.active {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+        
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .kpi-card {
+            background: var(--bg-color-alt);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-md);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+        }
+        
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .kpi-label {
+            color: var(--text-color-medium);
+            font-size: var(--font-size-sm);
+            margin-bottom: 0.5rem;
+        }
+        
+        .kpi-change {
+            font-size: var(--font-size-xs);
+            font-weight: 500;
+        }
+        
+        .kpi-change.positive {
+            color: var(--success-color);
+        }
+        
+        .kpi-change.negative {
+            color: var(--error-color);
+        }
+        
+        .chart-section {
+            background: var(--bg-color-alt);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chart-title {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            background: white;
+            border-radius: var(--border-radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chart-placeholder {
+            text-align: center;
+            color: var(--text-color-medium);
+        }
+        
+        .activity-timeline {
+            background: var(--bg-color-alt);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .timeline-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .timeline-icon.application {
+            background: rgba(0, 102, 204, 0.1);
+            color: var(--accent-color);
+        }
+        
+        .timeline-icon.view {
+            background: rgba(52, 199, 89, 0.1);
+            color: var(--success-color);
+        }
+        
+        .timeline-icon.scout {
+            background: rgba(255, 193, 7, 0.1);
+            color: #ff8500;
+        }
+        
+        .timeline-icon.meeting {
+            background: rgba(142, 68, 173, 0.1);
+            color: #8e44ad;
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        .timeline-title {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+        
+        .timeline-description {
+            color: var(--text-color-medium);
+            font-size: var(--font-size-sm);
+            margin-bottom: 0.25rem;
+        }
+        
+        .timeline-time {
+            color: var(--text-color-medium);
+            font-size: var(--font-size-xs);
+        }
+        
+        .progress-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .progress-card {
+            background: var(--bg-color-alt);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-item {
+            margin-bottom: 1rem;
+        }
+        
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: var(--font-size-sm);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+            transition: width 1s ease;
+        }
+        
+        .conversion-funnel {
+            background: var(--bg-color-alt);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .funnel-stage {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: white;
+            border-radius: var(--border-radius-sm);
+            position: relative;
+        }
+        
+        .funnel-stage::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid white;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+        
+        .funnel-stage:last-child::after {
+            display: none;
+        }
+        
+        .funnel-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: var(--font-size-sm);
+        }
+        
+        .funnel-content {
+            flex: 1;
+        }
+        
+        .funnel-title {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+        
+        .funnel-count {
+            color: var(--text-color-medium);
+            font-size: var(--font-size-sm);
+        }
+        
+        .funnel-percentage {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-left: auto;
+        }
+        
+        .insights-panel {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .insights-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .insights-title i {
+            margin-right: 0.5rem;
+        }
+        
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .insight-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-sm);
+            padding: 1rem;
+        }
+        
+        .insight-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .insight-text {
+            font-size: var(--font-size-sm);
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 991px) {
+            .analytics-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .sidebar {
+                position: static;
+                order: -1;
+            }
+            
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .progress-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .main-content {
+                padding: 1rem;
+            }
+            
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .analytics-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .period-selector {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .period-btn {
+                flex: 1;
+                text-align: center;
+            }
+        }
+        
+        /* チャートアニメーション */
+        @keyframes chartLoad {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chart-container {
+            animation: chartLoad 0.8s ease-out;
+        }
+        
+        /* 簡易チャート描画 */
+        .simple-chart {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            height: 200px;
+            padding: 20px;
+            gap: 10px;
+        }
+        
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(to top, var(--accent-color), var(--accent-light));
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .chart-bar:hover {
+            opacity: 0.8;
+        }
+        
+        .chart-bar-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: var(--font-size-xs);
+            color: var(--text-color-medium);
+        }
+        
+        .chart-line {
+            position: relative;
+            height: 200px;
+            padding: 20px;
+        }
+        
+        .line-path {
+            fill: none;
+            stroke: var(--accent-color);
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+        
+        .line-area {
+            fill: url(#lineGradient);
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header id="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo/logo.svg" alt="Global Manufacturing Careers">
+                </a>
+            </div>
+            
+            <nav class="global-nav">
+                <ul>
+                    <li class="has-dropdown">
+                        <a href="../jobs/search.html">求人を探す</a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-section">
+                                <h4>職種別</h4>
+                                <ul>
+                                    <li><a href="../jobs/search.html?category=engineering">エンジニアリング</a></li>
+                                    <li><a href="../jobs/search.html?category=rd">研究開発（R&D）</a></li>
+                                    <li><a href="../jobs/search.html?category=production">生産管理</a></li>
+                                    <li><a href="../jobs/search.html?category=scm">サプライチェーン</a></li>
+                                    <li><a href="../jobs/search.html?category=qaqc">品質管理</a></li>
+                                    <li><a href="../jobs/search.html?category=sales">セールス/マーケティング</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-section">
+                                <h4>業種別</h4>
+                                <ul>
+                                    <li><a href="../jobs/search.html?industry=automotive">自動車・輸送機器</a></li>
+                                    <li><a href="../jobs/search.html?industry=aerospace">航空宇宙</a></li>
+                                    <li><a href="../jobs/search.html?industry=electronics">電機・電子</a></li>
+                                    <li><a href="../jobs/search.html?industry=machinery">産業機械</a></li>
+                                    <li><a href="../jobs/search.html?industry=chemical">化学・素材</a></li>
+                                    <li><a href="../jobs/search.html?industry=medical">医療機器</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="../services/index.html">転職支援サービス</a>
+                        <div class="dropdown-menu">
+                            <ul>
+                                <li><a href="../services/flow.html">サービスの流れ</a></li>
+                                <li><a href="../services/consultants.html">キャリアコンサルタント紹介</a></li>
+                                <li><a href="../services/resume_support.html">英文レジュメ添削サービス</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="../knowhow/index.html">外資系・製造業転職ノウハウ</a></li>
+                    <li><a href="../success_stories/index.html">転職成功事例</a></li>
+                    <li><a href="../recruiters/index.html">企業様へ</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-right">
+                <div class="language-switch">
+                    <a href="#" class="active">JP</a>
+                    <span>|</span>
+                    <a href="#">EN</a>
+                </div>
+                <a href="profile.html" class="btn btn-primary">プロフィール</a>
+                <a href="../auth/logout.html" class="btn btn-secondary">ログアウト</a>
+            </div>
+            
+            <button class="hamburger-menu" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- メインコンテンツ -->
+    <main>
+        <section style="padding: 2rem 0;">
+            <div class="container">
+                <div class="analytics-container">
+                    <!-- サイドバー -->
+                    <div class="sidebar">
+                        <div class="user-profile">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3 style="margin-bottom: 0.25rem;">田中 太郎</h3>
+                            <p style="color: var(--text-color-medium); font-size: var(--font-size-sm); margin: 0;">機械設計エンジニア</p>
+                        </div>
+                        
+                        <ul class="nav-menu">
+                            <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i>ダッシュボード</a></li>
+                            <li><a href="applications.html"><i class="fas fa-file-alt"></i>応募履歴</a></li>
+                            <li><a href="scouts.html"><i class="fas fa-star"></i>スカウト</a></li>
+                            <li><a href="bookmarks.html"><i class="fas fa-bookmark"></i>お気に入り求人</a></li>
+                            <li><a href="ai-matching.html"><i class="fas fa-robot"></i>AIマッチング</a></li>
+                            <li><a href="profile.html"><i class="fas fa-user-edit"></i>プロフィール編集</a></li>
+                            <li><a href="resume.html"><i class="fas fa-file-pdf"></i>レジュメ管理</a></li>
+                            <li><a href="notifications.html"><i class="fas fa-bell"></i>通知設定</a></li>
+                            <li><a href="video-meeting.html"><i class="fas fa-video"></i>ビデオ面談</a></li>
+                            <li><a href="analytics.html" class="active"><i class="fas fa-chart-bar"></i>データ分析</a></li>
+                            <li><a href="chat-support.html"><i class="fas fa-comments"></i>チャットサポート</a></li>
+                            <li><a href="job-alerts.html"><i class="fas fa-bell-exclamation"></i>求人アラート</a></li>
+                            <li><a href="skill-assessment.html"><i class="fas fa-certificate"></i>スキル評価・認定</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- メインコンテンツ -->
+                    <div class="main-content">
+                        <div class="analytics-header">
+                            <div>
+                                <h2>データ分析ダッシュボード</h2>
+                                <p style="color: var(--text-color-medium); margin: 0;">転職活動の進捗と成果を詳細に分析・可視化</p>
+                            </div>
+                            <div class="period-selector">
+                                <button class="period-btn" onclick="changePeriod('7d')">7日</button>
+                                <button class="period-btn active" onclick="changePeriod('30d')">30日</button>
+                                <button class="period-btn" onclick="changePeriod('90d')">90日</button>
+                                <button class="period-btn" onclick="changePeriod('1y')">1年</button>
+                            </div>
+                        </div>
+                        
+                        <!-- KPI指標 -->
+                        <div class="kpi-grid">
+                            <div class="kpi-card">
+                                <div class="kpi-value">24</div>
+                                <div class="kpi-label">応募企業数</div>
+                                <div class="kpi-change positive">+3 (前月比)</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-value">8</div>
+                                <div class="kpi-label">面接獲得</div>
+                                <div class="kpi-change positive">+2 (前月比)</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-value">33.3%</div>
+                                <div class="kpi-label">書類通過率</div>
+                                <div class="kpi-change positive">+5.1% (前月比)</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-value">156</div>
+                                <div class="kpi-label">プロフィール閲覧</div>
+                                <div class="kpi-change positive">+28 (前月比)</div>
+                            </div>
+                        </div>
+                        
+                        <!-- 応募・閲覧推移チャート -->
+                        <div class="chart-section">
+                            <div class="chart-header">
+                                <h3 class="chart-title">応募・閲覧推移</h3>
+                                <select style="padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--border-radius-sm);">
+                                    <option>応募数</option>
+                                    <option>プロフィール閲覧数</option>
+                                    <option>スカウト受信数</option>
+                                </select>
+                            </div>
+                            <div class="chart-container">
+                                <div class="simple-chart">
+                                    <svg width="100%" height="100%" viewBox="0 0 600 250">
+                                        <defs>
+                                            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" style="stop-color:var(--accent-color);stop-opacity:0.3" />
+                                                <stop offset="100%" style="stop-color:var(--accent-color);stop-opacity:0" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path class="line-area" d="M50,200 L100,180 L150,160 L200,140 L250,120 L300,110 L350,100 L400,90 L450,85 L500,80 L550,75 L550,220 L50,220 Z"/>
+                                        <path class="line-path" d="M50,200 L100,180 L150,160 L200,140 L250,120 L300,110 L350,100 L400,90 L450,85 L500,80 L550,75"/>
+                                        <!-- データポイント -->
+                                        <circle cx="50" cy="200" r="4" fill="var(--accent-color)"/>
+                                        <circle cx="100" cy="180" r="4" fill="var(--accent-color)"/>
+                                        <circle cx="150" cy="160" r="4" fill="var(--accent-color)"/>
+                                        <circle cx="200" cy="140" r="4" fill="var(--accent-color)"/>
+                                        <circle cx="250" cy="120" r="4" fill="var(--accent-color)"/>
+                                        <circle cx="300" cy="110" r="4" fill="var(--accent-color)"/>
+                                        <circle cx="350" cy="100" r="4" fill="var(--accent-color)"/>
+                                        <circle cx="400" cy="90" r="4" fill="var(--accent-color)"/>
+                                        <circle cx="450" cy="85" r="4" fill="var(--accent-color)"/>
+                                        <circle cx="500" cy="80" r="4" fill="var(--accent-color)"/>
+                                        <circle cx="550" cy="75" r="4" fill="var(--accent-color)"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 進捗状況 -->
+                        <div class="progress-section">
+                            <div class="progress-card">
+                                <div class="progress-header">
+                                    <h3>業界別応募状況</h3>
+                                    <span style="color: var(--text-color-medium); font-size: var(--font-size-sm);">過去30日</span>
+                                </div>
+                                
+                                <div class="progress-item">
+                                    <div class="progress-label">
+                                        <span>医療機器</span>
+                                        <span>8件 (33%)</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 33%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="progress-item">
+                                    <div class="progress-label">
+                                        <span>自動車</span>
+                                        <span>6件 (25%)</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="progress-item">
+                                    <div class="progress-label">
+                                        <span>電機・電子</span>
+                                        <span>5件 (21%)</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 21%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="progress-item">
+                                    <div class="progress-label">
+                                        <span>航空宇宙</span>
+                                        <span>3件 (13%)</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 13%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="progress-item">
+                                    <div class="progress-label">
+                                        <span>その他</span>
+                                        <span>2件 (8%)</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 8%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="progress-card">
+                                <div class="progress-header">
+                                    <h3>企業規模別応募状況</h3>
+                                    <span style="color: var(--text-color-medium); font-size: var(--font-size-sm);">過去30日</span>
+                                </div>
+                                
+                                <div class="progress-item">
+                                    <div class="progress-label">
+                                        <span>大企業（1000名以上）</span>
+                                        <span>12件 (50%)</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 50%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="progress-item">
+                                    <div class="progress-label">
+                                        <span>中企業（300-999名）</span>
+                                        <span>7件 (29%)</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 29%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="progress-item">
+                                    <div class="progress-label">
+                                        <span>小企業（100-299名）</span>
+                                        <span>3件 (13%)</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 13%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="progress-item">
+                                    <div class="progress-label">
+                                        <span>スタートアップ（100名未満）</span>
+                                        <span>2件 (8%)</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 8%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 選考フロー -->
+                        <div class="conversion-funnel">
+                            <h3 style="margin-bottom: 1.5rem;">選考フロー分析</h3>
+                            
+                            <div class="funnel-stage">
+                                <div class="funnel-icon">
+                                    <i class="fas fa-paper-plane"></i>
+                                </div>
+                                <div class="funnel-content">
+                                    <div class="funnel-title">応募</div>
+                                    <div class="funnel-count">24社に応募</div>
+                                </div>
+                                <div class="funnel-percentage">100%</div>
+                            </div>
+                            
+                            <div class="funnel-stage">
+                                <div class="funnel-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="funnel-content">
+                                    <div class="funnel-title">書類選考通過</div>
+                                    <div class="funnel-count">8社から連絡</div>
+                                </div>
+                                <div class="funnel-percentage">33.3%</div>
+                            </div>
+                            
+                            <div class="funnel-stage">
+                                <div class="funnel-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="funnel-content">
+                                    <div class="funnel-title">一次面接</div>
+                                    <div class="funnel-count">6社で実施</div>
+                                </div>
+                                <div class="funnel-percentage">25%</div>
+                            </div>
+                            
+                            <div class="funnel-stage">
+                                <div class="funnel-icon">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="funnel-content">
+                                    <div class="funnel-title">最終面接</div>
+                                    <div class="funnel-count">3社で実施</div>
+                                </div>
+                                <div class="funnel-percentage">12.5%</div>
+                            </div>
+                            
+                            <div class="funnel-stage">
+                                <div class="funnel-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div class="funnel-content">
+                                    <div class="funnel-title">内定</div>
+                                    <div class="funnel-count">1社から獲得</div>
+                                </div>
+                                <div class="funnel-percentage">4.2%</div>
+                            </div>
+                        </div>
+                        
+                        <!-- 活動タイムライン -->
+                        <div class="activity-timeline">
+                            <h3 style="margin-bottom: 1.5rem;">最近の活動</h3>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-icon application">
+                                    <i class="fas fa-paper-plane"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Global Electronics Inc. に応募</div>
+                                    <div class="timeline-description">電子回路設計エンジニア（シニア）のポジション</div>
+                                    <div class="timeline-time">2時間前</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-icon view">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">プロフィール閲覧</div>
+                                    <div class="timeline-description">MedTech Solutions 人事部が閲覧</div>
+                                    <div class="timeline-time">4時間前</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-icon scout">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">スカウト受信</div>
+                                    <div class="timeline-description">Automotive Precision Co. からプロジェクトマネージャーポジション</div>
+                                    <div class="timeline-time">6時間前</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-icon meeting">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">ビデオ面談完了</div>
+                                    <div class="timeline-description">European Electronics Corp との最終面接（60分）</div>
+                                    <div class="timeline-time">昨日</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-icon application">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">選考通過</div>
+                                    <div class="timeline-description">Aerospace Systems Japan 一次面接通過</div>
+                                    <div class="timeline-time">2日前</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- AI分析インサイト -->
+                        <div class="insights-panel">
+                            <div class="insights-title">
+                                <i class="fas fa-lightbulb"></i>
+                                AIによる分析インサイト
+                            </div>
+                            
+                            <div class="insights-grid">
+                                <div class="insight-item">
+                                    <div class="insight-icon">📈</div>
+                                    <div class="insight-text">
+                                        <strong>応募成功率が向上</strong><br>
+                                        医療機器業界での応募成功率が業界平均より25%高く、この分野への集中が効果的です。
+                                    </div>
+                                </div>
+                                
+                                <div class="insight-item">
+                                    <div class="insight-icon">⏰</div>
+                                    <div class="insight-text">
+                                        <strong>最適な応募タイミング</strong><br>
+                                        火曜日と木曜日の午前中に応募した求人の返信率が40%高い傾向があります。
+                                    </div>
+                                </div>
+                                
+                                <div class="insight-item">
+                                    <div class="insight-icon">🎯</div>
+                                    <div class="insight-text">
+                                        <strong>スキルマッチング改善</strong><br>
+                                        プロジェクトマネジメントのスキルを強調することで、面接獲得率が向上する可能性があります。
+                                    </div>
+                                </div>
+                                
+                                <div class="insight-item">
+                                    <div class="insight-icon">🌟</div>
+                                    <div class="insight-text">
+                                        <strong>プロフィール最適化</strong><br>
+                                        英語力と国際プロジェクト経験をより詳細に記載することをお勧めします。
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- フッター -->
+    <footer id="site-footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-columns">
+                    <!-- サイトマップ -->
+                    <div class="footer-column">
+                        <h3>サイトマップ</h3>
+                        <ul>
+                            <li><a href="../jobs/search.html">求人を探す</a></li>
+                            <li><a href="../services/index.html">転職支援サービス</a></li>
+                            <li><a href="../knowhow/index.html">外資系・製造業転職ノウハウ</a></li>
+                            <li><a href="../success_stories/index.html">転職成功事例</a></li>
+                            <li><a href="../recruiters/index.html">企業様へ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>職種別求人</h3>
+                        <ul>
+                            <li><a href="../jobs/search.html?category=engineering">エンジニアリング</a></li>
+                            <li><a href="../jobs/search.html?category=rd">研究開発（R&D）</a></li>
+                            <li><a href="../jobs/search.html?category=production">生産管理</a></li>
+                            <li><a href="../jobs/search.html?category=scm">サプライチェーン（SCM）</a></li>
+                            <li><a href="../jobs/search.html?category=qaqc">品質管理（QA/QC）</a></li>
+                            <li><a href="../jobs/search.html?category=sales">セールス/マーケティング</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>業種別求人</h3>
+                        <ul>
+                            <li><a href="../jobs/search.html?industry=automotive">自動車・輸送機器</a></li>
+                            <li><a href="../jobs/search.html?industry=aerospace">航空宇宙</a></li>
+                            <li><a href="../jobs/search.html?industry=electronics">電機・電子</a></li>
+                            <li><a href="../jobs/search.html?industry=machinery">産業機械</a></li>
+                            <li><a href="../jobs/search.html?industry=chemical">化学・素材</a></li>
+                            <li><a href="../jobs/search.html?industry=medical">医療機器</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>会社情報</h3>
+                        <ul>
+                            <li><a href="../corporate/about.html">会社概要</a></li>
+                            <li><a href="../contact/index.html">お問い合わせ</a></li>
+                            <li><a href="../faq/index.html">よくある質問</a></li>
+                            <li><a href="../legal/privacy.html">プライバシーポリシー</a></li>
+                            <li><a href="../legal/terms.html">利用規約</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2025 Global Manufacturing Careers. All Rights Reserved.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><img src="../images/icons/linkedin_icon.svg" alt="LinkedIn" loading="lazy"></a>
+                        <a href="#" aria-label="Twitter"><img src="../images/icons/twitter_icon.svg" alt="Twitter" loading="lazy"></a>
+                        <a href="#" aria-label="Facebook"><img src="../images/icons/facebook_icon.svg" alt="Facebook" loading="lazy"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // 期間変更機能
+        function changePeriod(period) {
+            // ボタンの状態更新
+            document.querySelectorAll('.period-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // データ更新のシミュレーション
+            updateAnalyticsData(period);
+            showToast(`表示期間を${getPeriodName(period)}に変更しました`, 'info');
+        }
+        
+        // 期間名取得
+        function getPeriodName(period) {
+            const names = {
+                '7d': '7日間',
+                '30d': '30日間', 
+                '90d': '90日間',
+                '1y': '1年間'
+            };
+            return names[period] || '30日間';
+        }
+        
+        // データ更新
+        function updateAnalyticsData(period) {
+            // KPI更新のシミュレーション
+            const kpiValues = document.querySelectorAll('.kpi-value');
+            const periodData = {
+                '7d': ['5', '2', '40%', '28'],
+                '30d': ['24', '8', '33.3%', '156'],
+                '90d': ['68', '22', '32.4%', '420'],
+                '1y': ['245', '89', '36.3%', '1,580']
+            };
+            
+            if (periodData[period]) {
+                kpiValues.forEach((value, index) => {
+                    if (periodData[period][index]) {
+                        // アニメーション効果
+                        value.style.opacity = '0.5';
+                        setTimeout(() => {
+                            value.textContent = periodData[period][index];
+                            value.style.opacity = '1';
+                        }, 300);
+                    }
+                });
+            }
+            
+            // プログレスバーのアニメーション更新
+            setTimeout(() => {
+                animateProgressBars();
+            }, 500);
+        }
+        
+        // プログレスバーアニメーション
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+        
+        // チャートホバー効果
+        document.addEventListener('DOMContentLoaded', function() {
+            const chartCircles = document.querySelectorAll('circle');
+            chartCircles.forEach(circle => {
+                circle.addEventListener('mouseenter', function() {
+                    this.setAttribute('r', '6');
+                    this.style.cursor = 'pointer';
+                });
+                
+                circle.addEventListener('mouseleave', function() {
+                    this.setAttribute('r', '4');
+                });
+                
+                circle.addEventListener('click', function() {
+                    const cx = this.getAttribute('cx');
+                    const cy = this.getAttribute('cy');
+                    showDataPoint(cx, cy);
+                });
+            });
+            
+            // 初期アニメーション
+            setTimeout(() => {
+                animateProgressBars();
+            }, 1000);
+        });
+        
+        // データポイント表示
+        function showDataPoint(x, y) {
+            // 簡易的なツールチップ表示
+            const tooltip = document.createElement('div');
+            tooltip.style.cssText = `
+                position: fixed;
+                background: var(--primary-color);
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: var(--border-radius-sm);
+                font-size: var(--font-size-sm);
+                z-index: 1000;
+                pointer-events: none;
+            `;
+            tooltip.textContent = `データポイント: ${Math.floor(Math.random() * 50 + 10)}件`;
+            
+            document.body.appendChild(tooltip);
+            
+            // マウス位置に表示
+            document.addEventListener('mousemove', function moveTooltip(e) {
+                tooltip.style.left = e.clientX + 10 + 'px';
+                tooltip.style.top = e.clientY - 30 + 'px';
+            });
+            
+            // 3秒後に削除
+            setTimeout(() => {
+                document.body.removeChild(tooltip);
+            }, 3000);
+        }
+        
+        // エクスポート機能
+        function exportData(format) {
+            showToast(`${format}形式でデータをエクスポートしています...`, 'info');
+            
+            // 実際の実装では、ここでデータをエクスポート
+            setTimeout(() => {
+                showToast(`データを${format}形式でダウンロードしました`, 'success');
+            }, 2000);
+        }
+        
+        // トースト通知表示
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#34c759' : type === 'error' ? '#ff3b30' : '#0066CC'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                z-index: 1001;
+                transform: translateX(400px);
+                transition: transform 0.3s ease;
+                max-width: 300px;
+            `;
+            toast.textContent = message;
+            
+            document.body.appendChild(toast);
+            
+            // アニメーション
+            setTimeout(() => {
+                toast.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // 3秒後に削除
+            setTimeout(() => {
+                toast.style.transform = 'translateX(400px)';
+                setTimeout(() => {
+                    if (document.body.contains(toast)) {
+                        document.body.removeChild(toast);
+                    }
+                }, 300);
+            }, 3000);
+        }
+        
+        // パフォーマンス指標の計算
+        function calculatePerformanceMetrics() {
+            const applications = 24;
+            const interviews = 8;
+            const offers = 1;
+            
+            const interviewRate = (interviews / applications * 100).toFixed(1);
+            const offerRate = (offers / applications * 100).toFixed(1);
+            const conversionRate = (offers / interviews * 100).toFixed(1);
+            
+            return {
+                interviewRate,
+                offerRate,
+                conversionRate
+            };
+        }
+        
+        // レポート生成
+        function generateReport() {
+            const metrics = calculatePerformanceMetrics();
+            const reportData = {
+                period: '過去30日間',
+                applications: 24,
+                interviews: 8,
+                offers: 1,
+                profileViews: 156,
+                ...metrics
+            };
+            
+            console.log('生成されたレポート:', reportData);
+            showToast('詳細レポートを生成しました', 'success');
+        }
+    </script>
+    
+    <script src="../js/bundle.js" defer></script>
+</body>
+</html>

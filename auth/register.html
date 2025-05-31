@@ -9,10 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/auth.css">
-    <link rel="stylesheet" href="../css/responsive.css">
 </head>
 <body>
     <!-- ヘッダー -->
@@ -195,29 +191,29 @@
                 </div>
             </div>
             
-            <div class="registration-benefits" style="margin-top: 3rem;">
-                <h2 style="text-align: center; margin-bottom: 1.5rem;">登録するとこんなメリットが</h2>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
-                    <div style="text-align: center; padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <div style="margin-bottom: 1rem;">
-                            <img src="../images/icons/job_icon.svg" alt="非公開求人" style="width: 50px; height: 50px;">
+            <div class="registration-benefits">
+                <h2 class="text-center">登録するとこんなメリットが</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <img src="../images/icons/job_icon.svg" alt="非公開求人">
                         </div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">非公開求人へのアクセス</h3>
-                        <p style="font-size: 0.9rem;">一般に公開されない厳選された高年収求人をご紹介</p>
+                        <h3>非公開求人へのアクセス</h3>
+                        <p>一般に公開されない厳選された高年収求人をご紹介</p>
                     </div>
-                    <div style="text-align: center; padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <div style="margin-bottom: 1rem;">
-                            <img src="../images/icons/scout_icon.svg" alt="スカウト" style="width: 50px; height: 50px;">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <img src="../images/icons/scout_icon.svg" alt="スカウト">
                         </div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">スカウトメールの受信</h3>
-                        <p style="font-size: 0.9rem;">あなたのスキルにマッチした企業からのスカウトが届きます</p>
+                        <h3>スカウトメールの受信</h3>
+                        <p>あなたのスキルにマッチした企業からのスカウトが届きます</p>
                     </div>
-                    <div style="text-align: center; padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <div style="margin-bottom: 1rem;">
-                            <img src="../images/icons/resume_icon.svg" alt="レジュメ" style="width: 50px; height: 50px;">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <img src="../images/icons/resume_icon.svg" alt="レジュメ">
                         </div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">英文レジュメの添削</h3>
-                        <p style="font-size: 0.9rem;">専門コンサルタントによる英文レジュメ添削サービス</p>
+                        <h3>英文レジュメの添削</h3>
+                        <p>専門コンサルタントによる英文レジュメ添削サービス</p>
                     </div>
                 </div>
             </div>
@@ -295,6 +291,6 @@
         </div>
     </footer>
     
-    <script src="../js/main.js"></script>
+    <script src="../js/bundle.js" defer></script>
 </body>
 </html>

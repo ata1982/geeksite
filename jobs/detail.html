@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Global Manufacturing Careers - 求人詳細ページ。外資系・製造業の専門求人の詳細情報をご確認いただけます。">
+    <title>求人詳細 | Global Manufacturing Careers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .job-detail-hero {
+            background: linear-gradient(135deg, rgba(13, 44, 84, 0.9), rgba(0, 69, 126, 0.9));
+            color: var(--text-color-light);
+            padding: 4rem 0;
+        }
+        
+        .job-detail-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .job-main-content {
+            background: var(--bg-color);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            box-shadow: var(--box-shadow-lg);
+        }
+        
+        .job-sidebar {
+            background: var(--bg-color);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            box-shadow: var(--box-shadow-lg);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .job-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .job-meta-item {
+            background: rgba(0, 102, 204, 0.1);
+            color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+        }
+        
+        .section-block {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .section-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .section-block h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: var(--font-size-lg);
+        }
+        
+        .requirements-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .requirements-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .requirements-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+        
+        .apply-section {
+            text-align: center;
+            background: var(--bg-color-alt);
+            padding: 2rem;
+            border-radius: var(--border-radius-md);
+            margin-bottom: 2rem;
+        }
+        
+        .company-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .company-logo-large {
+            width: 120px;
+            height: 120px;
+            background: var(--bg-color-alt);
+            border-radius: var(--border-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        
+        .salary-info {
+            background: var(--bg-color-alt);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-md);
+            margin-bottom: 1.5rem;
+        }
+        
+        .breadcrumb {
+            background: var(--bg-color-alt);
+            padding: 1rem 0;
+        }
+        
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: var(--font-size-sm);
+        }
+        
+        .breadcrumb-nav a {
+            color: var(--text-color-medium);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        .breadcrumb-separator {
+            color: var(--text-color-medium);
+        }
+        
+        @media (max-width: 991px) {
+            .job-detail-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .job-sidebar {
+                position: static;
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header id="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo/logo.svg" alt="Global Manufacturing Careers">
+                </a>
+            </div>
+            
+            <nav class="global-nav">
+                <ul>
+                    <li class="has-dropdown">
+                        <a href="search.html" class="active">求人を探す</a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-section">
+                                <h4>職種別</h4>
+                                <ul>
+                                    <li><a href="search.html?category=engineering">エンジニアリング</a></li>
+                                    <li><a href="search.html?category=rd">研究開発（R&D）</a></li>
+                                    <li><a href="search.html?category=production">生産管理</a></li>
+                                    <li><a href="search.html?category=scm">サプライチェーン</a></li>
+                                    <li><a href="search.html?category=qaqc">品質管理</a></li>
+                                    <li><a href="search.html?category=sales">セールス/マーケティング</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-section">
+                                <h4>業種別</h4>
+                                <ul>
+                                    <li><a href="search.html?industry=automotive">自動車・輸送機器</a></li>
+                                    <li><a href="search.html?industry=aerospace">航空宇宙</a></li>
+                                    <li><a href="search.html?industry=electronics">電機・電子</a></li>
+                                    <li><a href="search.html?industry=machinery">産業機械</a></li>
+                                    <li><a href="search.html?industry=chemical">化学・素材</a></li>
+                                    <li><a href="search.html?industry=medical">医療機器</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="../services/index.html">転職支援サービス</a>
+                        <div class="dropdown-menu">
+                            <ul>
+                                <li><a href="../services/flow.html">サービスの流れ</a></li>
+                                <li><a href="../services/consultants.html">キャリアコンサルタント紹介</a></li>
+                                <li><a href="../services/resume_support.html">英文レジュメ添削サービス</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="../knowhow/index.html">外資系・製造業転職ノウハウ</a></li>
+                    <li><a href="../success_stories/index.html">転職成功事例</a></li>
+                    <li><a href="../recruiters/index.html">企業様へ</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-right">
+                <div class="language-switch">
+                    <a href="#" class="active">JP</a>
+                    <span>|</span>
+                    <a href="#">EN</a>
+                </div>
+                <a href="../auth/register.html" class="btn btn-primary register-btn">会員登録</a>
+                <a href="../auth/login.html" class="btn btn-secondary login-btn">ログイン</a>
+            </div>
+            
+            <button class="hamburger-menu" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- パンくずリスト -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="../index.html">ホーム</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="search.html">求人を探す</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>電子回路設計エンジニア（シニア）</span>
+            </nav>
+        </div>
+    </section>
+    
+    <!-- メインコンテンツ -->
+    <main>
+        <!-- 求人詳細ヒーロー -->
+        <section class="job-detail-hero">
+            <div class="container">
+                <div class="company-info">
+                    <div class="company-logo-large">
+                        <img src="../images/dummy/company_logo1.svg" alt="企業ロゴ" loading="lazy">
+                    </div>
+                    <h1>電子回路設計エンジニア（シニア）</h1>
+                    <p style="font-size: var(--font-size-lg); margin: 1rem 0;">Global Electronics Inc.</p>
+                    <div class="job-meta">
+                        <span class="job-meta-item">電機・電子</span>
+                        <span class="job-meta-item">エンジニアリング</span>
+                        <span class="job-meta-item">東京</span>
+                        <span class="job-meta-item">正社員</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 求人詳細コンテンツ -->
+        <section style="padding: 3rem 0;">
+            <div class="container">
+                <div class="job-detail-container">
+                    <!-- メインコンテンツ -->
+                    <div class="job-main-content">
+                        <div class="section-block">
+                            <h3>職務概要</h3>
+                            <p>自動車向け電子制御システムの回路設計を担当していただきます。グローバルチームと協働し、次世代製品の開発をリードする重要なポジションです。最新の技術トレンドを取り入れながら、高品質かつ革新的な製品開発に携わることができます。</p>
+                        </div>
+                        
+                        <div class="section-block">
+                            <h3>主な業務内容</h3>
+                            <ul class="requirements-list">
+                                <li>自動車向け電子制御システムの回路設計・開発</li>
+                                <li>アナログ・デジタル回路の設計と最適化</li>
+                                <li>プロトタイプの作成と評価・テスト</li>
+                                <li>グローバル開発チームとの連携・技術指導</li>
+                                <li>設計仕様書・技術文書の作成</li>
+                                <li>新技術の調査・検証と導入提案</li>
+                                <li>顧客要求仕様の技術的検討と提案</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="section-block">
+                            <h3>応募要件</h3>
+                            <h4 style="margin-bottom: 1rem; color: var(--accent-color);">必須要件</h4>
+                            <ul class="requirements-list">
+                                <li>電子・電気工学または関連分野の学士号以上</li>
+                                <li>回路設計の実務経験5年以上</li>
+                                <li>アナログ・デジタル回路設計の深い理解</li>
+                                <li>CADツール（Altium Designer、Cadence等）の使用経験</li>
+                                <li>英語でのコミュニケーション能力（TOEIC 750点以上目安）</li>
+                                <li>チームワークとリーダーシップスキル</li>
+                            </ul>
+                            
+                            <h4 style="margin: 2rem 0 1rem; color: var(--accent-color);">歓迎要件</h4>
+                            <ul class="requirements-list">
+                                <li>自動車業界での開発経験</li>
+                                <li>EMC設計・評価経験</li>
+                                <li>高速デジタル回路設計経験</li>
+                                <li>パワーエレクトロニクス分野の知識</li>
+                                <li>ISO26262等の機能安全規格の知識</li>
+                                <li>プロジェクトマネジメント経験</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="section-block">
+                            <h3>勤務条件・福利厚生</h3>
+                            <h4 style="margin-bottom: 1rem; color: var(--accent-color);">勤務時間</h4>
+                            <p>9:00〜18:00（フレックスタイム制度あり）<br>
+                            コアタイム：10:00〜15:00</p>
+                            
+                            <h4 style="margin: 2rem 0 1rem; color: var(--accent-color);">休日・休暇</h4>
+                            <ul class="requirements-list">
+                                <li>完全週休2日制（土日祝日）</li>
+                                <li>年次有給休暇（初年度10日、最大20日）</li>
+                                <li>夏季休暇、年末年始休暇</li>
+                                <li>慶弔休暇、育児・介護休業制度</li>
+                            </ul>
+                            
+                            <h4 style="margin: 2rem 0 1rem; color: var(--accent-color);">福利厚生</h4>
+                            <ul class="requirements-list">
+                                <li>社会保険完備（健康保険、厚生年金、雇用保険、労災保険）</li>
+                                <li>退職金制度（企業型確定拠出年金）</li>
+                                <li>住宅手当・通勤手当</li>
+                                <li>英語学習支援制度</li>
+                                <li>資格取得支援制度</li>
+                                <li>健康診断・人間ドック</li>
+                                <li>カフェテリアプラン</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="section-block">
+                            <h3>会社について</h3>
+                            <p>Global Electronics Inc.は、自動車用電子制御システムの分野で世界をリードする外資系企業です。革新的な技術開発と高品質な製品で、グローバル市場での地位を確立しています。</p>
+                            <p>日本法人では、アジア太平洋地域の開発拠点として、最先端技術の研究開発から製品化まで幅広い業務を担当しています。多様性を重視した国際的な職場環境で、個人の成長とキャリア発展を支援します。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- サイドバー -->
+                    <div class="job-sidebar">
+                        <div class="apply-section">
+                            <h3 style="margin-bottom: 1rem;">この求人に応募する</h3>
+                            <p style="font-size: var(--font-size-sm); margin-bottom: 1.5rem; color: var(--text-color-medium);">
+                                ※応募には会員登録が必要です
+                            </p>
+                            <a href="../auth/register.html" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">会員登録して応募</a>
+                            <a href="../auth/login.html" class="btn btn-secondary" style="width: 100%;">ログインして応募</a>
+                        </div>
+                        
+                        <div class="salary-info">
+                            <h4 style="margin-bottom: 1rem; color: var(--primary-color);">想定年収</h4>
+                            <p style="font-size: var(--font-size-lg); font-weight: 600; color: var(--accent-color); margin-bottom: 0.5rem;">
+                                USD 90K - 120K
+                            </p>
+                            <p style="font-size: var(--font-size-base); font-weight: 600; color: var(--accent-color);">
+                                JPY 10M - 14M
+                            </p>
+                            <p style="font-size: var(--font-size-sm); color: var(--text-color-medium); margin-top: 0.5rem;">
+                                ※経験・スキルにより決定
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <h4 style="margin-bottom: 1rem; color: var(--primary-color);">基本情報</h4>
+                            <table style="width: 100%; font-size: var(--font-size-sm);">
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="padding: 0.5rem 0; color: var(--text-color-medium); width: 30%;">勤務地</td>
+                                    <td style="padding: 0.5rem 0;">東京都港区</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="padding: 0.5rem 0; color: var(--text-color-medium);">雇用形態</td>
+                                    <td style="padding: 0.5rem 0;">正社員</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="padding: 0.5rem 0; color: var(--text-color-medium);">更新日</td>
+                                    <td style="padding: 0.5rem 0;">2025.05.30</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.5rem 0; color: var(--text-color-medium);">求人ID</td>
+                                    <td style="padding: 0.5rem 0;">GMC-2025-001</td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                        <div>
+                            <h4 style="margin-bottom: 1rem; color: var(--primary-color);">担当コンサルタント</h4>
+                            <div style="text-align: center;">
+                                <img src="../images/people/consultant1.jpg" alt="鈴木誠" style="width: 60px; height: 60px; border-radius: 50%; margin-bottom: 0.5rem;">
+                                <p style="font-weight: 600; margin-bottom: 0.25rem;">鈴木 誠</p>
+                                <p style="font-size: var(--font-size-sm); color: var(--text-color-medium);">シニアキャリアコンサルタント</p>
+                                <a href="../contact/consultant.html?id=suzuki" class="btn btn-outline" style="width: 100%; margin-top: 1rem;">相談する</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 関連求人 -->
+        <section style="background: var(--bg-color-alt); padding: 3rem 0;">
+            <div class="container">
+                <h2 class="section-title">関連求人<span>Related Jobs</span></h2>
+                
+                <div class="featured-jobs-container">
+                    <div class="job-card">
+                        <div class="job-card-header">
+                            <div class="company-logo">
+                                <img src="../images/dummy/company_logo2.svg" alt="企業ロゴ" loading="lazy">
+                            </div>
+                            <div class="job-tags">
+                                <span class="job-tag">電機・電子</span>
+                                <span class="job-tag">エンジニアリング</span>
+                            </div>
+                        </div>
+                        <h3 class="job-title">組み込みソフトウェアエンジニア</h3>
+                        <div class="job-info">
+                            <p class="job-company">Tech Innovations Corp.</p>
+                            <p class="job-location">勤務地：神奈川</p>
+                            <p class="job-salary">想定年収：USD 80K - 110K / JPY 9M - 13M</p>
+                        </div>
+                        <div class="job-description">
+                            <p>自動車向け組み込みシステムの開発を担当。C/C++を用いたリアルタイム制御ソフトウェアの設計・実装。</p>
+                        </div>
+                        <a href="detail.html?id=2" class="btn btn-outline">詳細を見る</a>
+                    </div>
+                    
+                    <div class="job-card">
+                        <div class="job-card-header">
+                            <div class="company-logo">
+                                <img src="../images/dummy/company_logo3.svg" alt="企業ロゴ" loading="lazy">
+                            </div>
+                            <div class="job-tags">
+                                <span class="job-tag">電機・電子</span>
+                                <span class="job-tag">研究開発</span>
+                            </div>
+                        </div>
+                        <h3 class="job-title">パワーエレクトロニクスエンジニア</h3>
+                        <div class="job-info">
+                            <p class="job-company">Power Systems International</p>
+                            <p class="job-location">勤務地：愛知</p>
+                            <p class="job-salary">想定年収：USD 85K - 115K / JPY 9.5M - 13.5M</p>
+                        </div>
+                        <div class="job-description">
+                            <p>電気自動車向けパワーエレクトロニクス製品の研究開発。インバーター、コンバーターの設計・評価。</p>
+                        </div>
+                        <a href="detail.html?id=3" class="btn btn-outline">詳細を見る</a>
+                    </div>
+                    
+                    <div class="job-card">
+                        <div class="job-card-header">
+                            <div class="company-logo">
+                                <img src="../images/dummy/company_logo4.svg" alt="企業ロゴ" loading="lazy">
+                            </div>
+                            <div class="job-tags">
+                                <span class="job-tag">電機・電子</span>
+                                <span class="job-tag">エンジニアリング</span>
+                            </div>
+                        </div>
+                        <h3 class="job-title">システム設計エンジニア</h3>
+                        <div class="job-info">
+                            <p class="job-company">Advanced Electronics Ltd.</p>
+                            <p class="job-location">勤務地：大阪</p>
+                            <p class="job-salary">想定年収：USD 75K - 105K / JPY 8.5M - 12M</p>
+                        </div>
+                        <div class="job-description">
+                            <p>産業用電子機器のシステム設計・開発。要求仕様からシステムアーキテクチャの設計まで幅広く担当。</p>
+                        </div>
+                        <a href="detail.html?id=4" class="btn btn-outline">詳細を見る</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- フッター -->
+    <footer id="site-footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-columns">
+                    <!-- サイトマップ -->
+                    <div class="footer-column">
+                        <h3>サイトマップ</h3>
+                        <ul>
+                            <li><a href="search.html">求人を探す</a></li>
+                            <li><a href="../services/index.html">転職支援サービス</a></li>
+                            <li><a href="../knowhow/index.html">外資系・製造業転職ノウハウ</a></li>
+                            <li><a href="../success_stories/index.html">転職成功事例</a></li>
+                            <li><a href="../recruiters/index.html">企業様へ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>職種別求人</h3>
+                        <ul>
+                            <li><a href="search.html?category=engineering">エンジニアリング</a></li>
+                            <li><a href="search.html?category=rd">研究開発（R&D）</a></li>
+                            <li><a href="search.html?category=production">生産管理</a></li>
+                            <li><a href="search.html?category=scm">サプライチェーン（SCM）</a></li>
+                            <li><a href="search.html?category=qaqc">品質管理（QA/QC）</a></li>
+                            <li><a href="search.html?category=sales">セールス/マーケティング</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>業種別求人</h3>
+                        <ul>
+                            <li><a href="search.html?industry=automotive">自動車・輸送機器</a></li>
+                            <li><a href="search.html?industry=aerospace">航空宇宙</a></li>
+                            <li><a href="search.html?industry=electronics">電機・電子</a></li>
+                            <li><a href="search.html?industry=machinery">産業機械</a></li>
+                            <li><a href="search.html?industry=chemical">化学・素材</a></li>
+                            <li><a href="search.html?industry=medical">医療機器</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>会社情報</h3>
+                        <ul>
+                            <li><a href="../corporate/about.html">会社概要</a></li>
+                            <li><a href="../contact/index.html">お問い合わせ</a></li>
+                            <li><a href="../faq/index.html">よくある質問</a></li>
+                            <li><a href="../legal/privacy.html">プライバシーポリシー</a></li>
+                            <li><a href="../legal/terms.html">利用規約</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2025 Global Manufacturing Careers. All Rights Reserved.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><img src="../images/icons/linkedin_icon.svg" alt="LinkedIn" loading="lazy"></a>
+                        <a href="#" aria-label="Twitter"><img src="../images/icons/twitter_icon.svg" alt="Twitter" loading="lazy"></a>
+                        <a href="#" aria-label="Facebook"><img src="../images/icons/facebook_icon.svg" alt="Facebook" loading="lazy"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/bundle.js" defer></script>
+</body>
+</html>
