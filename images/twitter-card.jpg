@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1d1d1f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d2d30;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bgGradient)"/>
+  <text x="600" y="220" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="44" font-weight="bold">Global Manufacturing Careers</text>
+  <text x="600" y="280" text-anchor="middle" fill="#f5f5f7" font-family="Arial, sans-serif" font-size="22">外資系・製造業特化型 転職エージェント</text>
+  <text x="600" y="350" text-anchor="middle" fill="#007AFF" font-family="Arial, sans-serif" font-size="18">グローバルな製造業でのキャリアを、次のステージへ</text>
+  <circle cx="80" cy="520" r="25" fill="#007AFF" opacity="0.3"/>
+  <circle cx="1120" cy="80" r="40" fill="#30D158" opacity="0.2"/>
+  <rect x="180" y="480" width="60" height="60" fill="#FF9F0A" opacity="0.15" rx="8"/>
+</svg>

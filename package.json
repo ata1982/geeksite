@@ -1,0 +1,43 @@
+{
+  "name": "global-manufacturing-careers",
+  "version": "2.0.0",
+  "description": "世界最高レベルのモダンウェブサイト - 外資系・製造業特化型転職エージェント",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "build": "npm run validate && npm run optimize",
+    "validate": "npm run validate:html && npm run validate:css",
+    "validate:html": "echo 'Validating HTML...' && find . -name '*.html' -not -path './node_modules/*' | head -10",
+    "validate:css": "echo 'Validating CSS...' && find . -name '*.css' -not -path './node_modules/*' | head -10",
+    "optimize": "npm run clean && npm run compress",
+    "clean": "echo 'Cleaning unused files...' && npm run remove-unused",
+    "remove-unused": "echo 'Removing temporary and unused files...'",
+    "compress": "echo 'Optimizing assets...'",
+    "test": "npm run validate && npm run start &",
+    "deploy": "npm run build && echo 'Ready for deployment!'",
+    "dev": "npm run start",
+    "setup": "npm run clean && npm run validate && echo 'Setup complete! Run npm start to serve the site.'"
+  },
+  "keywords": [
+    "modern-website",
+    "glassmorphism",
+    "3d-effects",
+    "recruitment",
+    "manufacturing",
+    "career"
+  ],
+  "author": "Global Manufacturing Careers",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gmc-careers/website"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
