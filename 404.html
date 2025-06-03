@@ -84,17 +84,121 @@
         .suggestion-card:hover {
             transform: translateY(-4px);
         }
+        .header {
+            background: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+        .header-nav {
+            display: flex;
+            gap: 2rem;
+        }
+        .header-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .header-link:hover {
+            color: #ff6b35;
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+        .menu-toggle span {
+            height: 3px;
+            width: 25px;
+            background: #333;
+            margin-bottom: 4px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #fff;
+            width: 250px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .nav-list {
+            list-style: none;
+            padding: 1rem;
+            margin: 0;
+        }
+        .nav-list li {
+            margin-bottom: 1rem;
+        }
+        .nav-list a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-list a:hover {
+            color: #ff6b35;
+        }
+        @media (max-width: 768px) {
+            .header-nav {
+                display: none;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .mobile-menu {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="header-content">
-            <div class="logo">ギークリーチ</div>
+            <a href="index.html" class="logo">ギークリーチ</a>
             <nav class="header-nav">
                 <a href="consultants.html" class="header-link">エージェント紹介</a>
                 <a href="company-register.html" class="header-link">企業様向け</a>
                 <a href="pricing.html" class="header-link">料金プラン</a>
                 <a href="contact.html" class="header-link">お問い合わせ</a>
+            </nav>
+            <button class="menu-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <div class="mobile-menu">
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="consultants.html">エージェント紹介</a></li>
+                    <li><a href="company-register.html">企業様向け</a></li>
+                    <li><a href="pricing.html">料金プラン</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
             </nav>
         </div>
     </header>
