@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GeekReach料金プラン - 求職者完全無料、企業様向け成果報酬型ハイクラス転職・採用サービス">
+    <meta name="keywords" content="料金プラン,ハイクラス転職,採用,成果報酬,無料,GeekReach">
+    <title>料金プラン | GeekReach - ハイクラス転職・採用サービス</title>
+    
+    <!-- SEO・パフォーマンス最適化 -->
+    <link rel="canonical" href="https://geekreach.com/pricing.html">
+    <meta property="og:title" content="料金プラン | GeekReach">
+    <meta property="og:description" content="求職者完全無料、企業様向け成果報酬型ハイクラス転職・採用サービス">
+    <meta property="og:url" content="https://geekreach.com/pricing.html">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <style>
+        /* GeekReachデザインシステム */
+        :root {
+            --primary-navy: #1a2332;
+            --secondary-gold: #d4af37;
+            --accent-cream: #f8f6f3;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --white: #ffffff;
+            --shadow-subtle: 0 4px 20px rgba(26, 35, 50, 0.08);
+            --shadow-medium: 0 8px 40px rgba(26, 35, 50, 0.12);
+            --gradient-luxury: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+            --success-green: #10b981;
+            --warning-orange: #f59e0b;
+        }
+        
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:'Inter', 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Meiryo','メイリオ',sans-serif;
+            line-height:1.6;
+            color:var(--text-dark);
+            background:var(--white);
+            letter-spacing: -0.01em;
+        }
+        
+        /* ヘッダー */
+        .header{
+            background:rgba(255,255,255,0.95);
+            backdrop-filter:blur(20px);
+            padding:1.5rem 0;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            border-bottom:1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 3rem;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary-gold);
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .header-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .header-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--secondary-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .header-link:hover {
+            color: var(--primary-navy);
+        }
+        
+        .header-link:hover::before {
+            width: 100%;
+        }
+        
+        .header-link.active {
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+        
+        .header-link.active::before {
+            width: 100%;
+        }
+        
+        /* ハンバーガーメニュー */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--primary-navy);
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            width: 250px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-medium);
+            z-index: 100;
+        }
+        
+        .mobile-menu nav {
+            padding: 1.5rem;
+        }
+        
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .nav-list li {
+            text-align: right;
+        }
+        
+        .nav-list a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-list a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -3px;
+            left: 0;
+            background: var(--secondary-gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-list a:hover::after {
+            transform: scaleX(1);
+        }
+        
+        /* ヒーローセクション */
+        .hero{
+            background: var(--gradient-luxury);
+            color: white;
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="luxury-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(212,175,55,0.08)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23luxury-grid)"/></svg>');
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-gold);
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .hero-title{
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: white;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* セクション共通 */
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 4rem;
+            color: var(--primary-navy);
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--secondary-gold);
+        }
+        
+        /* 料金プラン */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .pricing-card {
+            background: var(--white);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 8px;
+            padding: 3rem;
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--secondary-gold);
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid var(--secondary-gold);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.08) translateY(-5px);
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: -1px;
+            right: 2rem;
+            background: var(--secondary-gold);
+            color: var(--primary-navy);
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 0 0 8px 8px;
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        .plan-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        
+        .plan-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            border: 2px solid var(--secondary-gold);
+        }
+        
+        .plan-icon i {
+            font-size: 2rem;
+            color: var(--primary-navy);
+        }
+        
+        .plan-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+        
+        .plan-subtitle {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+        
+        .plan-price {
+            margin-bottom: 1rem;
+        }
+        
+        .price-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            display: block;
+        }
+        
+        .price-period {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        .plan-features {
+            margin-bottom: 3rem;
+        }
+        
+        .plan-features h4 {
+            color: var(--primary-navy);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .plan-features ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .plan-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .plan-features li i {
+            color: var(--success-green);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        
+        .plan-action {
+            text-align: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-primary {
+            background: var(--primary-navy);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary-gold);
+            color: var(--primary-navy);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-navy);
+            border: 2px solid var(--primary-navy);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary-navy);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .btn-large {
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+            width: 100%;
+        }
+        
+        .plan-note {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+        
+        .pricing-details {
+            background: var(--accent-cream);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        
+        .pricing-details h4 {
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .pricing-breakdown {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        
+        .pricing-label {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        .pricing-value {
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+        
+        /* FAQ セクション */
+        .faq-section {
+            background: var(--accent-cream);
+        }
+        
+        .faq-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .faq-item {
+            background: var(--white);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 8px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: var(--secondary-gold);
+            box-shadow: var(--shadow-subtle);
+            transform: translateY(-2px);
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-navy);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .faq-question i {
+            color: var(--secondary-gold);
+            font-size: 1.2rem;
+        }
+        
+        .faq-answer {
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+        
+        /* メリットセクション */
+        .benefits-section {
+            background: var(--white);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--accent-cream);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-subtle);
+            border-color: var(--secondary-gold);
+        }
+        
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+        }
+        
+        .benefit-icon i {
+            font-size: 2rem;
+            color: var(--primary-navy);
+        }
+        
+        .benefit-card h3 {
+            color: var(--primary-navy);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .benefit-card p {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: var(--gradient-luxury);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-buttons .btn {
+            min-width: 250px;
+        }
+        
+        /* フッター */
+        .footer {
+            background: var(--primary-navy);
+            color: rgba(255,255,255,0.7);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--secondary-gold);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p {
+            color: #adb5bd;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .footer-section a {
+            background: var(--secondary-gold);
+            color: var(--primary-navy);
+            padding: 0.8rem 2rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            background: #c19b26;
+            transform: translateY(-1px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #495057;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            margin: 0;
+            color: #6c757d;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .header-content,
+            .section-content,
+            .hero-content {
+                padding: 0 1.5rem;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-5px);
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .header-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">GeekReach</a>
+            <nav class="header-nav">
+                <a href="index.html" class="header-link">求職者向け</a>
+                <a href="company-register.html" class="header-link">企業様向け</a>
+                <a href="consultants.html" class="header-link">エージェント紹介</a>
+                <a href="pricing.html" class="header-link active">料金プラン</a>
+                <a href="contact.html" class="header-link">お問い合わせ</a>
+            </nav>
+            <button class="menu-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <div class="mobile-menu">
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html">求職者向け</a></li>
+                    <li><a href="company-register.html">企業様向け</a></li>
+                    <li><a href="consultants.html">エージェント紹介</a></li>
+                    <li><a href="pricing.html" class="active">料金プラン</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">PRICING PLANS</p>
+            <h1 class="hero-title">透明で公正な料金体系</h1>
+            <p class="hero-description">
+                求職者は完全無料。企業様は成果報酬型で安心してご利用いただけます。<br>
+                隠れた費用は一切なし、成功した時だけお支払いいただきます。
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Plans Section -->
+    <section class="section">
+        <div class="section-content">
+            <h2 class="section-title">料金プラン</h2>
+            
+            <div class="pricing-grid">
+                <!-- 求職者プラン -->
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <div class="plan-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="plan-title">求職者プラン</h3>
+                        <p class="plan-subtitle">ハイクラス転職を目指すプロフェッショナルの方</p>
+                        <div class="plan-price">
+                            <span class="price-amount">¥0</span>
+                            <span class="price-period">完全無料・永続利用可能</span>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-features">
+                        <h4>🎯 転職支援サポート</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 専属キャリアコンサルタント</li>
+                            <li><i class="fas fa-check"></i> 面接対策・交渉代行</li>
+                            <li><i class="fas fa-check"></i> キャリア戦略設計</li>
+                            <li><i class="fas fa-check"></i> 内定後フォローアップ</li>
+                        </ul>
+                        
+                        <h4>🔒 プライバシー保護</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 完全匿名での転職活動</li>
+                            <li><i class="fas fa-check"></i> 現職バレ防止機能</li>
+                            <li><i class="fas fa-check"></i> 選択的情報開示</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="plan-action">
+                        <a href="register.html" class="btn btn-primary btn-large">無料登録して始める</a>
+                        <p class="plan-note">登録後すぐに全機能をご利用いただけます</p>
+                    </div>
+                </div>
+
+                <!-- 企業プラン -->
+                <div class="pricing-card featured">
+                    <div class="featured-badge">
+                        <i class="fas fa-crown"></i> 企業様向け
+                    </div>
+                    <div class="plan-header">
+                        <div class="plan-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 class="plan-title">企業採用プラン</h3>
+                        <p class="plan-subtitle">ハイクラス人材を採用したい企業様</p>
+                        <div class="plan-price">
+                            <span class="price-amount">年収の35%</span>
+                            <span class="price-period">成果報酬型・初期費用0円</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-details">
+                        <h4>💰 料金詳細</h4>
+                        <div class="pricing-breakdown">
+                            <div class="pricing-item">
+                                <span class="pricing-label">初期費用</span>
+                                <span class="pricing-value">¥0</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="pricing-label">月額費用</span>
+                                <span class="pricing-value">¥0</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="pricing-label">成果報酬</span>
+                                <span class="pricing-value">年収の35%</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="pricing-label">支払タイミング</span>
+                                <span class="pricing-value">入社3ヶ月後</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="pricing-label">返金保証</span>
+                                <span class="pricing-value">6ヶ月以内退職で全額返金</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-features">
+                        <h4>🎯 採用支援サービス</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> ハイクラス人材データベースアクセス</li>
+                            <li><i class="fas fa-check"></i> 専門エージェントによるヘッドハンティング</li>
+                            <li><i class="fas fa-check"></i> 候補者スクリーニング・推薦</li>
+                            <li><i class="fas fa-check"></i> 面接日程調整・同席サポート</li>
+                            <li><i class="fas fa-check"></i> 条件交渉・オファー調整</li>
+                            <li><i class="fas fa-check"></i> 入社後フォローアップ</li>
+                        </ul>
+                        
+                        <h4>📊 採用分析・レポート</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 採用市場分析レポート</li>
+                            <li><i class="fas fa-check"></i> 競合他社動向調査</li>
+                            <li><i class="fas fa-check"></i> 給与水準ベンチマーク</li>
+                            <li><i class="fas fa-check"></i> 採用プロセス最適化提案</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="plan-action">
+                        <a href="company-register.html" class="btn btn-primary btn-large">企業登録・相談する</a>
+                        <p class="plan-note">専任コンサルタントが2営業日以内にご連絡</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section section">
+        <div class="section-content">
+            <h2 class="section-title">成果報酬型のメリット</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>リスク最小化</h3>
+                    <p>初期費用・月額費用0円なので、採用が成功するまで一切費用は発生しません。予算を気にせず最高の人材を探せます。</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Win-Winの関係</h3>
+                    <p>採用成功時のみ報酬が発生するため、エージェントは企業様の成功に向けて全力でコミットします。</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>質の向上</h3>
+                    <p>成果重視の報酬体系により、量より質を重視した丁寧なマッチングとサポートを提供します。</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>迅速な採用</h3>
+                    <p>専門エージェントのネットワークを活用し、通常の採用手法よりも50%短期間で優秀な人材をご紹介します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section section">
+        <div class="section-content">
+            <h2 class="section-title">料金に関するよくある質問</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        求職者の利用料金は本当に無料ですか？
+                    </div>
+                    <div class="faq-answer">
+                        はい、求職者の方は完全無料でご利用いただけます。転職支援、エージェント相談まで、すべてのサービスが無料です。転職が決定しても費用は一切発生いたしません。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        成果報酬の支払いタイミングはいつですか？
+                    </div>
+                    <div class="faq-answer">
+                        候補者が実際に入社し、3ヶ月間継続勤務された後にお支払いいただきます。入社前や試用期間中に退職された場合、料金は発生いたしません。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        年収の35%の計算方法を教えてください
+                    </div>
+                    <div class="faq-answer">
+                        採用候補者の初年度年収（基本給＋諸手当＋賞与見込み）の35%となります。例：年収800万円の場合、成果報酬は280万円（税別）です。昇給・昇格後の年収は対象外です。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        返金保証の詳細について教えてください
+                    </div>
+                    <div class="faq-answer">
+                        入社後6ヶ月以内に自己都合以外で退職された場合、成果報酬を全額返金いたします。自己都合退職の場合も、3ヶ月以内であれば50%返金いたします。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        複数のポジションで同時に採用活動できますか？
+                    </div>
+                    <div class="faq-answer">
+                        はい、複数ポジションでの同時採用活動が可能です。それぞれの採用成功に対して個別に成果報酬をお支払いいただきます。ボリュームディスカウントもご相談可能です。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        途中で採用活動を中止した場合の費用は？
+                    </div>
+                    <div class="faq-answer">
+                        採用活動の途中中止による費用は一切発生いたしません。いつでも無料でキャンセルいただけます。ただし、進行中の候補者選考については最後まで対応させていただきます。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section">
+        <div class="section-content">
+            <div class="cta-content">
+                <h2>今すぐ始めましょう</h2>
+                <p>求職者は完全無料、企業様は成果報酬型でリスクなく最高の人材と出会えます</p>
+                <div class="cta-buttons">
+                    <a href="register.html" class="btn btn-primary btn-large">
+                        求職者として無料登録
+                    </a>
+                    <a href="company-register.html" class="btn btn-outline btn-large">
+                        企業として相談する
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-content">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>求職者の方</h3>
+                    <p>ハイクラス転職を完全無料でサポート。専門エージェントがあなたのキャリアアップを全力で支援します。</p>
+                    <a href="register.html">無料登録する</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>企業様</h3>
+                    <p>成果報酬型でリスクなく優秀な人材を採用。初期費用0円で最高の採用体験をご提供します。</p>
+                    <a href="company-register.html">採用相談する</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>エージェントの方</h3>
+                    <p>GeekReachのプラットフォームで、より多くの求職者・企業様をサポートしませんか。</p>
+                    <a href="consultants.html">詳しく見る</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 GeekReach. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

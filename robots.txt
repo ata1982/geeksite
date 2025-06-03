@@ -1,0 +1,40 @@
+# ギークリーチ - 最適化されたrobots.txt
+User-agent: *
+Allow: /
+
+# 存在するページのみを許可
+Allow: /index.html
+Allow: /consultants.html
+Allow: /company-register.html
+Allow: /contact.html
+Allow: /pricing.html
+Allow: /privacy.html
+Allow: /terms.html
+Allow: /blog.html
+
+# SEO重要リソース
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# 除外ページ
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /node_modules/
+
+# サイトマップ指定
+Sitemap: https://geekreach.com/sitemap.xml
+
+# クローリング頻度調整
+Crawl-delay: 1
+
+# 検索エンジン別最適化
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /

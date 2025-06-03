@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GeekReach専属エージェント紹介 - ハイクラス転職を成功に導く経験豊富な専門エージェント">
+    <meta name="keywords" content="転職エージェント,ハイクラス転職,キャリアアドバイザー,専門エージェント,転職相談">
+    <title>専属エージェント紹介 | GeekReach - ハイクラス転職エージェント</title>
+    
+    <!-- SEO・パフォーマンス最適化 -->
+    <link rel="canonical" href="https://geekreach.com/consultants.html">
+    <meta property="og:title" content="専属エージェント紹介 | GeekReach">
+    <meta property="og:description" content="ハイクラス転職を成功に導く経験豊富な専門エージェント。あなたのキャリアを最高レベルに引き上げます。">
+    <meta property="og:url" content="https://geekreach.com/consultants.html">
+    <meta property="og:image" content="https://geekreach.com/images/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="専属エージェント紹介 | GeekReach">
+    <meta name="twitter:description" content="ハイクラス転職を成功に導く経験豊富な専門エージェント">
+    <meta name="twitter:image" content="https://geekreach.com/images/twitter-card.jpg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <style>
+        /* GeekReachデザインシステム */
+        :root {
+            --primary-navy: #1a2332;
+            --secondary-gold: #d4af37;
+            --accent-cream: #f8f6f3;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --white: #ffffff;
+            --shadow-subtle: 0 4px 20px rgba(26, 35, 50, 0.08);
+            --shadow-medium: 0 8px 40px rgba(26, 35, 50, 0.12);
+            --gradient-luxury: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+        }
+        
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:'Inter', 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Meiryo','メイリオ',sans-serif;
+            line-height:1.6;
+            color:var(--text-dark);
+            background:var(--white);
+            letter-spacing: -0.01em;
+        }
+        
+        /* ヘッダー */
+        .header{
+            background:rgba(255,255,255,0.95);
+            backdrop-filter:blur(20px);
+            padding:1.5rem 0;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            border-bottom:1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 3rem;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary-gold);
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .header-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .header-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--secondary-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .header-link:hover {
+            color: var(--primary-navy);
+        }
+        
+        .header-link:hover::before {
+            width: 100%;
+        }
+        
+        .header-link.active {
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+        
+        .header-link.active::before {
+            width: 100%;
+        }
+        
+        /* ハンバーガーメニュー */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1100;
+        }
+        
+        .menu-toggle span {
+            width: 100%;
+            height: 4px;
+            background: var(--primary-navy);
+            margin-bottom: 6px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            width: 250px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .mobile-menu nav {
+            padding: 1.5rem;
+        }
+        
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .nav-list li {
+            margin: 0;
+        }
+        
+        .nav-list a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .nav-list a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--secondary-gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-list a:hover::after {
+            transform: scaleX(1);
+        }
+        
+        /* ヒーローセクション */
+        .hero{
+            background: var(--gradient-luxury);
+            color: white;
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="luxury-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(212,175,55,0.08)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23luxury-grid)"/></svg>');
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-gold);
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .hero-title{
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: white;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            background: var(--secondary-gold);
+            color: var(--primary-navy);
+            padding: 1.2rem 3rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .cta-button:hover {
+            background: #c19b26;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        /* セクション共通 */
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 4rem;
+            color: var(--primary-navy);
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--secondary-gold);
+        }
+        
+        /* エージェントグリッド */
+        .consultants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .consultant-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        .consultant-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-gold), #c19b26);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .consultant-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .consultant-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--secondary-gold);
+        }
+        
+        .consultant-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            background: var(--accent-cream);
+            border: 4px solid var(--secondary-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-navy);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .consultant-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .consultant-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+        
+        .consultant-title {
+            color: var(--secondary-gold);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .consultant-experience {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        
+        .consultant-specialties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .specialty-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--primary-navy);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .consultant-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--accent-cream);
+            border-radius: 8px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--secondary-gold);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+        }
+        
+        .consultant-contact {
+            background: var(--primary-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .consultant-contact:hover {
+            background: #243447;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 35, 50, 0.3);
+        }
+        
+        /* 特徴セクション */
+        .features-section {
+            background: var(--accent-cream);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--secondary-gold);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-navy);
+        }
+        
+        .feature-text {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: var(--gradient-luxury);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="cta-grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 25 0 L 0 0 0 25" fill="none" stroke="rgba(212,175,55,0.06)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23cta-grid)"/></svg>');
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        .cta-section .section-title {
+            color: white;
+        }
+        
+        .cta-section .section-title::after {
+            background: var(--secondary-gold);
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button-primary {
+            background: var(--secondary-gold);
+            color: var(--primary-navy);
+            padding: 1.2rem 3rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        
+        .cta-button-secondary {
+            background: transparent;
+            color: white;
+            padding: 1.2rem 3rem;
+            border: 2px solid white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        
+        .cta-button-primary:hover {
+            background: #c19b26;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        .cta-button-secondary:hover {
+            background: white;
+            color: var(--primary-navy);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* フッター */
+        .footer {
+            background: var(--primary-navy);
+            color: rgba(255,255,255,0.7);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--secondary-gold);
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p {
+            color: #adb5bd;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .footer-section a {
+            background: var(--secondary-gold);
+            color: var(--primary-navy);
+            padding: 0.8rem 2rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            background: #c19b26;
+            transform: translateY(-1px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #495057;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            margin: 0;
+            color: #6c757d;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .header-content,
+            .section-content,
+            .cta-content {
+                padding: 0 1.5rem;
+            }
+            
+            .hero-content {
+                padding: 0 1.5rem;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .consultants-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .consultant-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            
+            .header-nav {
+                gap: 1.5rem;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .consultant-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .consultant-specialties {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">GeekReach</a>
+            <nav class="header-nav">
+                <a href="index.html" class="header-link">求職者向け</a>
+                <a href="company-register.html" class="header-link">企業様向け</a>
+                <a href="consultants.html" class="header-link active">エージェント</a>
+                <a href="contact.html" class="header-link">お問い合わせ</a>
+            </nav>
+            <button class="menu-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <div class="mobile-menu">
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html">求職者向け</a></li>
+                    <li><a href="company-register.html">企業様向け</a></li>
+                    <li><a href="consultants.html" class="active">エージェント</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">EXPERT CONSULTANTS</p>
+            <h1 class="hero-title">専属エージェント紹介</h1>
+            <p class="hero-description">
+                ハイクラス転職を成功に導く経験豊富な専門エージェント。<br>
+                FAANG出身者から起業家まで、各業界のトップエージェントが<br>
+                あなたのキャリアを最高レベルに引き上げます。
+            </p>
+            <a href="#consultants" class="cta-button">エージェントを見る</a>
+        </div>
+    </section>
+
+    <!-- Consultants Section -->
+    <section class="section" id="consultants">
+        <div class="section-content">
+            <h2 class="section-title">専属エージェント</h2>
+            <div class="consultants-grid">
+                <div class="consultant-card">
+                    <div class="consultant-avatar">
+                        👨‍💼
+                    </div>
+                    <h3 class="consultant-name">田中 雄一</h3>
+                    <p class="consultant-title">シニアエグゼクティブコンサルタント</p>
+                    <p class="consultant-experience">
+                        元Google Japan エンジニアリングマネージャー。シリコンバレーでの7年の経験を活かし、
+                        グローバル企業のCTO・VP Engineering レベルの転職を専門としています。
+                    </p>
+                    <div class="consultant-specialties">
+                        <span class="specialty-tag">CTO転職</span>
+                        <span class="specialty-tag">VP Engineering</span>
+                        <span class="specialty-tag">グローバル企業</span>
+                        <span class="specialty-tag">AI・ML</span>
+                    </div>
+                    <div class="consultant-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">15年</span>
+                            <span class="stat-label">経験年数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">成功率</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">150+</span>
+                            <span class="stat-label">転職支援実績</span>
+                        </div>
+                    </div>
+                    <a href="mailto:tanaka@geekreach.com" class="consultant-contact">相談予約</a>
+                </div>
+                
+                <div class="consultant-card">
+                    <div class="consultant-avatar">
+                        👩‍💼
+                    </div>
+                    <h3 class="consultant-name">佐藤 美香</h3>
+                    <p class="consultant-title">フィンテック・ブロックチェーン専門</p>
+                    <p class="consultant-experience">
+                        元Goldman Sachs テクノロジー部門リード。金融×テクノロジー領域での
+                        豊富な人脈を活かし、フィンテック・ブロックチェーン人材の転職を支援。
+                    </p>
+                    <div class="consultant-specialties">
+                        <span class="specialty-tag">フィンテック</span>
+                        <span class="specialty-tag">ブロックチェーン</span>
+                        <span class="specialty-tag">暗号資産</span>
+                        <span class="specialty-tag">金融工学</span>
+                    </div>
+                    <div class="consultant-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">12年</span>
+                            <span class="stat-label">経験年数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">95%</span>
+                            <span class="stat-label">成功率</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">120+</span>
+                            <span class="stat-label">転職支援実績</span>
+                        </div>
+                    </div>
+                    <a href="mailto:sato@geekreach.com" class="consultant-contact">相談予約</a>
+                </div>
+                
+                <div class="consultant-card">
+                    <div class="consultant-avatar">
+                        👨‍💻
+                    </div>
+                    <h3 class="consultant-name">山田 健太</h3>
+                    <p class="consultant-title">スタートアップ・起業家専門</p>
+                    <p class="consultant-experience">
+                        3度のスタートアップ創業経験（うち1社IPO達成）。起業家・スタートアップ幹部の
+                        転職からキャリア転換まで、実体験に基づいたアドバイスを提供します。
+                    </p>
+                    <div class="consultant-specialties">
+                        <span class="specialty-tag">スタートアップ</span>
+                        <span class="specialty-tag">起業支援</span>
+                        <span class="specialty-tag">IPO準備</span>
+                        <span class="specialty-tag">エンジェル投資</span>
+                    </div>
+                    <div class="consultant-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10年</span>
+                            <span class="stat-label">経験年数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">92%</span>
+                            <span class="stat-label">成功率</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">80+</span>
+                            <span class="stat-label">転職支援実績</span>
+                        </div>
+                    </div>
+                    <a href="mailto:yamada@geekreach.com" class="consultant-contact">相談予約</a>
+                </div>
+                
+                <div class="consultant-card">
+                    <div class="consultant-avatar">
+                        👩‍🔬
+                    </div>
+                    <h3 class="consultant-name">林 智子</h3>
+                    <p class="consultant-title">AI・データサイエンス専門</p>
+                    <p class="consultant-experience">
+                        元Microsoft AI Research チーフサイエンティスト。PhD in Computer Science保持。
+                        AI・機械学習・データサイエンス領域の最高レベル人材の転職を専門としています。
+                    </p>
+                    <div class="consultant-specialties">
+                        <span class="specialty-tag">AI・機械学習</span>
+                        <span class="specialty-tag">データサイエンス</span>
+                        <span class="specialty-tag">研究開発</span>
+                        <span class="specialty-tag">PhD人材</span>
+                    </div>
+                    <div class="consultant-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">18年</span>
+                            <span class="stat-label">経験年数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">96%</span>
+                            <span class="stat-label">成功率</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">200+</span>
+                            <span class="stat-label">転職支援実績</span>
+                        </div>
+                    </div>
+                    <a href="mailto:hayashi@geekreach.com" class="consultant-contact">相談予約</a>
+                </div>
+                
+                <div class="consultant-card">
+                    <div class="consultant-avatar">
+                        👨‍🎨
+                    </div>
+                    <h3 class="consultant-name">小林 大輔</h3>
+                    <p class="consultant-title">プロダクト・デザイン専門</p>
+                    <p class="consultant-experience">
+                        元Apple プロダクトデザイナー、Airbnb Head of Design経験。
+                        プロダクトマネージャー・UXデザイナー・デザインエンジニアの転職を専門としています。
+                    </p>
+                    <div class="consultant-specialties">
+                        <span class="specialty-tag">プロダクトマネージャー</span>
+                        <span class="specialty-tag">UXデザイン</span>
+                        <span class="specialty-tag">デザインシステム</span>
+                        <span class="specialty-tag">グロース</span>
+                    </div>
+                    <div class="consultant-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">14年</span>
+                            <span class="stat-label">経験年数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">94%</span>
+                            <span class="stat-label">成功率</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">110+</span>
+                            <span class="stat-label">転職支援実績</span>
+                        </div>
+                    </div>
+                    <a href="mailto:kobayashi@geekreach.com" class="consultant-contact">相談予約</a>
+                </div>
+                
+                <div class="consultant-card">
+                    <div class="consultant-avatar">
+                        👩‍⚖️
+                    </div>
+                    <h3 class="consultant-name">中村 恵子</h3>
+                    <p class="consultant-title">グローバル・海外転職専門</p>
+                    <p class="consultant-experience">
+                        ロンドン・シンガポール・シリコンバレーでの勤務経験15年。
+                        海外転職・グローバル企業への転職・外国人エンジニアの日本転職を支援。
+                    </p>
+                    <div class="consultant-specialties">
+                        <span class="specialty-tag">海外転職</span>
+                        <span class="specialty-tag">グローバル企業</span>
+                        <span class="specialty-tag">多国籍チーム</span>
+                        <span class="specialty-tag">英語面接対策</span>
+                    </div>
+                    <div class="consultant-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">16年</span>
+                            <span class="stat-label">経験年数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">93%</span>
+                            <span class="stat-label">成功率</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">180+</span>
+                            <span class="stat-label">転職支援実績</span>
+                        </div>
+                    </div>
+                    <a href="mailto:nakamura@geekreach.com" class="consultant-contact">相談予約</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section section">
+        <div class="section-content">
+            <h2 class="section-title">エージェントサービスの特徴</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">専門特化型サポート</h3>
+                    <p class="feature-text">各業界・職種のスペシャリストが、深い専門知識と豊富な人脈を活かして最適な転職を実現します。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">1対1専属制</h3>
+                    <p class="feature-text">担当エージェントが転職活動全期間を通してマンツーマンでサポート。あなた専用の転職戦略を策定。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">グローバルネットワーク</h3>
+                    <p class="feature-text">FAANG・ユニコーン企業・グローバル企業との強固なパイプラインで非公開求人へアクセス。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3 class="feature-title">キャリア戦略設計</h3>
+                    <p class="feature-text">単なる転職支援ではなく、5-10年先を見据えた長期的なキャリア戦略を一緒に設計します。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-title">年収最大化</h3>
+                    <p class="feature-text">市場価値分析と交渉のプロフェッショナルが、あなたの年収を最大限引き上げます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">完全秘匿性</h3>
+                    <p class="feature-text">現職にバレることなく、安心して転職活動を進められる完全秘匿型のサポート体制。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section">
+        <div class="cta-content">
+            <h2 class="section-title">あなたのキャリアを次のレベルへ</h2>
+            <p class="cta-description">
+                専属エージェントとの無料相談で、あなたの市場価値と可能性を発見しましょう。<br>
+                ハイクラス転職の第一歩を今すぐ踏み出してください。
+            </p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-button-primary">無料相談を予約</a>
+                <a href="index.html" class="cta-button-secondary">求人を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>求職者向け</h3>
+                <p>年収2000万円超のハイクラス求人</p>
+                <a href="index.html">求人を見る</a>
+            </div>
+            <div class="footer-section">
+                <h3>企業様向け</h3>
+                <p>最高レベルの技術者採用サービス</p>
+                <a href="company-register.html">採用相談</a>
+            </div>
+            <div class="footer-section">
+                <h3>エージェント紹介</h3>
+                <p>専門エージェントによる転職サポート</p>
+                <a href="consultants.html">エージェントを見る</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 GeekReach. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for mobile menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

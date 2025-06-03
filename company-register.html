@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GeekReach企業様向け採用サービス - ハイスペック技術者があなたの企業を次世代に導く変革パートナー">
+    <meta name="keywords" content="企業変革,DX推進,技術者採用,エンジニア採用,イノベーション,AI人材,企業向け">
+    <title>企業変革パートナー | GeekReach - ハイスペック技術者採用</title>
+    
+    <!-- SEO・パフォーマンス最適化 -->
+    <link rel="canonical" href="https://geekreach.com/company-register.html">
+    <meta property="og:title" content="企業変革パートナー | GeekReach">
+    <meta property="og:description" content="ハイスペック技術者があなたの企業を次世代に導く。技術による企業変革を実現します。">
+    <meta property="og:url" content="https://geekreach.com/company-register.html">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <style>
+        /* GeekReachデザインシステム */
+        :root {
+            --primary-navy: #1a2332;
+            --secondary-gold: #d4af37;
+            --accent-cream: #f8f6f3;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --white: #ffffff;
+            --shadow-subtle: 0 4px 20px rgba(26, 35, 50, 0.08);
+            --shadow-medium: 0 8px 40px rgba(26, 35, 50, 0.12);
+            --gradient-luxury: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+        }
+        
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:'Inter', 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Meiryo','メイリオ',sans-serif;
+            line-height:1.6;
+            color:var(--text-dark);
+            background:var(--white);
+            letter-spacing: -0.01em;
+        }
+        
+        /* ヘッダー */
+        .header{
+            background:rgba(255,255,255,0.95);
+            backdrop-filter:blur(20px);
+            padding:1.5rem 0;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            border-bottom:1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary-gold);
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .header-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .header-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--secondary-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .header-link:hover {
+            color: var(--primary-navy);
+        }
+        
+        .header-link:hover::before {
+            width: 100%;
+        }
+        
+        .header-link.active {
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+        
+        .header-link.active::before {
+            width: 100%;
+        }
+        
+        /* ハンバーガーメニュー */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+            position: relative;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-navy);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(7px);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-7px);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            transition: right 0.4s ease;
+            z-index: 1000;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu .header-link {
+            font-size: 1.5rem;
+            padding: 1rem 0;
+        }
+
+        /* ヒーローセクション */
+        .hero{
+            background: var(--gradient-luxury);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="luxury-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(212,175,55,0.08)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23luxury-grid)"/></svg>');
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-gold);
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .hero-title{
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: white;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.08);
+            padding: 2rem;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(20px);
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--secondary-gold);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .cta-button {
+            background: var(--secondary-gold);
+            color: var(--primary-navy);
+            padding: 1.2rem 3rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 3rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .cta-button:hover {
+            background: #c19b26;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        /* セクション共通 */
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 4rem;
+            color: var(--primary-navy);
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--secondary-gold);
+        }
+        
+        /* 特徴セクション */
+        .features-section {
+            background: var(--accent-cream);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 4px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .feature-card:hover {
+            border-color: var(--secondary-gold);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-navy);
+        }
+        
+        .feature-text {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        /* 採用プロセスセクション */
+        .process-section {
+            background: var(--white);
+            position: relative;
+        }
+        
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+            padding: 2rem;
+            background: var(--accent-cream);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.4s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--secondary-gold);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: var(--secondary-gold);
+            color: var(--primary-navy);
+            border-radius: 50%;
+            line-height: 60px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .step-number::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -50px;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary-gold);
+            transform: translateY(-50%);
+        }
+        
+        .process-step:last-child .step-number::after {
+            display: none;
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+        }
+        
+        .step-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .step-duration {
+            display: inline-block;
+            background: var(--secondary-gold);
+            color: var(--primary-navy);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        /* 導入実績セクション */
+        .results-section {
+            background: var(--gradient-luxury);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .results-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="results-grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(212,175,55,0.06)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23results-grid)"/></svg>');
+        }
+        
+        .results-section .section-title {
+            color: white;
+        }
+        
+        .results-section .section-title::after {
+            background: var(--secondary-gold);
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .result-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+        }
+        
+        .result-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .result-icon {
+            font-size: 3rem;
+            color: var(--secondary-gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .result-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .result-text {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .result-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+        
+        .result-stat {
+            text-align: center;
+        }
+        
+        .result-stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--secondary-gold);
+            display: block;
+        }
+        
+        .result-stat-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.5rem;
+        }
+        
+        /* 料金プランの詳細スタイル */
+        .pricing-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: var(--shadow-medium);
+            border: 2px solid rgba(212, 175, 55, 0.15);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--secondary-gold), #c19b26);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(26, 35, 50, 0.15);
+            border-color: var(--secondary-gold);
+        }
+        
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .pricing-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-fee {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .fee-percentage {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            color: var(--secondary-gold);
+            line-height: 1;
+        }
+        
+        .fee-description {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 200px;
+            text-align: left;
+            line-height: 1.3;
+        }
+        
+        .pricing-features {
+            margin: 3rem 0;
+        }
+        
+        .pricing-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-feature:hover {
+            background: rgba(212, 175, 55, 0.05);
+            padding-left: 1rem;
+        }
+        
+        .feature-check {
+            color: var(--secondary-gold);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        .pricing-example {
+            background: var(--accent-cream);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+        }
+        
+        .pricing-example h4 {
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        .example-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .example-row:last-of-type {
+            border-bottom: none;
+        }
+        
+        .example-fee {
+            font-weight: 600;
+            color: var(--secondary-gold);
+            font-size: 1.1rem;
+        }
+        
+        .example-note {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+        
+        /* フォームセクション */
+        .form-section {
+            background: var(--accent-cream);
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            position: relative;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .form-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .form-header p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .form-progress {
+            background: var(--accent-cream);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .progress-bar {
+            background: rgba(212, 175, 55, 0.2);
+            height: 6px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, var(--secondary-gold), #c19b26);
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .progress-text {
+            font-weight: 600;
+            color: var(--primary-navy);
+            font-size: 0.8rem;
+        }
+        
+        .company-form {
+            margin-top: 1.5rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+        
+        .required {
+            color: #dc3545;
+            margin-left: 0.3rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid rgba(212, 175, 55, 0.15);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            background: var(--white);
+            transition: all 0.3s ease;
+            outline: none;
+            box-sizing: border-box;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--secondary-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+            transform: translateY(-1px);
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0;
+            font-weight: 400;
+            cursor: pointer;
+            padding: 0.6rem;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            background: var(--white);
+            font-size: 0.85rem;
+        }
+        
+        .checkbox-group label:hover {
+            border-color: var(--secondary-gold);
+            background: rgba(212, 175, 55, 0.05);
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            accent-color: var(--secondary-gold);
+            flex-shrink: 0;
+        }
+        
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, var(--secondary-gold), #c19b26);
+            color: var(--primary-navy);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 1.5rem;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+        
+        .submit-button:active {
+            transform: translateY(0);
+        }
+        
+        .form-note {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .form-note p {
+            color: var(--text-light);
+            font-size: 0.8rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* フッタースタイル */
+        .footer {
+            background: var(--primary-navy);
+            color: rgba(255,255,255,0.7);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--secondary-gold);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section {
+            text-align: center;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .footer-section p {
+            color: #adb5bd;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .footer-section a {
+            background: var(--secondary-gold);
+            color: var(--primary-navy);
+            padding: 0.8rem 2rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            background: #c19b26;
+            transform: translateY(-2px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #495057;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            margin: 0;
+            color: #6c757d;
+        }
+        
+        /* エラーアニメーション */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        /* レスポンシブ */
+        @media (min-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+            
+            .form-container {
+                padding: 3rem;
+            }
+            
+            .form-header h2 {
+                font-size: 2.5rem;
+            }
+            
+            .form-header p {
+                font-size: 1.1rem;
+            }
+            
+            .checkbox-group {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-title {
+                font-size: 4rem;
+            }
+            
+            .container {
+                padding: 0 2rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .form-container {
+                padding: 4rem;
+            }
+            
+            .checkbox-group {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .form-section {
+                padding: 6rem 0;
+            }
+            
+            .header-content {
+                padding: 0 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .header-nav {
+                display: none;
+            }
+            
+            .header-content {
+                padding: 0 1rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 3rem;
+                padding: 0 1rem;
+            }
+            
+            .stat-item {
+                padding: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .section-content {
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .feature-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .process-timeline {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .process-step {
+                padding: 1.5rem;
+            }
+            
+            .step-number::after {
+                display: none;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .result-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .pricing-container {
+                padding: 0 1rem;
+            }
+            
+            .pricing-card {
+                padding: 2rem;
+            }
+            
+            .pricing-header h3 {
+                font-size: 2rem;
+            }
+            
+            .fee-percentage {
+                font-size: 3rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-section {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-description {
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .form-container {
+                margin: 0 0.5rem;
+                padding: 1.5rem;
+            }
+            
+            .form-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .pricing-header h3 {
+                font-size: 1.8rem;
+            }
+            
+            .fee-percentage {
+                font-size: 2.5rem;
+            }
+            
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">GeekReach</a>
+            <nav class="header-nav">
+                <a href="index.html" class="header-link">求職者向け</a>
+                <a href="company-register.html" class="header-link active">企業様向け</a>
+            </nav>
+            <button class="menu-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <div class="mobile-menu">
+            <a href="index.html" class="header-link">求職者向け</a>
+            <a href="company-register.html" class="header-link active">企業様向け</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">ENTERPRISE TRANSFORMATION</p>
+            <h1 class="hero-title">ハイスペック技術者が<br>企業を変革する</h1>
+            <p class="hero-description">
+                AI・量子コンピューティング・Web3のエキスパートが、あなたの企業を次世代に導きます。<br>
+                単なる人材採用ではなく、技術による企業変革のパートナーシップを。<br>
+                イノベーションを起こす技術者との出会いが、ビジネスの未来を変えます。
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">企業変革成功率</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3.2倍</div>
+                    <div class="stat-label">平均開発効率向上</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">18ヶ月</div>
+                    <div class="stat-label">平均ROI実現期間</div>
+                </div>
+            </div>
+            
+            <a href="#contact-form" class="cta-button">変革パートナーになる</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section section">
+        <div class="section-content">
+            <h2 class="section-title">ハイスペック技術者がもたらす価値</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">技術革新による競争優位</h3>
+                    <p class="feature-text">AI・量子コンピューティング・Web3のエキスパートが、競合他社に先駆けた技術革新を実現。市場での圧倒的優位性を構築します。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">開発生産性の飛躍的向上</h3>
+                    <p class="feature-text">最先端アーキテクチャとベストプラクティスにより、開発効率を平均3.2倍向上。技術的負債の解消とスケーラブルなシステム構築を実現。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">組織全体の技術レベル向上</h3>
+                    <p class="feature-text">トップエンジニアの知見とメンタリングにより、既存チームの技術力が劇的に向上。持続的なイノベーション創出体制を構築。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">グローバル基準のプロダクト</h3>
+                    <p class="feature-text">FAANG・ユニコーン企業で培った経験により、世界基準のプロダクト品質とユーザー体験を実現。グローバル展開を加速。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section section">
+        <div class="section-content">
+            <h2 class="section-title">変革パートナーシップのプロセス</h2>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">現状分析・変革戦略策定</h3>
+                    <p class="step-description">
+                        現在の技術課題、組織体制、ビジネス目標を詳しく分析。
+                        技術による企業変革の最適戦略を策定します。
+                    </p>
+                    <span class="step-duration">1-3日</span>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">変革リーダー選定</h3>
+                    <p class="step-description">
+                        技術変革を牽引できるトップエンジニアを厳選。
+                        企業文化とビジョンに共感する最適な人材をマッチング。
+                    </p>
+                    <span class="step-duration">5-10日</span>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">変革プラン提案</h3>
+                    <p class="step-description">
+                        候補者による具体的な技術変革プランを提示。
+                        ROI予測と実行ロードマップを詳細に説明。
+                    </p>
+                    <span class="step-duration">2-3日</span>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">パートナーシップ締結</h3>
+                    <p class="step-description">
+                        面接・選考を通じて相互理解を深化。
+                        変革パートナーとしての長期的関係を構築。
+                    </p>
+                    <span class="step-duration">7-14日</span>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">変革実行開始</h3>
+                    <p class="step-description">
+                        入社と同時に変革プロジェクトを開始。
+                        継続的な成果測定とプロセス最適化を実施。
+                    </p>
+                    <span class="step-duration">3-7日</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section section">
+        <div class="section-content">
+            <h2 class="section-title">企業変革実績</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-icon">🏢</div>
+                    <h3 class="result-title">大手IT企業</h3>
+                    <p class="result-text">
+                        AI/MLエキスパートによるレガシーシステム刷新とデータ駆動組織への変革。開発効率4倍向上を実現。
+                    </p>
+                    <div class="result-stats">
+                        <div class="result-stat">
+                            <span class="result-stat-number">4倍</span>
+                            <span class="result-stat-label">開発効率向上</span>
+                        </div>
+                        <div class="result-stat">
+                            <span class="result-stat-number">60%</span>
+                            <span class="result-stat-label">運用コスト削減</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">🏦</div>
+                    <h3 class="result-title">金融系スタートアップ</h3>
+                    <p class="result-text">
+                        ブロックチェーン・DeFiエキスパートによる次世代金融サービス構築。ユーザー数10倍成長を達成。
+                    </p>
+                    <div class="result-stats">
+                        <div class="result-stat">
+                            <span class="result-stat-number">10倍</span>
+                            <span class="result-stat-label">ユーザー成長</span>
+                        </div>
+                        <div class="result-stat">
+                            <span class="result-stat-number">300%</span>
+                            <span class="result-stat-label">収益向上</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">🚀</div>
+                    <h3 class="result-title">ユニコーン企業</h3>
+                    <p class="result-text">
+                        CTO・VP of Engineeringによる技術組織のスケール化。グローバル展開とIPO準備を同時実現。
+                    </p>
+                    <div class="result-stats">
+                        <div class="result-stat">
+                            <span class="result-stat-number">50ヵ国</span>
+                            <span class="result-stat-label">グローバル展開</span>
+                        </div>
+                        <div class="result-stat">
+                            <span class="result-stat-number">IPO</span>
+                            <span class="result-stat-label">成功</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">🌐</div>
+                    <h3 class="result-title">製造業グローバル企業</h3>
+                    <p class="result-text">
+                        IoT・AI専門家によるスマートファクトリー化とDX推進。生産性30%向上とカーボンニュートラル実現。
+                    </p>
+                    <div class="result-stats">
+                        <div class="result-stat">
+                            <span class="result-stat-number">30%</span>
+                            <span class="result-stat-label">生産性向上</span>
+                        </div>
+                        <div class="result-stat">
+                            <span class="result-stat-number">CN</span>
+                            <span class="result-stat-label">達成</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section">
+        <div class="section-content">
+            <h2 class="section-title">料金体系</h2>
+            <div class="pricing-container">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>完全成果報酬型</h3>
+                        <div class="pricing-fee">
+                            <span class="fee-percentage">30%</span>
+                            <span class="fee-description">採用成功時の年収に対して</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <span class="feature-check">✓</span>
+                            <span>初期費用：0円</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="feature-check">✓</span>
+                            <span>月額費用：0円</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="feature-check">✓</span>
+                            <span>相談・提案：無料</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="feature-check">✓</span>
+                            <span>採用失敗時：0円</span>
+                        </div>
+                    </div>
+                    <div class="pricing-example">
+                        <h4>料金例</h4>
+                        <div class="example-row">
+                            <span>年収1,500万円の場合</span>
+                            <span class="example-fee">450万円</span>
+                        </div>
+                        <div class="example-row">
+                            <span>年収2,000万円の場合</span>
+                            <span class="example-fee">600万円</span>
+                        </div>
+                        <div class="example-note">
+                            ※ 採用成功・入社確定後にお支払い
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="form-section" id="contact">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>採用相談申し込み</h2>
+                    <p>最適な人材採用のためのパートナーシップを始めましょう</p>
+                </div>
+                
+                <form class="company-form" action="#" method="POST">
+                    <div class="form-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%;"></div>
+                        </div>
+                        <div class="progress-text">ステップ 1 / 3</div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company-name">会社名<span class="required">*</span></label>
+                            <input type="text" id="company-name" name="company-name" placeholder="株式会社◯◯" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-person">ご担当者名<span class="required">*</span></label>
+                            <input type="text" id="contact-person" name="contact-person" placeholder="山田 太郎" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">メールアドレス<span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="example@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">電話番号</label>
+                            <input type="tel" id="phone" name="phone" placeholder="03-1234-5678">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="website">ウェブサイト</label>
+                        <input type="url" id="website" name="website" placeholder="https://company.com">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company-size">会社規模</label>
+                            <select id="company-size" name="company-size">
+                                <option value="">選択してください</option>
+                                <option value="1-10">1-10名</option>
+                                <option value="11-50">11-50名</option>
+                                <option value="51-200">51-200名</option>
+                                <option value="201-1000">201-1000名</option>
+                                <option value="1000+">1000名以上</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="industry">業界</label>
+                            <select id="industry" name="industry">
+                                <option value="">選択してください</option>
+                                <option value="tech">IT・テクノロジー</option>
+                                <option value="finance">金融・保険</option>
+                                <option value="consulting">コンサルティング</option>
+                                <option value="manufacturing">製造業</option>
+                                <option value="retail">小売・サービス</option>
+                                <option value="healthcare">医療・ヘルスケア</option>
+                                <option value="education">教育</option>
+                                <option value="government">公共・非営利</option>
+                                <option value="other">その他</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>採用したいポジション<span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="positions[]" value="executive"> エグゼクティブ</label>
+                            <label><input type="checkbox" name="positions[]" value="management"> マネージメント</label>
+                            <label><input type="checkbox" name="positions[]" value="specialist"> スペシャリスト</label>
+                            <label><input type="checkbox" name="positions[]" value="engineer"> エンジニア</label>
+                            <label><input type="checkbox" name="positions[]" value="sales"> 営業</label>
+                            <label><input type="checkbox" name="positions[]" value="marketing"> マーケティング</label>
+                            <label><input type="checkbox" name="positions[]" value="finance"> 財務・経理</label>
+                            <label><input type="checkbox" name="positions[]" value="hr"> 人事</label>
+                            <label><input type="checkbox" name="positions[]" value="consultant"> コンサルタント</label>
+                            <label><input type="checkbox" name="positions[]" value="other"> その他</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="budget">想定予算（年収）</label>
+                        <select id="budget" name="budget">
+                            <option value="">選択してください</option>
+                            <option value="300-500">300-500万円</option>
+                            <option value="500-800">500-800万円</option>
+                            <option value="800-1200">800-1200万円</option>
+                            <option value="1200-1800">1200-1800万円</option>
+                            <option value="1800+">1800万円以上</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="timeline">採用希望時期</label>
+                        <select id="timeline" name="timeline">
+                            <option value="">選択してください</option>
+                            <option value="asap">できるだけ早く</option>
+                            <option value="1month">1ヶ月以内</option>
+                            <option value="3months">3ヶ月以内</option>
+                            <option value="6months">6ヶ月以内</option>
+                            <option value="flexible">時期は相談可能</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">詳細・ご要望<span class="required">*</span></label>
+                        <textarea id="message" name="message" placeholder="採用したいポジションの詳細、求める経験・スキル、企業文化、その他のご要望をお聞かせください..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">
+                        相談申し込みを送信
+                    </button>
+                    
+                    <div class="form-note">
+                        <p>お送りいただいた情報は厳重に管理し、採用相談以外の目的で使用することはございません。<br>
+                        通常、1営業日以内にご返信いたします。</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-content">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>技術者向け</h3>
+                    <p>最先端技術プロジェクトと優秀なチームで技術的成長を実現</p>
+                    <a href="index.html">技術キャリア相談</a>
+                </div>
+                <div class="footer-section">
+                    <h3>企業様向け</h3>
+                    <p>ハイスペック技術者による企業変革パートナーシップ</p>
+                    <a href="company-register.html">変革相談</a>
+                </div>
+                <div class="footer-section">
+                    <h3>エージェント紹介</h3>
+                    <p>技術背景を持つ専門エージェントによる変革サポート</p>
+                    <a href="consultants.html">エージェントを見る</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 GeekReach. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ハンバーガーメニューの実装
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const headerLinks = document.querySelectorAll('.mobile-menu .header-link');
+            
+            // メニュートグルの処理
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            // メニューリンククリック時の処理
+            headerLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    menuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // 画面外クリック時にメニューを閉じる
+            document.addEventListener('click', function(e) {
+                if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    menuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // ESCキーでメニューを閉じる
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    menuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // リサイズ時の処理
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    menuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+        
+        // プログレスバーとフォームバリデーションの実装
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.company-form');
+            const progressFill = document.querySelector('.progress-fill');
+            const progressText = document.querySelector('.progress-text');
+            const formGroups = document.querySelectorAll('.form-group');
+            const inputs = form.querySelectorAll('input, select, textarea');
+            const submitButton = document.querySelector('.submit-button');
+            
+            let completedFields = 0;
+            const totalFields = inputs.length;
+            
+            // プログレスバーの更新
+            function updateProgress() {
+                const percentage = (completedFields / totalFields) * 100;
+                progressFill.style.width = percentage + '%';
+                progressText.textContent = `${Math.round(percentage)}% 完了 (${completedFields}/${totalFields}項目)`;
+                
+                // プログレスに応じてボタンの状態を更新
+                if (percentage === 100) {
+                    submitButton.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                    submitButton.innerHTML = '✓ 送信する';
+                } else {
+                    submitButton.style.background = 'linear-gradient(135deg, var(--secondary-gold), #c19b26)';
+                    submitButton.innerHTML = '送信する';
+                }
+            }
+            
+            // フィールドバリデーション
+            function validateField(input) {
+                const formGroup = input.closest('.form-group');
+                let isValid = false;
+                
+                if (input.type === 'email') {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    isValid = emailRegex.test(input.value);
+                } else if (input.type === 'tel') {
+                    const phoneRegex = /^[\d\-\+\(\)\s]+$/;
+                    isValid = phoneRegex.test(input.value) && input.value.length >= 10;
+                } else if (input.hasAttribute('required')) {
+                    isValid = input.value.trim() !== '';
+                } else {
+                    isValid = true; // 必須でないフィールドは常に有効
+                }
+                
+                // バリデーション状態のクラスを更新
+                formGroup.classList.remove('valid', 'error');
+                if (input.value.trim() !== '') {
+                    if (isValid) {
+                        formGroup.classList.add('valid');
+                    } else {
+                        formGroup.classList.add('error');
+                    }
+                }
+                
+                return isValid;
+            }
+            
+            // 各入力フィールドにイベントリスナーを追加
+            inputs.forEach((input, index) => {
+                let wasValid = false;
+                
+                input.addEventListener('input', function() {
+                    const isValid = validateField(this);
+                    
+                    // プログレスカウントの更新
+                    if (isValid && this.value.trim() !== '' && !wasValid) {
+                        completedFields++;
+                        wasValid = true;
+                    } else if ((!isValid || this.value.trim() === '') && wasValid) {
+                        completedFields--;
+                        wasValid = false;
+                    }
+                    
+                    updateProgress();
+                });
+                
+                input.addEventListener('blur', function() {
+                    validateField(this);
+                });
+                
+                // フォーカス時のアニメーション
+                input.addEventListener('focus', function() {
+                    this.closest('.form-group').style.transform = 'translateY(-2px)';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.closest('.form-group').style.transform = 'translateY(0)';
+                });
+            });
+            
+            // チェックボックスの処理
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    this.closest('label').style.transform = this.checked ? 
+                        'translateX(6px) scale(1.05)' : 'translateX(0) scale(1)';
+                });
+            });
+            
+            // フォーム送信の処理
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 全フィールドのバリデーション
+                let allValid = true;
+                inputs.forEach(input => {
+                    if (!validateField(input) && input.hasAttribute('required')) {
+                        allValid = false;
+                    }
+                });
+                
+                if (allValid) {
+                    // 送信アニメーション
+                    submitButton.style.transform = 'scale(0.95)';
+                    submitButton.innerHTML = '送信中...';
+                    
+                    setTimeout(() => {
+                        submitButton.innerHTML = '✓ 送信完了';
+                        submitButton.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                        
+                        // 成功メッセージの表示
+                        const successMessage = document.createElement('div');
+                        successMessage.innerHTML = `
+                            <div style="
+                                position: fixed;
+                                top: 20px;
+                                right: 20px;
+                                background: linear-gradient(135deg, #28a745, #20c997);
+                                color: white;
+                                padding: 1rem 2rem;
+                                border-radius: 12px;
+                                box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
+                                z-index: 1000;
+                                animation: slideInRight 0.5s ease-out;
+                            ">
+                                ✓ お申し込みありがとうございます！<br>
+                                <small>3営業日以内にご連絡いたします。</small>
+                            </div>
+                        `;
+                        document.body.appendChild(successMessage);
+                        
+                        setTimeout(() => {
+                            successMessage.remove();
+                        }, 5000);
+                        
+                    }, 1500);
+                } else {
+                    // エラーアニメーション
+                    submitButton.style.animation = 'shake 0.5s ease-in-out';
+                    setTimeout(() => {
+                        submitButton.style.animation = '';
+                    }, 500);
+                }
+            });
+            
+            // 初期プログレス設定
+            updateProgress();
+            
+            // スクロール時のパララックス効果
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const formSection = document.querySelector('.form-section');
+                const formRect = formSection.getBoundingClientRect();
+                
+                if (formRect.top < window.innerHeight && formRect.bottom > 0) {
+                    const parallaxElements = formSection.querySelectorAll('.company-form');
+                    parallaxElements.forEach(element => {
+                        const speed = scrolled * 0.05;
+                        element.style.transform = `translateY(${-speed}px)`;
+                    });
+                }
+            });
+        });
+        
+        // CSS追加アニメーション
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    opacity: 0;
+                    transform: translateX(100px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
+            .checkbox-group label {
+                transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            }
+            
+            .form-group input:valid:not(:placeholder-shown),
+            .form-group select:valid:not(:placeholder-shown),
+            .form-group textarea:valid:not(:placeholder-shown) {
+                border-color: #28a745;
+                background: linear-gradient(135deg, #ffffff 0%, #f8fff9 100%);
+            }
+            
+            .form-group input:invalid:not(:placeholder-shown),
+            .form-group select:invalid:not(:placeholder-shown),
+            .form-group textarea:invalid:not(:placeholder-shown) {
+                border-color: #dc3545;
+                background: linear-gradient(135deg, #ffffff 0%, #fff8f8 100%);
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

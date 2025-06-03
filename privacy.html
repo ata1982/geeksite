@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GeekReachプライバシーポリシー - 個人情報保護方針・データ取り扱いについて">
+    <meta name="keywords" content="プライバシーポリシー,個人情報保護,データ保護,GeekReach">
+    <title>プライバシーポリシー | GeekReach</title>
+    
+    <!-- SEO・パフォーマンス最適化 -->
+    <link rel="canonical" href="https://geekreach.com/privacy.html">
+    <meta property="og:title" content="プライバシーポリシー | GeekReach">
+    <meta property="og:description" content="GeekReachの個人情報保護方針・データ取り扱いについて">
+    <meta property="og:url" content="https://geekreach.com/privacy.html">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <style>
+        /* GeekReachデザインシステム */
+        :root {
+            --primary-navy: #1a2332;
+            --secondary-gold: #d4af37;
+            --accent-cream: #f8f6f3;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --white: #ffffff;
+            --shadow-subtle: 0 4px 20px rgba(26, 35, 50, 0.08);
+            --shadow-medium: 0 8px 40px rgba(26, 35, 50, 0.12);
+            --gradient-luxury: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+        }
+        
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:'Inter', 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Meiryo','メイリオ',sans-serif;
+            line-height:1.8;
+            color:var(--text-dark);
+            background:var(--white);
+            letter-spacing: -0.01em;
+        }
+        
+        /* ヘッダー */
+        .header{
+            background:rgba(255,255,255,0.95);
+            backdrop-filter:blur(20px);
+            padding:1.5rem 0;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            border-bottom:1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 3rem;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary-gold);
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .header-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .header-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--secondary-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .header-link:hover {
+            color: var(--primary-navy);
+        }
+        
+        .header-link:hover::before {
+            width: 100%;
+        }
+        
+        /* メインコンテンツ */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 6rem 3rem;
+        }
+        
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--primary-navy);
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            font-size: 0.95rem;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        .section-number {
+            color: var(--secondary-gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-navy);
+        }
+        
+        .section-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .section-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-content li {
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+        }
+        
+        .highlight {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--white);
+            box-shadow: var(--shadow-subtle);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        
+        .data-table th {
+            background: var(--accent-cream);
+            font-weight: 600;
+            color: var(--primary-navy);
+        }
+        
+        .warning-box {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .warning-box h4 {
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .contact-info {
+            background: var(--accent-cream);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        
+        .contact-info h4 {
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        /* フッター */
+        .footer {
+            background: var(--primary-navy);
+            color: rgba(255,255,255,0.7);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--secondary-gold);
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-gold);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #495057;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            margin: 0;
+            color: #6c757d;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .header-content,
+            .main-content {
+                padding: 0 1.5rem;
+            }
+            
+            .main-content {
+                padding: 4rem 1.5rem;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .content-section {
+                padding: 2rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .data-table {
+                font-size: 0.9rem;
+            }
+            
+            .data-table th,
+            .data-table td {
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">GeekReach</a>
+            <nav class="header-nav">
+                <a href="index.html" class="header-link">求職者向け</a>
+                <a href="company-register.html" class="header-link">企業様向け</a>
+                <a href="contact.html" class="header-link">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1 class="page-title">プライバシーポリシー</h1>
+        <p class="last-updated">最終更新日：2025年6月4日</p>
+
+        <div class="content-section">
+            <div class="section-number">Section 1</div>
+            <h2 class="section-title">基本方針</h2>
+            <div class="section-content">
+                <p>株式会社GeekReach（以下「当社」といいます）は、ご利用者の個人情報保護の重要性を深く認識し、<span class="highlight">個人情報の保護に関する法律</span>および関連法令を遵守し、適切な取り扱いに努めます。</p>
+                <p>当社は、転職・採用サービス「GeekReach」を通じて、利用者の皆様により良いサービスを提供するため、必要最小限の個人情報を収集し、適切に管理・利用いたします。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Section 2</div>
+            <h2 class="section-title">収集する個人情報</h2>
+            <div class="section-content">
+                <p>当社は、以下の個人情報を収集させていただく場合があります：</p>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>カテゴリ</th>
+                            <th>具体的な情報</th>
+                            <th>収集目的</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="highlight">基本情報</span></td>
+                            <td>氏名、年齢、性別、住所、電話番号、メールアドレス</td>
+                            <td>本人確認・連絡業務</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">職歴・学歴</span></td>
+                            <td>職歴、学歴、資格、スキル、職務経験</td>
+                            <td>求人マッチング・スカウト配信</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">希望条件</span></td>
+                            <td>希望職種、希望年収、勤務地希望等</td>
+                            <td>最適な求人紹介</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">履歴書・職務経歴書</span></td>
+                            <td>詳細な経歴情報、自己PR等</td>
+                            <td>企業への推薦・選考支援</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">利用情報</span></td>
+                            <td>アクセスログ、利用履歴、行動データ</td>
+                            <td>サービス改善・分析</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">面談・相談内容</span></td>
+                            <td>キャリア相談内容、面談記録</td>
+                            <td>転職支援・アドバイス提供</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Section 3</div>
+            <h2 class="section-title">個人情報の利用目的</h2>
+            <div class="section-content">
+                <p>収集した個人情報は、以下の目的で利用いたします：</p>
+                <ul>
+                    <li><span class="highlight">転職支援サービスの提供</span>：求人紹介、スカウト配信、マッチング</li>
+                    <li><span class="highlight">キャリア相談・面談</span>：専門家によるキャリアアドバイス</li>
+                    <li><span class="highlight">エージェント紹介</span>：最適な転職エージェントのマッチング</li>
+                    <li><span class="highlight">企業への推薦</span>：求職者の企業への推薦・紹介</li>
+                    <li><span class="highlight">サービス改善</span>：利用データ分析による機能向上</li>
+                    <li><span class="highlight">新サービス開発</span>：ニーズ分析に基づくサービス開発</li>
+                    <li><span class="highlight">重要通知</span>：サービス変更・メンテナンス情報の連絡</li>
+                    <li><span class="highlight">マーケティング</span>：関連サービスの案内（オプトアウト可能）</li>
+                    <li><span class="highlight">不正防止</span>：不正利用の検知・防止</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Section 4</div>
+            <h2 class="section-title">第三者への提供</h2>
+            <div class="section-content">
+                <p>当社は、以下の場合を除き、個人情報を第三者に提供いたしません：</p>
+                <ul>
+                    <li><span class="highlight">本人の同意がある場合</span>：求人応募・スカウト返信等</li>
+                    <li><span class="highlight">法令に基づく場合</span>：裁判所・警察等からの開示要求</li>
+                    <li><span class="highlight">生命・身体保護のため緊急の場合</span></li>
+                    <li><span class="highlight">業務委託の場合</span>：適切な管理体制下での限定的提供</li>
+                </ul>
+                
+                <div class="warning-box">
+                    <h4>🔒 求人応募時の情報提供について</h4>
+                    <p>求人への応募やスカウトへの返信の際は、応募先企業に対して履歴書・職務経歴書等の個人情報が提供されます。この提供については、応募・返信時に改めて同意をいただきます。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Section 5</div>
+            <h2 class="section-title">個人情報の管理</h2>
+            <div class="section-content">
+                <p>当社は、個人情報の適切な管理のため、以下の措置を講じています：</p>
+                <ul>
+                    <li><span class="highlight">技術的安全管理措置</span>：
+                        <ul style="margin-left: 2rem;">
+                            <li>SSL/TLS暗号化通信の実装</li>
+                            <li>ファイアウォール・侵入検知システムの導入</li>
+                            <li>定期的なセキュリティ監査の実施</li>
+                            <li>アクセス制御・認証システムの運用</li>
+                        </ul>
+                    </li>
+                    <li><span class="highlight">物理的安全管理措置</span>：
+                        <ul style="margin-left: 2rem;">
+                            <li>データセンターの24時間監視体制</li>
+                            <li>入退室管理システムの運用</li>
+                            <li>サーバー室への厳格なアクセス制限</li>
+                        </ul>
+                    </li>
+                    <li><span class="highlight">人的安全管理措置</span>：
+                        <ul style="margin-left: 2rem;">
+                            <li>従業員への定期的なプライバシー研修</li>
+                            <li>秘密保持契約の締結</li>
+                            <li>アクセス権限の最小限付与</li>
+                        </ul>
+                    </li>
+                    <li><span class="highlight">組織的安全管理措置</span>：
+                        <ul style="margin-left: 2rem;">
+                            <li>個人情報保護責任者の設置</li>
+                            <li>取り扱い規程の策定・運用</li>
+                            <li>定期的な取り扱い状況の点検</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Section 6</div>
+            <h2 class="section-title">保存期間</h2>
+            <div class="section-content">
+                <p>個人情報の保存期間は以下のとおりです：</p>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>情報の種類</th>
+                            <th>保存期間</th>
+                            <th>理由</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>基本情報・履歴書</td>
+                            <td>退会後3年間</td>
+                            <td>再登録時の利便性向上・法令遵守</td>
+                        </tr>
+                        <tr>
+                            <td>応募・選考履歴</td>
+                            <td>選考終了後5年間</td>
+                            <td>紛争対応・統計分析</td>
+                        </tr>
+                        <tr>
+                            <td>アクセスログ</td>
+                            <td>取得後1年間</td>
+                            <td>セキュリティ対策・不正防止</td>
+                        </tr>
+                        <tr>
+                            <td>決済情報</td>
+                            <td>取引後7年間</td>
+                            <td>法令上の保存義務</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>保存期間経過後は、復元不可能な方法で完全削除いたします。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Section 7</div>
+            <h2 class="section-title">Cookie・類似技術</h2>
+            <div class="section-content">
+                <p>当社サイトでは、サービス向上のために以下の技術を使用しています：</p>
+                <ul>
+                    <li><span class="highlight">必須Cookie</span>：サイト機能に必要（ログイン状態維持等）</li>
+                    <li><span class="highlight">分析Cookie</span>：Google Analytics等によるアクセス解析</li>
+                    <li><span class="highlight">広告Cookie</span>：関連性の高い広告表示</li>
+                    <li><span class="highlight">ソーシャルメディアプラグイン</span>：LinkedIn等との連携</li>
+                </ul>
+                <p>ブラウザ設定により、Cookieの受け入れを制御できます。ただし、必須Cookie以外を無効にした場合、一部機能が利用できない場合があります。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Section 8</div>
+            <h2 class="section-title">利用者の権利</h2>
+            <div class="section-content">
+                <p>利用者は、自己の個人情報について以下の権利を有します：</p>
+                <ul>
+                    <li><span class="highlight">開示請求権</span>：当社が保有する個人情報の開示請求</li>
+                    <li><span class="highlight">訂正・追加・削除権</span>：個人情報の訂正・追加・削除請求</li>
+                    <li><span class="highlight">利用停止権</span>：個人情報の利用停止・消去請求</li>
+                    <li><span class="highlight">第三者提供停止権</span>：第三者への提供停止請求</li>
+                </ul>
+                <p>これらの権利行使をご希望の場合は、本人確認の上、合理的な期間内に対応いたします。ただし、法令に基づく場合など、応じかねる場合があります。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Section 9</div>
+            <h2 class="section-title">国際的なデータ移転</h2>
+            <div class="section-content">
+                <p>当社は、サービス向上のため、一部の個人情報を海外のサーバーに保存する場合があります：</p>
+                <ul>
+                    <li><span class="highlight">移転先国</span>：米国（AWS、Google Cloud）、アイルランド（LinkedIn）</li>
+                    <li><span class="highlight">保護措置</span>：適切性認定国・標準契約条項の利用</li>
+                    <li><span class="highlight">移転データ</span>：暗号化されたバックアップデータ・分析データ</li>
+                </ul>
+                <p>海外移転においても、国内と同等の保護レベルを確保いたします。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Section 10</div>
+            <h2 class="section-title">ポリシーの変更</h2>
+            <div class="section-content">
+                <p>本プライバシーポリシーは、法令の変更やサービスの改善に伴い変更される場合があります。</p>
+                <p>重要な変更については、Webサイト上での掲示やメール通知により、効力発生日の30日前までにお知らせいたします。継続してサービスをご利用いただくことで、変更後のポリシーに同意したものとみなされます。</p>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <h4>個人情報に関するお問い合わせ先</h4>
+            <p><strong>株式会社GeekReach</strong><br>
+            個人情報保護責任者：プライバシーオフィサー<br>
+            住所：〒100-0001 東京都千代田区千代田1-1-1 GeekReachビル 10F<br>
+            メール：privacy@geekreach.com<br>
+            電話：03-1234-5678（平日9:00-18:00）</p>
+            <p><strong>受付時間</strong>：平日9:00-18:00（土日祝日・年末年始を除く）<br>
+            <strong>回答期間</strong>：お問い合わせから原則として2週間以内</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">ホーム</a>
+                <a href="terms.html">利用規約</a>
+                <a href="privacy.html">プライバシーポリシー</a>
+                <a href="contact.html">お問い合わせ</a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 GeekReach. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

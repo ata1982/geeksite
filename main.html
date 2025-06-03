@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Robotics Agent Network - AI・ロボティクス業界の専門エージェント検索プラットフォーム">
+    <meta name="keywords" content="AI,ロボティクス,機械学習,エージェント,転職,求人,専門家">
+    <meta name="author" content="AI Robotics Agent Network">
+    <meta property="og:title" content="AI Robotics Agent Network - AI・ロボティクス専門エージェント検索">
+    <meta property="og:description" content="3,500名以上の検証済みAI・ロボティクス専門エージェントが登録。あなたのニーズに最適なエージェントとダイレクトに繋がる">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://ai-agent-network.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="images/twitter-card.jpg">
+    <title>AI Robotics Agent Network - AI・ロボティクス専門エージェント検索プラットフォーム</title>
+    
+    <!-- Critical CSS Inline -->
+    <style>
+        body{font-family:'Noto Sans JP',sans-serif;margin:0;padding:0;line-height:1.6}
+        .header{position:sticky;top:0;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.1);z-index:1000}
+        .hero{background:linear-gradient(135deg,#f8fafc 0%,#fff 100%);padding:4rem 0}
+        .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+    </style>
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Load fonts with display swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS - defer non-critical styles -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    
+    <!-- Font Awesome - load asynchronously -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "AI Robotics Agent Network",
+        "description": "AI・ロボティクス業界の専門エージェント検索プラットフォーム",
+        "url": "https://ai-agent-network.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://ai-agent-network.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="images/logo/logo.svg" alt="AI Robotics Agent Network" width="150" height="40">
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#specialties">専門分野</a></li>
+                        <li><a href="#how-it-works">利用方法</a></li>
+                        <li><a href="pricing.html">料金プラン</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="contact.html" class="btn btn-outline">お問い合わせ</a>
+                    <a href="contact.html" class="btn btn-primary">相談する</a>
+                    <button class="mobile-menu-btn" aria-label="メニューを開く">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content-single">
+                <h1 class="hero-title">
+                    AI・ロボティクス業界の<br>
+                    <span class="highlight">専門エージェント</span>を見つけよう
+                </h1>
+                <p class="hero-subtitle">
+                    3,500名以上の検証済みAI・ロボティクス専門エージェントが登録<br>
+                    あなたのニーズに最適なエージェントとダイレクトに繋がる
+                </p>
+                <div class="hero-search">
+                    <div class="search-container">
+                        <div class="search-input-wrapper">
+                            <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                            <input type="text" placeholder="専門分野、経験、企業名で検索..." class="search-input" aria-label="検索キーワード">
+                        </div>
+                        <div class="search-filters">
+                            <select class="filter-select" aria-label="専門分野選択">
+                                <option value="">専門分野</option>
+                                <option value="ml">機械学習</option>
+                                <option value="robotics">ロボティクス</option>
+                                <option value="cv">コンピュータビジョン</option>
+                                <option value="nlp">自然言語処理</option>
+                            </select>
+                            <select class="filter-select" aria-label="経験年数選択">
+                                <option value="">経験年数</option>
+                                <option value="1-3">1-3年</option>
+                                <option value="3-5">3-5年</option>
+                                <option value="5-10">5-10年</option>
+                                <option value="10+">10年以上</option>
+                            </select>
+                        </div>
+                        <a href="contact.html" class="search-btn">お問い合わせ</a>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">3,500+</span>
+                        <span class="stat-label">登録エージェント</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">企業パートナー</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">マッチング成功率</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Agents Section -->
+    <section id="agents" class="featured-agents">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">注目のエージェント</h2>
+                <p class="section-subtitle">高評価・実績豊富な人気エージェント</p>
+            </div>
+            <div class="agents-grid">
+                <article class="agent-card">
+                    <div class="agent-header">
+                        <div class="agent-avatar">
+                            <img src="images/people/person1.jpg" alt="田中智子のプロフィール写真" width="80" height="80" loading="lazy">
+                            <div class="verified-badge" title="認証済みエージェント">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="agent-basic-info">
+                            <h3 class="agent-name">田中智子</h3>
+                            <p class="agent-title">シニアMLエンジニアリング・エージェント</p>
+                            <div class="agent-location">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span>東京・リモート対応</span>
+                            </div>
+                        </div>
+                        <div class="agent-rating">
+                            <div class="stars" aria-label="5つ星評価">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                            </div>
+                            <span class="rating-score">4.9</span>
+                            <span class="review-count">(127レビュー)</span>
+                        </div>
+                    </div>
+                    <div class="agent-specialties">
+                        <span class="specialty-tag">機械学習</span>
+                        <span class="specialty-tag">深層学習</span>
+                        <span class="specialty-tag">GAFAM転職</span>
+                        <span class="specialty-tag">PyTorch</span>
+                    </div>
+                    <p class="agent-summary">
+                        機械学習・深層学習分野での8年間の豊富な経験を活かし、200名以上のMLエンジニアの転職成功を実現。平均年収向上率145%。GAFAM・AI独角獣企業への転職実績豊富。
+                    </p>
+                    <div class="agent-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">200+</span>
+                            <span class="stat-name">転職成功</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">145%</span>
+                            <span class="stat-name">年収向上率</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">8年</span>
+                            <span class="stat-name">業界経験</span>
+                        </div>
+                    </div>
+                    <div class="agent-actions">
+                        <button class="btn btn-primary" type="button">相談予約</button>
+                        <button class="btn btn-outline" type="button">プロフィール詳細</button>
+                    </div>
+                </article>
+
+                <article class="agent-card">
+                    <div class="agent-header">
+                        <div class="agent-avatar">
+                            <img src="images/people/consultant2.jpg" alt="佐藤雄太のプロフィール写真" width="80" height="80" loading="lazy">
+                            <div class="verified-badge" title="認証済みエージェント">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="agent-basic-info">
+                            <h3 class="agent-name">佐藤雄太</h3>
+                            <p class="agent-title">ロボティクス・自動運転専門エージェント</p>
+                            <div class="agent-location">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span>大阪・全国対応</span>
+                            </div>
+                        </div>
+                        <div class="agent-rating">
+                            <div class="stars" aria-label="5つ星評価">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                            </div>
+                            <span class="rating-score">4.8</span>
+                            <span class="review-count">(89レビュー)</span>
+                        </div>
+                    </div>
+                    <div class="agent-specialties">
+                        <span class="specialty-tag">ロボティクス</span>
+                        <span class="specialty-tag">自動運転</span>
+                        <span class="specialty-tag">制御工学</span>
+                        <span class="specialty-tag">ROS</span>
+                    </div>
+                    <p class="agent-summary">
+                        ロボティクス・自動運転分野での10年間の専門知識を活かし、150名以上の転職支援を実現。スタートアップから大手まで幅広い業界ネットワークを構築。
+                    </p>
+                    <div class="agent-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">150+</span>
+                            <span class="stat-name">転職成功</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">130%</span>
+                            <span class="stat-name">年収向上率</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">10年</span>
+                            <span class="stat-name">業界経験</span>
+                        </div>
+                    </div>
+                    <div class="agent-actions">
+                        <button class="btn btn-primary" type="button">相談予約</button>
+                        <button class="btn btn-outline" type="button">プロフィール詳細</button>
+                    </div>
+                </article>
+
+                <article class="agent-card">
+                    <div class="agent-header">
+                        <div class="agent-avatar">
+                            <img src="images/people/person2.jpg" alt="山田美香のプロフィール写真" width="80" height="80" loading="lazy">
+                            <div class="verified-badge" title="認証済みエージェント">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="agent-basic-info">
+                            <h3 class="agent-name">山田美香</h3>
+                            <p class="agent-title">NLP・言語AI専門エージェント</p>
+                            <div class="agent-location">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span>東京・リモート対応</span>
+                            </div>
+                        </div>
+                        <div class="agent-rating">
+                            <div class="stars" aria-label="5つ星評価">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                            </div>
+                            <span class="rating-score">4.9</span>
+                            <span class="review-count">(156レビュー)</span>
+                        </div>
+                    </div>
+                    <div class="agent-specialties">
+                        <span class="specialty-tag">NLP</span>
+                        <span class="specialty-tag">大規模言語モデル</span>
+                        <span class="specialty-tag">対話AI</span>
+                        <span class="specialty-tag">Transformer</span>
+                    </div>
+                    <p class="agent-summary">
+                        自然言語処理・大規模言語モデル分野での6年間の研究開発経験を活かし、ChatGPT時代の言語AI人材育成のエキスパート。研究者からエンジニアまで幅広くサポート。
+                    </p>
+                    <div class="agent-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">180+</span>
+                            <span class="stat-name">転職成功</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">160%</span>
+                            <span class="stat-name">年収向上率</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">6年</span>
+                            <span class="stat-name">業界経験</span>
+                        </div>
+                    </div>
+                    <div class="agent-actions">
+                        <button class="btn btn-primary" type="button">相談予約</button>
+                        <button class="btn btn-outline" type="button">プロフィール詳細</button>
+                    </div>
+                </article>
+            </div>
+            <div class="view-all-center">
+                <a href="contact.html" class="btn btn-outline btn-large">お問い合わせ (3,500名のエージェントネットワーク)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties Section -->
+    <section id="specialties" class="specialties">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">専門分野から探す</h2>
+                <p class="section-subtitle">300以上の細分化された専門分野でエージェントを検索</p>
+            </div>
+            
+            <!-- Main Categories -->
+            <div class="specialties-grid">
+                <div class="specialty-category">
+                    <div class="category-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>機械学習・AI</h3>
+                    <p class="category-count">1,240名のエージェント</p>
+                    <div class="sub-specialties">
+                        <span>深層学習</span>
+                        <span>MLOps</span>
+                        <span>データサイエンス</span>
+                        <span>AI研究</span>
+                    </div>
+                    <a href="contact.html" class="category-link">お問い合わせ</a>
+                </div>
+                <div class="specialty-category">
+                    <div class="category-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>ロボティクス</h3>
+                    <p class="category-count">850名のエージェント</p>
+                    <div class="sub-specialties">
+                        <span>自動運転</span>
+                        <span>産業ロボット</span>
+                        <span>制御工学</span>
+                        <span>センサー技術</span>
+                    </div>
+                    <a href="contact.html" class="category-link">お問い合わせ</a>
+                </div>
+                <div class="specialty-category">
+                    <div class="category-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>コンピュータビジョン</h3>
+                    <p class="category-count">720名のエージェント</p>
+                    <div class="sub-specialties">
+                        <span>画像認識</span>
+                        <span>3D Vision</span>
+                        <span>医療画像</span>
+                        <span>AR/VR</span>
+                    </div>
+                    <a href="contact.html" class="category-link">お問い合わせ</a>
+                </div>
+                <div class="specialty-category">
+                    <div class="category-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>自然言語処理</h3>
+                    <p class="category-count">690名のエージェント</p>
+                    <div class="sub-specialties">
+                        <span>大規模言語モデル</span>
+                        <span>対話AI</span>
+                        <span>音声認識</span>
+                        <span>検索技術</span>
+                    </div>
+                    <a href="contact.html" class="category-link">お問い合わせ</a>
+                </div>
+            </div>
+
+            <!-- Detailed Specialties Directory -->
+            <div class="detailed-specialties">
+                <h3 class="detailed-title">すべての専門分野</h3>
+                <div class="specialties-directory">
+                    <!-- 機械学習・AI分野 -->
+                    <div class="specialty-group">
+                        <h4>機械学習・AI</h4>
+                        <div class="specialty-links">
+                            <a href="#">深層学習</a>
+                            <a href="#">機械学習エンジニア</a>
+                            <a href="#">MLOps</a>
+                            <a href="#">AutoML</a>
+                            <a href="#">強化学習</a>
+                            <a href="#">転移学習</a>
+                            <a href="#">フェデレーテッドラーニング</a>
+                            <a href="#">量子機械学習</a>
+                            <a href="#">ニューラルネットワーク</a>
+                            <a href="#">CNN</a>
+                            <a href="#">RNN</a>
+                            <a href="#">LSTM</a>
+                            <a href="#">GRU</a>
+                            <a href="#">Transformer</a>
+                            <a href="#">BERT</a>
+                            <a href="#">GPT</a>
+                            <a href="#">VAE</a>
+                            <a href="#">GAN</a>
+                            <a href="#">拡散モデル</a>
+                            <a href="#">Stable Diffusion</a>
+                            <a href="#">PyTorch</a>
+                            <a href="#">TensorFlow</a>
+                            <a href="#">Keras</a>
+                            <a href="#">JAX</a>
+                            <a href="#">MXNet</a>
+                            <a href="#">Scikit-learn</a>
+                            <a href="#">XGBoost</a>
+                            <a href="#">LightGBM</a>
+                            <a href="#">CatBoost</a>
+                            <a href="#">Hugging Face</a>
+                            <a href="#">Weights & Biases</a>
+                            <a href="#">MLflow</a>
+                            <a href="#">Kubeflow</a>
+                            <a href="#">DVC</a>
+                            <a href="#">特徴量エンジニアリング</a>
+                            <a href="#">ハイパーパラメータ最適化</a>
+                            <a href="#">モデル解釈性</a>
+                            <a href="#">SHAP</a>
+                            <a href="#">LIME</a>
+                            <a href="#">Explainable AI</a>
+                            <a href="#">Responsible AI</a>
+                            <a href="#">AI倫理</a>
+                            <a href="#">バイアス検出</a>
+                            <a href="#">公平性</a>
+                        </div>
+                    </div>
+
+                    <!-- データサイエンス -->
+                    <div class="specialty-group">
+                        <h4>データサイエンス</h4>
+                        <div class="specialty-links">
+                            <a href="#">データサイエンティスト</a>
+                            <a href="#">データアナリスト</a>
+                            <a href="#">データエンジニア</a>
+                            <a href="#">ビッグデータ</a>
+                            <a href="#">データマイニング</a>
+                            <a href="#">統計解析</a>
+                            <a href="#">ベイズ統計</a>
+                            <a href="#">時系列解析</a>
+                            <a href="#">因果推論</a>
+                            <a href="#">A/Bテスト</a>
+                            <a href="#">実験計画法</a>
+                            <a href="#">多変量解析</a>
+                            <a href="#">クラスタリング</a>
+                            <a href="#">分類</a>
+                            <a href="#">回帰分析</a>
+                            <a href="#">次元削減</a>
+                            <a href="#">主成分分析</a>
+                            <a href="#">t-SNE</a>
+                            <a href="#">UMAP</a>
+                            <a href="#">Python</a>
+                            <a href="#">R</a>
+                            <a href="#">SQL</a>
+                            <a href="#">Pandas</a>
+                            <a href="#">NumPy</a>
+                            <a href="#">SciPy</a>
+                            <a href="#">Matplotlib</a>
+                            <a href="#">Seaborn</a>
+                            <a href="#">Plotly</a>
+                            <a href="#">Jupyter</a>
+                            <a href="#">Apache Spark</a>
+                            <a href="#">Hadoop</a>
+                            <a href="#">Kafka</a>
+                            <a href="#">Airflow</a>
+                            <a href="#">dbt</a>
+                            <a href="#">Snowflake</a>
+                            <a href="#">BigQuery</a>
+                            <a href="#">Redshift</a>
+                            <a href="#">Tableau</a>
+                            <a href="#">Power BI</a>
+                            <a href="#">Looker</a>
+                        </div>
+                    </div>
+
+                    <!-- ロボティクス -->
+                    <div class="specialty-group">
+                        <h4>ロボティクス</h4>
+                        <div class="specialty-links">
+                            <a href="#">ロボティクスエンジニア</a>
+                            <a href="#">産業用ロボット</a>
+                            <a href="#">サービスロボット</a>
+                            <a href="#">ヒューマノイドロボット</a>
+                            <a href="#">協働ロボット</a>
+                            <a href="#">医療ロボット</a>
+                            <a href="#">手術支援ロボット</a>
+                            <a href="#">介護ロボット</a>
+                            <a href="#">清掃ロボット</a>
+                            <a href="#">警備ロボット</a>
+                            <a href="#">農業ロボット</a>
+                            <a href="#">建設ロボット</a>
+                            <a href="#">宇宙ロボット</a>
+                            <a href="#">海洋ロボット</a>
+                            <a href="#">ドローン</a>
+                            <a href="#">無人航空機</a>
+                            <a href="#">無人搬送車</a>
+                            <a href="#">AGV</a>
+                            <a href="#">AMR</a>
+                            <a href="#">制御工学</a>
+                            <a href="#">制御システム</a>
+                            <a href="#">PID制御</a>
+                            <a href="#">適応制御</a>
+                            <a href="#">最適制御</a>
+                            <a href="#">ロバスト制御</a>
+                            <a href="#">モデル予測制御</a>
+                            <a href="#">SLAM</a>
+                            <a href="#">ナビゲーション</a>
+                            <a href="#">経路計画</a>
+                            <a href="#">動作計画</a>
+                            <a href="#">逆運動学</a>
+                            <a href="#">順運動学</a>
+                            <a href="#">マニピュレータ</a>
+                            <a href="#">エンドエフェクタ</a>
+                            <a href="#">アクチュエータ</a>
+                            <a href="#">センサーフュージョン</a>
+                            <a href="#">IMU</a>
+                            <a href="#">LiDAR</a>
+                            <a href="#">カメラセンサー</a>
+                            <a href="#">力覚センサー</a>
+                            <a href="#">触覚センサー</a>
+                            <a href="#">ROS</a>
+                            <a href="#">ROS2</a>
+                            <a href="#">Gazebo</a>
+                            <a href="#">V-REP</a>
+                            <a href="#">MoveIt</a>
+                        </div>
+                    </div>
+
+                    <!-- 自動運転 -->
+                    <div class="specialty-group">
+                        <h4>自動運転・モビリティ</h4>
+                        <div class="specialty-links">
+                            <a href="#">自動運転エンジニア</a>
+                            <a href="#">ADAS</a>
+                            <a href="#">レベル4自動運転</a>
+                            <a href="#">レベル5自動運転</a>
+                            <a href="#">車線維持支援</a>
+                            <a href="#">自動車線変更</a>
+                            <a href="#">自動駐車</a>
+                            <a href="#">交通標識認識</a>
+                            <a href="#">歩行者検出</a>
+                            <a href="#">車両検出</a>
+                            <a href="#">オブジェクト追跡</a>
+                            <a href="#">Sensor Fusion</a>
+                            <a href="#">車載LiDAR</a>
+                            <a href="#">車載カメラ</a>
+                            <a href="#">車載レーダー</a>
+                            <a href="#">HD Map</a>
+                            <a href="#">ローカライゼーション</a>
+                            <a href="#">車両制御</a>
+                            <a href="#">CAN通信</a>
+                            <a href="#">AUTOSAR</a>
+                            <a href="#">ISO 26262</a>
+                            <a href="#">Safety</a>
+                            <a href="#">SOTIF</a>
+                            <a href="#">ODD</a>
+                            <a href="#">MaaS</a>
+                            <a href="#">コネクテッドカー</a>
+                            <a href="#">V2X</a>
+                            <a href="#">V2V</a>
+                            <a href="#">V2I</a>
+                            <a href="#">CARLA</a>
+                            <a href="#">SUMO</a>
+                            <a href="#">Apollo</a>
+                            <a href="#">Autoware</a>
+                        </div>
+                    </div>
+
+                    <!-- コンピュータビジョン -->
+                    <div class="specialty-group">
+                        <h4>コンピュータビジョン</h4>
+                        <div class="specialty-links">
+                            <a href="#">画像認識エンジニア</a>
+                            <a href="#">画像分類</a>
+                            <a href="#">物体検出</a>
+                            <a href="#">セマンティックセグメンテーション</a>
+                            <a href="#">インスタンスセグメンテーション</a>
+                            <a href="#">パノプティックセグメンテーション</a>
+                            <a href="#">顔認識</a>
+                            <a href="#">顔検出</a>
+                            <a href="#">表情認識</a>
+                            <a href="#">姿勢推定</a>
+                            <a href="#">骨格検出</a>
+                            <a href="#">手形状認識</a>
+                            <a href="#">ジェスチャー認識</a>
+                            <a href="#">動作認識</a>
+                            <a href="#">行動解析</a>
+                            <a href="#">群衆解析</a>
+                            <a href="#">トラッキング</a>
+                            <a href="#">Multiple Object Tracking</a>
+                            <a href="#">Re-ID</a>
+                            <a href="#">3D物体検出</a>
+                            <a href="#">3D姿勢推定</a>
+                            <a href="#">3D再構成</a>
+                            <a href="#">Structure from Motion</a>
+                            <a href="#">Stereo Vision</a>
+                            <a href="#">Depth Estimation</a>
+                            <a href="#">Point Cloud</a>
+                            <a href="#">PointNet</a>
+                            <a href="#">PCL</a>
+                            <a href="#">医療画像解析</a>
+                            <a href="#">CT画像解析</a>
+                            <a href="#">MRI画像解析</a>
+                            <a href="#">X線画像解析</a>
+                            <a href="#">病理画像解析</a>
+                            <a href="#">内視鏡画像解析</a>
+                            <a href="#">OCR</a>
+                            <a href="#">文字認識</a>
+                            <a href="#">レシート認識</a>
+                            <a href="#">文書解析</a>
+                            <a href="#">AR</a>
+                            <a href="#">VR</a>
+                            <a href="#">Mixed Reality</a>
+                            <a href="#">ARKit</a>
+                            <a href="#">ARCore</a>
+                            <a href="#">Unity</a>
+                            <a href="#">Unreal Engine</a>
+                            <a href="#">OpenCV</a>
+                            <a href="#">YOLO</a>
+                            <a href="#">R-CNN</a>
+                            <a href="#">Mask R-CNN</a>
+                            <a href="#">U-Net</a>
+                            <a href="#">ResNet</a>
+                            <a href="#">EfficientNet</a>
+                            <a href="#">Vision Transformer</a>
+                        </div>
+                    </div>
+
+                    <!-- 自然言語処理 -->
+                    <div class="specialty-group">
+                        <h4>自然言語処理・言語AI</h4>
+                        <div class="specialty-links">
+                            <a href="#">NLPエンジニア</a>
+                            <a href="#">大規模言語モデル</a>
+                            <a href="#">ChatGPT</a>
+                            <a href="#">GPT-4</a>
+                            <a href="#">Claude</a>
+                            <a href="#">LLaMA</a>
+                            <a href="#">PaLM</a>
+                            <a href="#">Gemini</a>
+                            <a href="#">ファインチューニング</a>
+                            <a href="#">プロンプトエンジニアリング</a>
+                            <a href="#">Few-shot Learning</a>
+                            <a href="#">In-context Learning</a>
+                            <a href="#">RAG</a>
+                            <a href="#">Vector Database</a>
+                            <a href="#">Embedding</a>
+                            <a href="#">Word2Vec</a>
+                            <a href="#">GloVe</a>
+                            <a href="#">FastText</a>
+                            <a href="#">BERT</a>
+                            <a href="#">RoBERTa</a>
+                            <a href="#">ELECTRA</a>
+                            <a href="#">DeBERTa</a>
+                            <a href="#">T5</a>
+                            <a href="#">BART</a>
+                            <a href="#">対話システム</a>
+                            <a href="#">チャットボット</a>
+                            <a href="#">質問応答</a>
+                            <a href="#">要約</a>
+                            <a href="#">翻訳</a>
+                            <a href="#">機械翻訳</a>
+                            <a href="#">ニューラル機械翻訳</a>
+                            <a href="#">感情分析</a>
+                            <a href="#">テキスト分類</a>
+                            <a href="#">名前付きエンティティ認識</a>
+                            <a href="#">固有表現抽出</a>
+                            <a href="#">構文解析</a>
+                            <a href="#">依存関係解析</a>
+                            <a href="#">共参照解決</a>
+                            <a href="#">テキストマイニング</a>
+                            <a href="#">情報抽出</a>
+                            <a href="#">関係抽出</a>
+                            <a href="#">イベント抽出</a>
+                            <a href="#">知識グラフ</a>
+                            <a href="#">オントロジー</a>
+                            <a href="#">検索技術</a>
+                            <a href="#">情報検索</a>
+                            <a href="#">Elasticsearch</a>
+                            <a href="#">Solr</a>
+                            <a href="#">Lucene</a>
+                            <a href="#">BM25</a>
+                            <a href="#">TF-IDF</a>
+                            <a href="#">音声認識</a>
+                            <a href="#">音声合成</a>
+                            <a href="#">音声対話</a>
+                            <a href="#">Whisper</a>
+                            <a href="#">Wav2Vec</a>
+                            <a href="#">ASR</a>
+                            <a href="#">TTS</a>
+                            <a href="#">Voice Cloning</a>
+                            <a href="#">spaCy</a>
+                            <a href="#">NLTK</a>
+                            <a href="#">Transformers</a>
+                            <a href="#">Langchain</a>
+                            <a href="#">LlamaIndex</a>
+                        </div>
+                    </div>
+
+                    <!-- AI・ML基盤技術 -->
+                    <div class="specialty-group">
+                        <h4>AI・ML基盤技術</h4>
+                        <div class="specialty-links">
+                            <a href="#">AI/MLプラットフォーム</a>
+                            <a href="#">MLOpsエンジニア</a>
+                            <a href="#">CI/CD for ML</a>
+                            <a href="#">モデル管理</a>
+                            <a href="#">モデルデプロイ</a>
+                            <a href="#">モデル監視</a>
+                            <a href="#">Docker</a>
+                            <a href="#">Kubernetes</a>
+                            <a href="#">Helm</a>
+                            <a href="#">Istio</a>
+                            <a href="#">GPU最適化</a>
+                            <a href="#">CUDA</a>
+                            <a href="#">cuDNN</a>
+                            <a href="#">TensorRT</a>
+                            <a href="#">ONNX</a>
+                            <a href="#">OpenVINO</a>
+                            <a href="#">TensorFlow Lite</a>
+                            <a href="#">PyTorch Mobile</a>
+                            <a href="#">エッジAI</a>
+                            <a href="#">エッジコンピューティング</a>
+                            <a href="#">Jetson</a>
+                            <a href="#">Coral</a>
+                            <a href="#">Intel NUC</a>
+                            <a href="#">Raspberry Pi</a>
+                            <a href="#">分散学習</a>
+                            <a href="#">並列学習</a>
+                            <a href="#">Horovod</a>
+                            <a href="#">DeepSpeed</a>
+                            <a href="#">FairScale</a>
+                            <a href="#">高性能計算</a>
+                            <a href="#">HPC</a>
+                            <a href="#">SLURM</a>
+                            <a href="#">MPI</a>
+                            <a href="#">クラウドAI</a>
+                            <a href="#">AWS SageMaker</a>
+                            <a href="#">Google Cloud AI</a>
+                            <a href="#">Azure ML</a>
+                            <a href="#">Vertex AI</a>
+                            <a href="#">量子コンピューティング</a>
+                            <a href="#">Qiskit</a>
+                            <a href="#">Cirq</a>
+                            <a href="#">PennyLane</a>
+                        </div>
+                    </div>
+
+                    <!-- 業界特化AI -->
+                    <div class="specialty-group">
+                        <h4>業界特化AI</h4>
+                        <div class="specialty-links">
+                            <a href="#">FinTech</a>
+                            <a href="#">金融AI</a>
+                            <a href="#">アルゴリズム取引</a>
+                            <a href="#">リスク管理</a>
+                            <a href="#">信用スコアリング</a>
+                            <a href="#">不正検知</a>
+                            <a href="#">RegTech</a>
+                            <a href="#">InsurTech</a>
+                            <a href="#">医療AI</a>
+                            <a href="#">創薬AI</a>
+                            <a href="#">ドラッグディスカバリー</a>
+                            <a href="#">診断支援AI</a>
+                            <a href="#">ゲノム解析</a>
+                            <a href="#">バイオインフォマティクス</a>
+                            <a href="#">デジタル病理</a>
+                            <a href="#">放射線科AI</a>
+                            <a href="#">製造業AI</a>
+                            <a href="#">予知保全</a>
+                            <a href="#">品質管理AI</a>
+                            <a href="#">生産最適化</a>
+                            <a href="#">スマートファクトリー</a>
+                            <a href="#">Industry 4.0</a>
+                            <a href="#">小売AI</a>
+                            <a href="#">レコメンドシステム</a>
+                            <a href="#">需要予測</a>
+                            <a href="#">価格最適化</a>
+                            <a href="#">在庫最適化</a>
+                            <a href="#">顧客分析</a>
+                            <a href="#">マーケティングAI</a>
+                            <a href="#">広告最適化</a>
+                            <a href="#">コンテンツ生成</a>
+                            <a href="#">エンターテイメントAI</a>
+                            <a href="#">ゲームAI</a>
+                            <a href="#">スポーツ分析</a>
+                            <a href="#">農業AI</a>
+                            <a href="#">精密農業</a>
+                            <a href="#">作物監視</a>
+                            <a href="#">気象予測</a>
+                            <a href="#">環境AI</a>
+                            <a href="#">エネルギー最適化</a>
+                            <a href="#">スマートグリッド</a>
+                            <a href="#">再生可能エネルギー</a>
+                            <a href="#">教育AI</a>
+                            <a href="#">EdTech</a>
+                            <a href="#">学習分析</a>
+                            <a href="#">適応学習</a>
+                            <a href="#">法務AI</a>
+                            <a href="#">LegalTech</a>
+                            <a href="#">契約書解析</a>
+                            <a href="#">判例検索</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">利用方法</h2>
+                <p class="section-subtitle">3ステップで理想のエージェントと繋がる</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>エージェント検索</h3>
+                    <p>専門分野、経験、評価などの条件でエージェントを検索。詳細なプロフィールで実績・専門性を確認できます。</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>相談予約</h3>
+                    <p>気になるエージェントと直接コンタクト。オンライン・オフライン問わず、あなたの都合に合わせて相談を予約。</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>キャリア支援開始</h3>
+                    <p>エージェントがあなたの技術スキルとキャリア目標に基づいて、最適な求人と企業をマッチング。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Agents Section -->
+    <section id="for-agents" class="for-agents">
+        <div class="container">
+            <div class="for-agents-content">
+                <div class="for-agents-text">
+                    <h2>AI・ロボティクス専門エージェントの方へ</h2>
+                    <p>あなたの専門性を活かして、より多くの優秀な人材と出会いませんか？</p>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check"></i> 月間10万人以上の技術者がアクセス</li>
+                        <li><i class="fas fa-check"></i> 詳細なプロフィールで専門性をアピール</li>
+                        <li><i class="fas fa-check"></i> レビュー・評価システムで信頼性向上</li>
+                        <li><i class="fas fa-check"></i> 直接コンタクト機能で効率的なマッチング</li>
+                    </ul>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary btn-large">お問い合わせ</a>
+                        <a href="contact.html" class="btn btn-outline btn-large">詳細を見る</a>
+                    </div>
+                </div>
+                <div class="for-agents-image">
+                    <img src="images/dummy/global_team.jpg" alt="エージェント登録">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="images/logo/logo.svg" alt="AI Robotics Agent Network" class="footer-logo">
+                    <p>AI・ロボティクス業界専門エージェント検索プラットフォーム</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>求職者向け</h4>
+                    <ul>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                        <li><a href="index.html#specialties">専門分野</a></li>
+                        <li><a href="index.html#how-it-works">利用方法</a></li>
+                        <li><a href="consultants.html">エージェント一覧</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>エージェント向け</h4>
+                    <ul>
+                        <li><a href="contact.html">エージェント登録相談</a></li>
+                        <li><a href="pricing.html">料金プラン</a></li>
+                        <li><a href="contact.html">サポート</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>企業向け</h4>
+                    <ul>
+                        <li><a href="company-register.html">企業登録</a></li>
+                        <li><a href="pricing.html">料金プラン</a></li>
+                        <li><a href="contact.html">法人サービス</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>企業情報</h4>
+                    <ul>
+                        <li><a href="contact.html">会社概要</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                        <li><a href="privacy.html">プライバシーポリシー</a></li>
+                        <li><a href="terms.html">利用規約</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Robotics Agent Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load JavaScript asynchronously -->
+    <script src="js/app.js" defer></script>
+</body>
+</html>

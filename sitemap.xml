@@ -1,158 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <!-- Main Pages -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- メインページ - 最高優先度 -->
   <url>
-    <loc>https://gmc-careers.jp/</loc>
-    <lastmod>2025-06-01</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://geekreach.com/</loc>
+    <lastmod>2024-12-20</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gmc-careers.jp/en/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://gmc-careers.jp/" />
+    <image:image>
+      <image:loc>https://geekreach.com/images/og-image.jpg</image:loc>
+      <image:title>ギークリーチ - ハイクラス転職サイト</image:title>
+    </image:image>
   </url>
   
+  <!-- 重要ページ - 高優先度 -->
   <url>
-    <loc>https://gmc-careers.jp/en/</loc>
-    <lastmod>2025-06-01</lastmod>
+    <loc>https://geekreach.com/consultants.html</loc>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gmc-careers.jp/en/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://gmc-careers.jp/" />
-  </url>
-
-  <!-- Jobs -->
-  <url>
-    <loc>https://gmc-careers.jp/jobs/search.html</loc>
-    <lastmod>2025-06-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <url>
-    <loc>https://gmc-careers.jp/jobs/detail.html</loc>
-    <lastmod>2025-06-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Services -->
-  <url>
-    <loc>https://gmc-careers.jp/services/index.html</loc>
-    <lastmod>2025-06-01</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://gmc-careers.jp/services/flow.html</loc>
-    <lastmod>2025-06-01</lastmod>
+    <loc>https://geekreach.com/company-register.html</loc>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://gmc-careers.jp/services/consultants.html</loc>
-    <lastmod>2025-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://gmc-careers.jp/services/resume_support.html</loc>
-    <lastmod>2025-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Know-how -->
-  <url>
-    <loc>https://gmc-careers.jp/knowhow/index.html</loc>
-    <lastmod>2025-06-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://gmc-careers.jp/knowhow/article_template.html</loc>
-    <lastmod>2025-06-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Success Stories -->
-  <url>
-    <loc>https://gmc-careers.jp/success_stories/index.html</loc>
-    <lastmod>2025-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Recruiters -->
-  <url>
-    <loc>https://gmc-careers.jp/recruiters/index.html</loc>
-    <lastmod>2025-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Contact -->
-  <url>
-    <loc>https://gmc-careers.jp/contact/index.html</loc>
-    <lastmod>2025-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Auth -->
-  <url>
-    <loc>https://gmc-careers.jp/auth/register.html</loc>
-    <lastmod>2025-06-01</lastmod>
+    <loc>https://geekreach.com/pricing.html</loc>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://gmc-careers.jp/auth/login.html</loc>
-    <lastmod>2025-06-01</lastmod>
+    <loc>https://geekreach.com/contact.html</loc>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>
-
-  <!-- Legal -->
+  
   <url>
-    <loc>https://gmc-careers.jp/legal/privacy.html</loc>
-    <lastmod>2025-06-01</lastmod>
+    <loc>https://geekreach.com/privacy.html</loc>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <url>
-    <loc>https://gmc-careers.jp/legal/terms.html</loc>
-    <lastmod>2025-06-01</lastmod>
+    <loc>https://geekreach.com/terms.html</loc>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
-  <!-- Corporate -->
-  <url>
-    <loc>https://gmc-careers.jp/corporate/about.html</loc>
-    <lastmod>2025-06-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <!-- FAQ -->
-  <url>
-    <loc>https://gmc-careers.jp/faq/index.html</loc>
-    <lastmod>2025-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- Member Dashboard -->
-  <url>
-    <loc>https://gmc-careers.jp/member/dashboard.html</loc>
-    <lastmod>2025-06-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
+  
 </urlset>

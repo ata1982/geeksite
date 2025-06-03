@@ -3,444 +3,678 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Global Manufacturing Careers - 外資系・製造業特化型の転職エージェントサイト。グローバルな製造業でのキャリアを目指す専門職人材と優秀な人材を求める企業を繋ぎます。">
-    <meta name="keywords" content="外資系転職,製造業転職,エンジニア転職,機械設計,電子回路設計,品質管理,生産管理,研究開発,英文レジュメ,グローバルキャリア">
-    <meta name="author" content="Global Manufacturing Careers">
-    <meta name="robots" content="index,follow">
-    <meta property="og:title" content="Global Manufacturing Careers | 外資系・製造業特化型 転職エージェント">
-    <meta property="og:description" content="グローバルな製造業でのキャリアを目指す専門職人材と優秀な人材を求める企業を繋ぐ転職エージェントサイト。非公開求人多数、英文レジュメ添削、面接対策まで徹底サポート。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gmc-careers.jp/">
-    <meta property="og:image" content="https://gmc-careers.jp/images/og-image.jpg">
-    <meta property="og:site_name" content="Global Manufacturing Careers">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Global Manufacturing Careers | 外資系・製造業特化型 転職エージェント">
-    <meta name="twitter:description" content="グローバルな製造業でのキャリアを目指す専門職人材と優秀な人材を求める企業を繋ぐ転職エージェントサイト。">
-    <meta name="twitter:image" content="https://gmc-careers.jp/images/twitter-card.jpg">
-    <link rel="canonical" href="https://gmc-careers.jp/">
-    <title>Global Manufacturing Careers | 外資系・製造業特化型 転職エージェント</title>
+    <meta name="description" content="GeekReach - 技術で世界を変える挑戦をサポート。最先端技術プロジェクトと優秀なチームで技術的成長を実現">
+    <meta name="keywords" content="技術者転職,エンジニア転職,最先端技術,プロジェクト,技術的成長,AI転職,GeekReach">
+    <title>GeekReach - 技術で世界を変える挑戦をサポート</title>
+    
+    <!-- SEO・パフォーマンス最適化 -->
+    <link rel="canonical" href="https://geekreach.com/">
+    <meta property="og:title" content="GeekReach - 技術で世界を変える挑戦をサポート">
+    <meta property="og:description" content="最先端技術プロジェクトと優秀なチームで技術的成長を実現。プロフェッショナルエージェントがサポート">
+    <meta property="og:url" content="https://geekreach.com/">
+    <meta property="og:image" content="https://geekreach.com/images/og-image.jpg">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=2.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <style>
+        /* GeekReachデザインシステム */
+        :root {
+            --primary-navy: #1a2332;
+            --secondary-gold: #d4af37;
+            --accent-cream: #f8f6f3;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --white: #ffffff;
+            --shadow-subtle: 0 4px 20px rgba(26, 35, 50, 0.08);
+            --shadow-medium: 0 8px 40px rgba(26, 35, 50, 0.12);
+            --gradient-luxury: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+        }
+        
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:'Inter', 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Meiryo','メイリオ',sans-serif;
+            line-height:1.6;
+            color:var(--text-dark);
+            background:var(--white);
+            letter-spacing: -0.01em;
+        }
+        
+        /* ヘッダー */
+        .header{
+            background:rgba(255,255,255,0.95);
+            backdrop-filter:blur(20px);
+            padding:1.5rem 0;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            border-bottom:1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 3rem;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary-gold);
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .header-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .header-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--secondary-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .header-link:hover {
+            color: var(--primary-navy);
+        }
+        
+        .header-link:hover::before {
+            width: 100%;
+        }
+        
+        .btn-register {
+            background: var(--secondary-gold);
+            color: var(--primary-navy);
+            padding: 0.8rem 2rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-register:hover {
+            background: #c19b26;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        /* ハンバーガーメニュー */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1100;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-navy);
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle:hover span {
+            background: var(--secondary-gold);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            width: 250px;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav-list li {
+            margin-bottom: 1.5rem;
+        }
+        
+        .nav-list a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-list a:hover {
+            color: var(--secondary-gold);
+        }
+        
+        /* ヒーローセクション */
+        .hero{
+            background: var(--gradient-luxury);
+            color: white;
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="luxury-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(212,175,55,0.08)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23luxury-grid)"/></svg>');
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-gold);
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .hero-title{
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: white;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.08);
+            padding: 2rem;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(20px);
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--secondary-gold);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .cta-button {
+            background: var(--secondary-gold);
+            color: var(--primary-navy);
+            padding: 1.2rem 3rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 3rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .cta-button:hover {
+            background: #c19b26;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        /* セクション共通 */
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 4rem;
+            color: var(--primary-navy);
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--secondary-gold);
+        }
+        
+        /* 特徴セクション */
+        .features-section {
+            background: var(--accent-cream);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 4px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .feature-card:hover {
+            border-color: var(--secondary-gold);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-navy);
+        }
+        
+        .feature-text {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        /* フッター */
+        .footer {
+            background: var(--primary-navy);
+            color: rgba(255,255,255,0.7);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--secondary-gold);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p {
+            color: #adb5bd;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .footer-section a {
+            background: var(--secondary-gold);
+            color: var(--primary-navy);
+            padding: 0.8rem 2rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            background: #c19b26;
+            transform: translateY(-1px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #495057;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            margin: 0;
+            color: #6c757d;
+        }
+        
+        /* LinkedIn関連のスタイル */
+        .linkedin-section {
+            background: var(--gradient-luxury);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+        
+        .linkedin-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+        
+        .linkedin-content p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .linkedin-btn {
+            background: var(--secondary-gold);
+            color: var(--primary-navy);
+            padding: 1.2rem 3rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .linkedin-btn:hover {
+            background: #c19b26;
+            transform: translateY(-2px);
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .header-content,
+            .section-content,
+            .hero-content {
+                padding: 0 1.5rem;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- ヘッダー -->
-    <header id="site-header">
-        <div class="header-container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/logo/logo.svg" alt="Global Manufacturing Careers">
-                </a>
-            </div>
-            
-            <nav class="global-nav">
-                <ul>
-                    <li class="has-dropdown">
-                        <a href="jobs/search.html">求人</a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-section">
-                                <h4>職種別</h4>
-                                <ul>
-                                    <li><a href="jobs/search.html?category=engineering">エンジニアリング</a></li>
-                                    <li><a href="jobs/search.html?category=rd">研究開発（R&amp;D）</a></li>
-                                    <li><a href="jobs/search.html?category=production">生産管理</a></li>
-                                    <li><a href="jobs/search.html?category=scm">サプライチェーン</a></li>
-                                    <li><a href="jobs/search.html?category=qaqc">品質管理</a></li>
-                                    <li><a href="jobs/search.html?category=sales">セールス</a></li>
-                                </ul>
-                            </div>
-                            <div class="dropdown-section">
-                                <h4>業種別</h4>
-                                <ul>
-                                    <li><a href="jobs/search.html?industry=automotive">自動車</a></li>
-                                    <li><a href="jobs/search.html?industry=aerospace">航空宇宙</a></li>
-                                    <li><a href="jobs/search.html?industry=electronics">電機・電子</a></li>
-                                    <li><a href="jobs/search.html?industry=machinery">産業機械</a></li>
-                                    <li><a href="jobs/search.html?industry=chemical">化学・素材</a></li>
-                                    <li><a href="jobs/search.html?industry=medical">医療機器</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="services/index.html">サービス</a>
-                        <div class="dropdown-menu">
-                            <ul>
-                                <li><a href="services/flow.html">サービスの流れ</a></li>
-                                <li><a href="services/consultants.html">コンサルタント紹介</a></li>
-                                <li><a href="services/resume_support.html">英文レジュメ添削</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a href="knowhow/index.html">ノウハウ</a></li>
-                    <li><a href="success_stories/index.html">成功事例</a></li>
-                    <li><a href="recruiters/index.html">企業様へ</a></li>
-                </ul>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">GeekReach</a>
+            <nav class="header-nav">
+                <a href="consultants.html" class="header-link">エージェント紹介</a>
+                <a href="company-register.html" class="header-link">企業様向け</a>
+                <a href="pricing.html" class="header-link">料金プラン</a>
+                <a href="contact.html" class="btn-register">お問い合わせ</a>
             </nav>
-            
-            <div class="header-right">
-                <div class="language-switch">
-                    <a href="#" class="active">JP</a>
-                    <span>|</span>
-                    <a href="#">EN</a>
-                </div>
-                <a href="auth/register.html" class="btn btn-primary register-btn">会員登録</a>
-                <a href="auth/login.html" class="btn btn-secondary login-btn">ログイン</a>
-            </div>
-            
-            <button class="hamburger-menu" aria-label="メニュー">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
+            <button class="menu-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
+        
+        <div class="mobile-menu">
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="consultants.html">エージェント紹介</a></li>
+                    <li><a href="company-register.html">企業様向け</a></li>
+                    <li><a href="pricing.html">料金プラン</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    
-    <!-- メインコンテンツ -->
-    <main>
-        <!-- ヒーローセクション -->
-        <section class="hero-section perspective-container">
-            <div class="hero-container">
-                <h1 class="magical-hover">Unlock Your Global Manufacturing Potential.</h1>
-                <p class="floating-animation">グローバルな製造業でのキャリアを、次のステージへ</p>
-                <div class="hero-search">
-                    <form action="jobs/search.html" method="get">
-                        <div class="search-box glass-card">
-                            <input type="text" name="keyword" placeholder="職種、スキル、企業名など">
-                            <button type="submit" class="search-btn magical-hover">求人を探す</button>
-                        </div>
-                    </form>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">PROFESSIONAL GEEK NETWORK</p>
+            <h1 class="hero-title">技術で世界を変える<br>挑戦をしよう</h1>
+            <p class="hero-description">
+                最先端技術に携わるプロジェクト、優秀なチームメンバー、そして技術的成長。<br>
+                あなたの技術力を最大限に活かせる環境を、プロフェッショナルエージェントと一緒に見つけましょう。<br>
+                次世代を創る仕事が、ここから始まります。
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">97%</div>
+                    <div class="stat-label">技術者満足度</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">最先端プロジェクト</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3000+</div>
+                    <div class="stat-label">技術特化求人</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30日</div>
+                    <div class="stat-label">平均マッチング期間</div>
                 </div>
             </div>
-        </section>
-        
-        <!-- 強みセクション -->
-        <section class="strengths-section">
-            <div class="container">
-                <h2 class="section-title">Our Strengths</h2>
-                <div class="strengths-container perspective-container">
-                    <div class="strength-item glass-card magical-hover transform-3d">
-                        <div class="strength-icon">
-                            <img src="images/icons/specialization_icon.svg" alt="専門性" loading="lazy">
-                        </div>
-                        <h3>外資系・製造業特化の専門性</h3>
-                        <p>製造業の各専門分野に精通したコンサルタントが、あなたのキャリアを的確にサポートします</p>
-                    </div>
-                    <div class="strength-item glass-card magical-hover transform-3d">
-                        <div class="strength-icon">
-                            <img src="images/icons/global_network_icon.svg" alt="グローバルネットワーク" loading="lazy">
-                        </div>
-                        <h3>グローバルネットワークと豊富な非公開求人</h3>
-                        <p>世界中の製造業企業とのネットワークを活かした、他では見られない厳選求人をご紹介</p>
-                    </div>
-                    <div class="strength-item glass-card magical-hover transform-3d">
-                        <div class="strength-icon">
-                            <img src="images/icons/support_icon.svg" alt="キャリアサポート" loading="lazy">
-                        </div>
-                        <h3>経験豊富なコンサルタントによるキャリアサポート</h3>
-                        <p>履歴書添削から英語面接対策まで、グローバル製造業への転職をトータルサポート</p>
-                    </div>
+            
+            <a href="contact.html" class="cta-button">技術キャリア相談を始める</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section section">
+        <div class="section-content">
+            <h2 class="section-title">GeekReachが選ばれる理由</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">最先端技術プロジェクト</h3>
+                    <p class="feature-text">AI、量子コンピューティング、Web3など、次世代技術に携わるプロジェクトで技術的な挑戦と成長を実現できます。</p>
                 </div>
-            </div>
-        </section>
-        
-        <!-- ピックアップ求人 -->
-        <section class="featured-jobs-section">
-            <div class="container">
-                <h2 class="section-title">ピックアップ求人<span>Featured Roles in Manufacturing</span></h2>
-                
-                <div class="featured-jobs-container perspective-container">
-                    <div class="job-card glass-card magical-hover transform-3d">
-                        <div class="job-card-header">
-                            <div class="company-logo">
-                                <img src="images/dummy/company_logo1.svg" alt="企業ロゴ" loading="lazy">
-                            </div>
-                            <div class="job-tags">
-                                <span class="job-tag">電機・電子</span>
-                                <span class="job-tag">エンジニアリング</span>
-                            </div>
-                        </div>
-                        <h3 class="job-title">電子回路設計エンジニア（シニア）</h3>
-                        <div class="job-info">
-                            <p class="job-company">Global Electronics Inc.</p>
-                            <p class="job-location">勤務地：東京</p>
-                            <p class="job-salary">想定年収：USD 90K - 120K / JPY 10M - 14M</p>
-                        </div>
-                        <div class="job-description">
-                            <p>自動車向け電子制御システムの回路設計を担当。グローバルチームと協働し、次世代製品の開発をリード。英語力必須。</p>
-                        </div>
-                        <a href="jobs/detail_template.html?id=1" class="btn btn-outline magical-hover">詳細を見る</a>
-                    </div>
-                    
-                    <div class="job-card">
-                        <div class="job-card-header">
-                            <div class="company-logo">
-                                <img src="images/dummy/company_logo2.svg" alt="企業ロゴ" loading="lazy">
-                            </div>
-                            <div class="job-tags">
-                                <span class="job-tag">医療機器</span>
-                                <span class="job-tag">品質管理</span>
-                            </div>
-                        </div>
-                        <h3 class="job-title">品質保証マネージャー</h3>
-                        <div class="job-info">
-                            <p class="job-company">MedTech Solutions GmbH</p>
-                            <p class="job-location">勤務地：大阪</p>
-                            <p class="job-salary">想定年収：USD 80K - 100K / JPY 9M - 12M</p>
-                        </div>
-                        <div class="job-description">
-                            <p>医療機器の品質管理システムの統括責任者を担当。FDA、CEマーク等の国際認証に精通した方。英語ビジネスレベル以上。</p>
-                        </div>
-                        <a href="jobs/detail_template.html?id=2" class="btn btn-outline">詳細を見る</a>
-                    </div>
-                    
-                    <div class="job-card">
-                        <div class="job-card-header">
-                            <div class="company-logo">
-                                <img src="images/dummy/company_logo3.svg" alt="企業ロゴ" loading="lazy">
-                            </div>
-                            <div class="job-tags">
-                                <span class="job-tag">自動車</span>
-                                <span class="job-tag">生産管理</span>
-                            </div>
-                        </div>
-                        <h3 class="job-title">生産技術マネージャー</h3>
-                        <div class="job-info">
-                            <p class="job-company">Automotive Precision Co.</p>
-                            <p class="job-location">勤務地：愛知</p>
-                            <p class="job-salary">想定年収：USD 85K - 110K / JPY 9.5M - 13M</p>
-                        </div>
-                        <div class="job-description">
-                            <p>自動車部品製造ラインの生産技術部門責任者。日本とタイ・マレーシア工場の技術連携を担当。英語・タイ語いずれかの実務経験優遇。</p>
-                        </div>
-                        <a href="jobs/detail_template.html?id=3" class="btn btn-outline">詳細を見る</a>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">技術特化エージェント</h3>
+                    <p class="feature-text">技術背景を持つ専門エージェントが、あなたのスキルと志向を深く理解し、最適な技術環境をマッチングします。</p>
                 </div>
-                
-                <div class="more-btn-container">
-                    <a href="jobs/search.html" class="btn btn-primary">さらに求人を見る</a>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">優秀なチーム環境</h3>
+                    <p class="feature-text">世界トップクラスのエンジニアと働ける環境で、技術的なディスカッションと相互学習が活発な職場をご紹介します。</p>
                 </div>
-            </div>
-        </section>
-        
-        <!-- 転職成功事例 -->
-        <section class="success-stories-section">
-            <div class="container">
-                <h2 class="section-title">成功事例<span>Success Stories from Global Talents</span></h2>
-                
-                <div class="stories-container">
-                    <div class="story-card">
-                        <div class="story-image">
-                            <img src="images/people/person1.jpg" alt="転職者イメージ" loading="lazy">
-                        </div>
-                        <div class="story-content">
-                            <h3>国内メーカーから外資系医療機器メーカーへ</h3>
-                            <div class="story-profile">
-                                <p>40代・男性｜機械設計エンジニア｜年収600万円→950万円</p>
-                            </div>
-                            <p class="story-summary">「プロジェクトマネジメント経験と英語力を評価され、年収アップと共にグローバルなキャリアへ」</p>
-                            <a href="success_stories/story_template.html?id=1" class="btn btn-outline">詳細を読む</a>
-                        </div>
-                    </div>
-                    
-                    <div class="story-card">
-                        <div class="story-image">
-                            <img src="images/people/person2.jpg" alt="転職者イメージ" loading="lazy">
-                        </div>
-                        <div class="story-content">
-                            <h3>大手電機メーカーから外資系自動車部品サプライヤーへ</h3>
-                            <div class="story-profile">
-                                <p>30代・女性｜品質管理｜年収480万円→820万円</p>
-                            </div>
-                            <p class="story-summary">「専門性を活かし、グローバルチームのマネジメント経験を得られる環境に。語学研修制度も充実。」</p>
-                            <a href="success_stories/story_template.html?id=2" class="btn btn-outline">詳細を読む</a>
-                        </div>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-title">技術的成長支援</h3>
+                    <p class="feature-text">カンファレンス参加、OSS貢献、技術書購入など、継続的な学習と成長を支援する企業文化を重視します。</p>
                 </div>
-                
-                <div class="more-btn-container">
-                    <a href="success_stories/index.html" class="btn btn-primary">成功事例をもっと見る</a>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">プロダクトインパクト</h3>
+                    <p class="feature-text">数百万人が使用するプロダクトや社会課題を解決するサービスなど、意味のある仕事で技術力を発揮できます。</p>
                 </div>
-            </div>
-        </section>
-        
-        <!-- 転職ノウハウ -->
-        <section class="knowhow-section">
-            <div class="container">
-                <h2 class="section-title">転職ノウハウ<span>Career Insights for Manufacturing Professionals</span></h2>
-                
-                <div class="knowhow-list">
-                    <div class="knowhow-item">
-                        <div class="knowhow-date">2025.05.10</div>
-                        <h3 class="knowhow-title"><a href="knowhow/article_template.html?id=1">【英文レジュメ攻略】製造業エンジニアが押さえるべき5つのポイント</a></h3>
-                        <div class="knowhow-tags">
-                            <span>英文レジュメ</span>
-                            <span>エンジニア</span>
-                        </div>
-                    </div>
-                    
-                    <div class="knowhow-item">
-                        <div class="knowhow-date">2025.05.05</div>
-                        <h3 class="knowhow-title"><a href="knowhow/article_template.html?id=2">外資系製造業の面接で評価される「問題解決力」をアピールする方法</a></h3>
-                        <div class="knowhow-tags">
-                            <span>面接対策</span>
-                            <span>外資系</span>
-                        </div>
-                    </div>
-                    
-                    <div class="knowhow-item">
-                        <div class="knowhow-date">2025.05.01</div>
-                        <h3 class="knowhow-title"><a href="knowhow/article_template.html?id=3">製造業におけるグローバル人材として評価される3つの資質と伸ばし方</a></h3>
-                        <div class="knowhow-tags">
-                            <span>キャリア戦略</span>
-                            <span>グローバル人材</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="more-btn-container">
-                    <a href="knowhow/index.html" class="btn btn-primary">ノウハウ記事一覧へ</a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- CTA セクション -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>あなたのキャリアを、次のステージへ<br>まずは無料キャリア相談から</h2>
-                <div class="cta-buttons">
-                    <a href="contact/index.html" class="btn btn-primary">無料相談に申し込む</a>
-                    <a href="auth/register.html" class="btn btn-secondary">会員登録して求人を見る</a>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- フッター -->
-    <footer id="site-footer">
-        <div class="footer-main">
-            <div class="container">
-                <div class="footer-columns">
-                    <!-- サイトマップ -->
-                    <div class="footer-column">
-                        <h3>サイトマップ</h3>
-                        <ul>
-                            <li><a href="jobs/search.html">求人を探す</a></li>
-                            <li><a href="services/index.html">転職支援サービス</a></li>
-                            <li><a href="knowhow/index.html">外資系・製造業転職ノウハウ</a></li>
-                            <li><a href="success_stories/index.html">転職成功事例</a></li>
-                            <li><a href="recruiters/index.html">企業様へ</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>職種別求人</h3>
-                        <ul>
-                            <li><a href="jobs/search.html?category=engineering">エンジニアリング</a></li>
-                            <li><a href="jobs/search.html?category=rd">研究開発（R&amp;D）</a></li>
-                            <li><a href="jobs/search.html?category=production">生産管理</a></li>
-                            <li><a href="jobs/search.html?category=scm">サプライチェーン（SCM）</a></li>
-                            <li><a href="jobs/search.html?category=qaqc">品質管理（QA/QC）</a></li>
-                            <li><a href="jobs/search.html?category=sales">セールス/マーケティング</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>業種別求人</h3>
-                        <ul>
-                            <li><a href="jobs/search.html?industry=automotive">自動車・輸送機器</a></li>
-                            <li><a href="jobs/search.html?industry=aerospace">航空宇宙</a></li>
-                            <li><a href="jobs/search.html?industry=electronics">電機・電子</a></li>
-                            <li><a href="jobs/search.html?industry=machinery">産業機械</a></li>
-                            <li><a href="jobs/search.html?industry=chemical">化学・素材</a></li>
-                            <li><a href="jobs/search.html?industry=medical">医療機器</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>会社情報</h3>
-                        <ul>
-                            <li><a href="corporate/about.html">会社概要</a></li>
-                            <li><a href="contact/index.html">お問い合わせ</a></li>
-                            <li><a href="faq/index.html">よくある質問</a></li>
-                            <li><a href="legal/privacy.html">プライバシーポリシー</a></li>
-                            <li><a href="legal/terms.html">利用規約</a></li>
-                        </ul>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">グローバル技術コミュニティ</h3>
+                    <p class="feature-text">世界中の技術者とつながり、国際的なプロジェクトで技術的な視野を広げられる機会を提供します。</p>
                 </div>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="footer-bottom-content">
-                    <div class="copyright">
-                        <p>&copy; 2025 Global Manufacturing Careers. All Rights Reserved.</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn"><img src="images/icons/linkedin_icon.svg" alt="LinkedIn" loading="lazy"></a>
-                        <a href="#" aria-label="Twitter"><img src="images/icons/twitter_icon.svg" alt="Twitter" loading="lazy"></a>
-                        <a href="#" aria-label="Facebook"><img src="images/icons/facebook_icon.svg" alt="Facebook" loading="lazy"></a>
-                    </div>
+    </section>
+
+    <!-- LinkedIn Section -->
+    <section class="linkedin-section">
+        <div class="section-content">
+            <div class="linkedin-content">
+                <h2>LinkedInでスカウトを受け取る</h2>
+                <p>プロフェッショナルネットワークを活用して、<br>トップ企業からの直接オファーを獲得しましょう</p>
+                <a href="https://linkedin.com/company/geekreach" class="linkedin-btn" target="_blank">
+                    LinkedInで接続する
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-content">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>技術者向け</h3>
+                    <p>最先端技術プロジェクトと優秀なチームで技術的成長を実現。プロフェッショナルエージェントが技術キャリアを完全サポート。</p>
+                    <a href="contact.html">技術キャリア相談</a>
                 </div>
+                
+                <div class="footer-section">
+                    <h3>企業様向け</h3>
+                    <p>優秀な技術者の採用サービス。技術力とカルチャーフィットを重視したマッチングを提供します。</p>
+                    <a href="company-register.html">採用相談</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>エージェント紹介</h3>
+                    <p>技術背景を持つ専門エージェントによる転職サポート。技術の専門性を理解したプロがあなたをサポートします。</p>
+                    <a href="consultants.html">エージェントを見る</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 GeekReach. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    
-    <script src="js/bundle.js" defer></script>
-    <script src="js/modern-effects.js" defer></script>
-    
-    <!-- 構造化データ（JSON-LD） -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Global Manufacturing Careers",
-        "alternateName": "GMC",
-        "url": "https://gmc-careers.jp/",
-        "logo": "https://gmc-careers.jp/images/logo/logo.svg",
-        "description": "外資系・製造業特化型の転職エージェント。グローバルな製造業でのキャリアを目指す専門職人材と企業を繋ぎます。",
-        "sameAs": [
-            "https://www.linkedin.com/company/gmc-careers",
-            "https://twitter.com/gmc_careers",
-            "https://www.facebook.com/gmccareers"
-        ],
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+81-3-1234-5678",
-            "contactType": "customer service",
-            "email": "info@gmc-careers.jp",
-            "availableLanguage": ["Japanese", "English"]
-        },
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "千代田1-1 千代田ビル10F",
-            "addressLocality": "千代田区",
-            "addressRegion": "東京都",
-            "postalCode": "100-0001",
-            "addressCountry": "JP"
-        },
-        "foundingDate": "2020",
-        "numberOfEmployees": "50-100",
-        "industry": "Human Resources",
-        "serviceArea": {
-            "@type": "Country",
-            "name": "Japan"
-        }
-    }
+
+    <!-- JavaScript for mobile menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+            });
+        });
     </script>
-    
-    <!-- サイトマップとサーチコンソール用 -->
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-    
-    <!-- パフォーマンス最適化 -->
-    <link rel="preload" href="css/style.css" as="style">
-    <link rel="preload" href="js/bundle.js" as="script">
-    
-    <!-- セキュリティヘッダー -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
 </body>
 </html>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GeekReach利用規約 - サービス利用に関する規約・条件">
+    <meta name="keywords" content="利用規約,サービス規約,GeekReach">
+    <title>利用規約 | GeekReach</title>
+    
+    <!-- SEO・パフォーマンス最適化 -->
+    <link rel="canonical" href="https://geekreach.com/terms.html">
+    <meta property="og:title" content="利用規約 | GeekReach">
+    <meta property="og:description" content="GeekReachサービス利用に関する規約・条件">
+    <meta property="og:url" content="https://geekreach.com/terms.html">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <style>
+        /* GeekReachデザインシステム */
+        :root {
+            --primary-navy: #1a2332;
+            --secondary-gold: #d4af37;
+            --accent-cream: #f8f6f3;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --white: #ffffff;
+            --shadow-subtle: 0 4px 20px rgba(26, 35, 50, 0.08);
+            --shadow-medium: 0 8px 40px rgba(26, 35, 50, 0.12);
+            --gradient-luxury: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+        }
+        
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:'Inter', 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Meiryo','メイリオ',sans-serif;
+            line-height:1.8;
+            color:var(--text-dark);
+            background:var(--white);
+            letter-spacing: -0.01em;
+        }
+        
+        /* ヘッダー */
+        .header{
+            background:rgba(255,255,255,0.95);
+            backdrop-filter:blur(20px);
+            padding:1.5rem 0;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 3rem;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary-gold);
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .header-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .header-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--secondary-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .header-link:hover {
+            color: var(--primary-navy);
+        }
+        
+        .header-link:hover::before {
+            width: 100%;
+        }
+        
+        /* メインコンテンツ */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 6rem 3rem;
+        }
+        
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--primary-navy);
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            font-size: 0.95rem;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        .section-number {
+            color: var(--secondary-gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-navy);
+        }
+        
+        .section-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .section-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-content li {
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+        }
+        
+        .highlight {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        .warning-box {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .warning-box h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .contact-info {
+            background: var(--accent-cream);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        
+        .contact-info h4 {
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        /* フッター */
+        .footer {
+            background: var(--primary-navy);
+            color: rgba(255,255,255,0.7);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--secondary-gold);
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-gold);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #495057;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            margin: 0;
+            color: #6c757d;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .header-content,
+            .main-content {
+                padding: 0 1.5rem;
+            }
+            
+            .main-content {
+                padding: 4rem 1.5rem;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .content-section {
+                padding: 2rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">GeekReach</a>
+            <nav class="header-nav">
+                <a href="index.html" class="header-link">求職者向け</a>
+                <a href="company-register.html" class="header-link">企業様向け</a>
+                <a href="contact.html" class="header-link">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1 class="page-title">利用規約</h1>
+        <p class="last-updated">最終更新日：2024年6月3日</p>
+
+        <div class="content-section">
+            <div class="section-number">Article 1</div>
+            <h2 class="section-title">総則</h2>
+            <div class="section-content">
+                <p>本利用規約（以下「本規約」といいます）は、株式会社GeekReach（以下「当社」といいます）が提供する転職・採用サービス「GeekReach」（以下「本サービス」といいます）の利用条件を定めるものです。</p>
+                <p>本サービスをご利用される全ての方（以下「利用者」といいます）は、<span class="highlight">本規約に同意したものとみなされます</span>。本規約に同意いただけない場合は、本サービスをご利用いただくことはできません。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Article 2</div>
+            <h2 class="section-title">定義</h2>
+            <div class="section-content">
+                <p>本規約において使用する用語の定義は以下のとおりです：</p>
+                <ul>
+                    <li><span class="highlight">本サービス</span>：当社が運営する転職・採用プラットフォーム</li>
+                    <li><span class="highlight">求職者</span>：転職を希望する個人利用者</li>
+                    <li><span class="highlight">企業</span>：採用活動を行う法人利用者</li>
+                    <li><span class="highlight">エージェント</span>：当社が紹介する転職支援専門家</li>
+                    <li><span class="highlight">コンテンツ</span>：本サービス上の全ての情報・データ</li>
+                    <li><span class="highlight">アカウント</span>：本サービス利用のための登録情報</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Article 3</div>
+            <h2 class="section-title">サービス内容</h2>
+            <div class="section-content">
+                <p>当社は、以下のサービスを提供します：</p>
+                <ul>
+                    <li><span class="highlight">求人情報の掲載・検索</span>：ハイクラス求人情報の提供</li>
+                    <li><span class="highlight">スカウト機能</span>：企業からの直接スカウト配信</li>
+                    <li><span class="highlight">マッチングサービス</span>：求職者と企業の最適マッチング</li>
+                    <li><span class="highlight">転職支援</span>：専門エージェントによる転職サポート</li>
+                    <li><span class="highlight">エージェント紹介</span>：専門転職エージェントの紹介</li>
+                    <li><span class="highlight">キャリア相談</span>：専門家によるキャリアアドバイス</li>
+                    <li><span class="highlight">企業向け採用支援</span>：効率的な採用活動のサポート</li>
+                </ul>
+                <p>サービス内容は、事前の通知なく変更される場合があります。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Article 4</div>
+            <h2 class="section-title">利用登録</h2>
+            <div class="section-content">
+                <p>本サービスの利用には、当社の定める方法による利用登録が必要です。</p>
+                <ul>
+                    <li>登録申請者が以下に該当する場合、登録を拒否することがあります：
+                        <ul style="margin-left: 2rem;">
+                            <li>本規約に違反するおそれがある場合</li>
+                            <li>登録事項に虚偽、誤記または記載漏れがある場合</li>
+                            <li>過去に本サービスの利用を停止された場合</li>
+                            <li>反社会的勢力に該当する場合</li>
+                            <li>その他当社が不適切と判断した場合</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>利用者は、登録情報に変更があった場合、速やかに変更手続きを行うものとします。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Article 5</div>
+            <h2 class="section-title">アカウント管理</h2>
+            <div class="section-content">
+                <p>利用者は、自己の責任においてアカウント情報を適切に管理するものとします。</p>
+                <ul>
+                    <li>パスワードの適切な管理（第三者に教示しない等）</li>
+                    <li>アカウントの不正使用を発見した場合の即座の報告</li>
+                    <li>アカウント情報の正確性の維持</li>
+                </ul>
+                
+                <div class="warning-box">
+                    <h4>⚠️ 重要な注意事項</h4>
+                    <p>アカウントの管理不十分により生じた損害について、当社は一切の責任を負いません。パスワードの使い回しや簡単なパスワードの使用は避け、定期的な変更を推奨します。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Article 6</div>
+            <h2 class="section-title">禁止事項</h2>
+            <div class="section-content">
+                <p>利用者は、本サービスの利用において以下の行為を行ってはなりません：</p>
+                <ul>
+                    <li><span class="highlight">法令違反</span>：法律、法令、条例に違反する行為</li>
+                    <li><span class="highlight">虚偽情報</span>：虚偽または誤解を招く情報の登録・投稿</li>
+                    <li><span class="highlight">他者の権利侵害</span>：知的財産権、プライバシー権等の侵害</li>
+                    <li><span class="highlight">迷惑行為</span>：スパム、過度な営業活動等</li>
+                    <li><span class="highlight">システム妨害</span>：サービス運営を妨害する行為</li>
+                    <li><span class="highlight">不正アクセス</span>：権限なくシステムにアクセスする行為</li>
+                    <li><span class="highlight">情報の悪用</span>：取得した情報の目的外使用</li>
+                    <li><span class="highlight">アカウント譲渡</span>：第三者へのアカウント貸与・譲渡</li>
+                    <li><span class="highlight">競合サービス</span>：競合サービスの宣伝・勧誘</li>
+                    <li><span class="highlight">その他不適切行為</span>：当社が不適切と判断する行為</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Article 7</div>
+            <h2 class="section-title">サービス利用料金</h2>
+            <div class="section-content">
+                <p>本サービスの利用料金は以下のとおりです：</p>
+                <ul>
+                    <li><span class="highlight">求職者向けサービス</span>：完全無料</li>
+                    <li><span class="highlight">企業向けサービス</span>：成果報酬型（採用決定時のみ課金）</li>
+                    <li><span class="highlight">プレミアムサービス</span>：別途定める料金</li>
+                </ul>
+                <p>企業向けサービスの詳細な料金体系については、別途お問い合わせください。料金は事前の通知により変更される場合があります。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Article 8</div>
+            <h2 class="section-title">知的財産権</h2>
+            <div class="section-content">
+                <p>本サービスに関する知的財産権は当社に帰属します。</p>
+                <ul>
+                    <li>本サービスのシステム、デザイン、コンテンツ</li>
+                    <li>「GeekReach」商標・ロゴ</li>
+                    <li>当社が作成したマッチングアルゴリズム</li>
+                    <li>その他当社が開発した技術・ノウハウ</li>
+                </ul>
+                <p>利用者が投稿したコンテンツの著作権は利用者に帰属しますが、当社はサービス運営に必要な範囲で使用できるものとします。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Article 9</div>
+            <h2 class="section-title">免責事項</h2>
+            <div class="section-content">
+                <p>当社は、以下について一切の責任を負いません：</p>
+                <ul>
+                    <li>本サービスの利用により生じた損害</li>
+                    <li>求人情報の正確性・最新性</li>
+                    <li>利用者間のトラブル</li>
+                    <li>第三者による不正アクセス</li>
+                    <li>システムの一時的な停止・障害</li>
+                    <li>外部サービスとの連携に関する問題</li>
+                </ul>
+                <p>ただし、当社の故意または重大な過失による場合はこの限りではありません。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Article 10</div>
+            <h2 class="section-title">個人情報の取り扱い</h2>
+            <div class="section-content">
+                <p>当社は、利用者の個人情報を適切に取り扱います。詳細については、<a href="privacy.html" style="color: var(--secondary-gold); text-decoration: none;">プライバシーポリシー</a>をご確認ください。</p>
+                <ul>
+                    <li>個人情報の収集目的の明確化</li>
+                    <li>適切なセキュリティ対策の実施</li>
+                    <li>第三者への提供に関する同意取得</li>
+                    <li>個人情報に関するお問い合わせへの適切な対応</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Article 11</div>
+            <h2 class="section-title">サービスの変更・停止・終了</h2>
+            <div class="section-content">
+                <p>当社は、以下の場合にサービスの変更・停止・終了を行うことがあります：</p>
+                <ul>
+                    <li><span class="highlight">サービス改善</span>：機能追加・変更のため</li>
+                    <li><span class="highlight">システムメンテナンス</span>：定期・緊急メンテナンス</li>
+                    <li><span class="highlight">技術的問題</span>：システム障害・セキュリティ問題</li>
+                    <li><span class="highlight">経営判断</span>：事業戦略上の理由</li>
+                </ul>
+                <p>サービス終了の場合は、<span class="highlight">3ヶ月前までに</span>利用者に通知いたします。</p>
+                
+                <div class="warning-box">
+                    <h4>⚠️ サービス停止について</h4>
+                    <p>緊急メンテナンスやシステム障害の場合、事前通知なくサービスを停止する場合があります。この場合の損害について当社は責任を負いません。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Article 12</div>
+            <h2 class="section-title">利用停止・退会</h2>
+            <div class="section-content">
+                <p>当社は、利用者が以下に該当する場合、事前通知なく利用停止または強制退会とすることがあります：</p>
+                <ul>
+                    <li>本規約への違反</li>
+                    <li>登録情報の虚偽記載</li>
+                    <li>長期間の利用停止状態</li>
+                    <li>その他当社が不適切と判断した場合</li>
+                </ul>
+                <p>利用者は、いつでも退会手続きを行うことができます。退会後も、本規約の一部条項は効力を持続します。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Article 13</div>
+            <h2 class="section-title">規約の変更</h2>
+            <div class="section-content">
+                <p>当社は、必要に応じて本規約を変更することがあります。</p>
+                <ul>
+                    <li>重要な変更については、<span class="highlight">30日前までに</span>通知</li>
+                    <li>軽微な変更については、サイト上での告知</li>
+                    <li>変更後の継続利用により、新規約への同意とみなす</li>
+                </ul>
+                <p>変更内容に同意いただけない場合は、サービスの利用を停止してください。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-number">Article 14</div>
+            <h2 class="section-title">準拠法・管轄裁判所</h2>
+            <div class="section-content">
+                <p>本規約の解釈・適用については、<span class="highlight">日本法</span>に準拠します。</p>
+                <p>本サービスに関する紛争については、<span class="highlight">東京地方裁判所</span>を第一審の専属的合意管轄裁判所とします。</p>
+                
+                <div class="contact-info">
+                    <h4>📞 お問い合わせ</h4>
+                    <p><strong>株式会社GeekReach</strong><br>
+                    Email: legal@geekreach.com<br>
+                    Tel: 03-1234-5678<br>
+                    受付時間: 平日 9:00-18:00</p>
+                    <p>本規約に関するご質問は、上記連絡先までお問い合わせください。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">ホーム</a>
+                <a href="company-register.html">企業登録</a>
+                <a href="privacy.html">プライバシーポリシー</a>
+                <a href="terms.html">利用規約</a>
+                <a href="contact.html">お問い合わせ</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GeekReach. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // パフォーマンス監視
+        if ('performance' in window) {
+            window.addEventListener('load', () => {
+                const perfData = performance.getEntriesByType('navigation')[0];
+                console.log('Page Load Time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+            });
+        }
+
+        // スムーズスクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // SEO用構造化データ
+        const structuredData = {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "利用規約",
+            "description": "GeekReachサービス利用に関する規約・条件",
+            "url": "https://geekreach.com/terms.html",
+            "isPartOf": {
+                "@type": "WebSite",
+                "name": "GeekReach",
+                "url": "https://geekreach.com"
+            },
+            "dateModified": "2024-06-03"
+        };
+
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify(structuredData);
+        document.head.appendChild(script);
+    </script>
+</body>
+</html>

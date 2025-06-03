@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI・ロボティクス専門エージェント検索 - 3,500名以上の検証済み専門エージェントから最適なパートナーを見つけよう">
+    <meta name="keywords" content="AI,ロボティクス,機械学習,エージェント,転職,求人,専門家,検索">
+    <meta name="author" content="AI Robotics Agent Network">
+    <meta property="og:title" content="エージェント検索 | AI Robotics Agent Network">
+    <meta property="og:description" content="3,500名以上の検証済みAI・ロボティクス専門エージェントから最適なパートナーを見つけよう">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://ai-agent-network.com/search">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="images/twitter-card.jpg">
+    <title>エージェント検索 | AI Robotics Agent Network</title>
+    
+    <!-- Critical CSS Inline -->
+    <style>
+        body{font-family:'Noto Sans JP',sans-serif;margin:0;padding:0;line-height:1.6}
+        .header{position:sticky;top:0;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.1);z-index:1000}
+        .search-section{background:linear-gradient(135deg,#f8fafc 0%,#fff 100%);padding:4rem 0}
+        .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+    </style>
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Load fonts with display swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS - defer non-critical styles -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    
+    <!-- Font Awesome - load asynchronously -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "エージェント検索",
+        "description": "AI・ロボティクス専門エージェント検索",
+        "url": "https://ai-agent-network.com/search",
+        "mainEntity": {
+            "@type": "SearchAction",
+            "target": "https://ai-agent-network.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="images/logo/logo.svg" alt="AI Robotics Agent Network" width="150" height="40">
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html#specialties">専門分野</a></li>
+                        <li><a href="index.html#how-it-works">利用方法</a></li>
+                        <li><a href="pricing.html">料金プラン</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="register.html" class="btn btn-outline">エージェント登録</a>
+                    <a href="search.html" class="btn btn-primary">エージェント検索</a>
+                    <button class="mobile-menu-btn" aria-label="メニューを開く">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-header">
+                <h1>AI・ロボティクス専門エージェント検索</h1>
+                <p>3,500名以上の検証済み専門エージェントから最適なパートナーを見つけよう</p>
+            </div>
+            
+            <!-- Advanced Search -->
+            <div class="advanced-search">
+                <div class="search-row">
+                    <div class="search-field">
+                        <label>キーワード検索</label>
+                        <div class="search-input-wrapper">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" id="keyword-search" placeholder="専門分野、技術、経験などで検索...">
+                        </div>
+                    </div>
+                    <div class="search-field">
+                        <label>専門分野</label>
+                        <select id="specialty-filter">
+                            <option value="">すべての分野</option>
+                            <option value="機械学習">機械学習・AI</option>
+                            <option value="ロボティクス">ロボティクス</option>
+                            <option value="コンピュータビジョン">コンピュータビジョン</option>
+                            <option value="自然言語処理">自然言語処理</option>
+                            <option value="データサイエンス">データサイエンス</option>
+                            <option value="自動運転">自動運転</option>
+                            <option value="医療AI">医療AI</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="search-row">
+                    <div class="search-field">
+                        <label>経験年数</label>
+                        <select id="experience-filter">
+                            <option value="">すべて</option>
+                            <option value="1-3">1-3年</option>
+                            <option value="3-5">3-5年</option>
+                            <option value="5-10">5-10年</option>
+                            <option value="10+">10年以上</option>
+                        </select>
+                    </div>
+                    <div class="search-field">
+                        <label>評価</label>
+                        <select id="rating-filter">
+                            <option value="">すべて</option>
+                            <option value="4.5+">4.5以上</option>
+                            <option value="4.0+">4.0以上</option>
+                            <option value="3.5+">3.5以上</option>
+                        </select>
+                    </div>
+                    <div class="search-field">
+                        <label>場所</label>
+                        <select id="location-filter">
+                            <option value="">すべて</option>
+                            <option value="東京">東京</option>
+                            <option value="大阪">大阪</option>
+                            <option value="リモート">リモート対応</option>
+                            <option value="全国">全国対応</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="search-actions">
+                    <button class="btn btn-primary" id="search-btn">
+                        <i class="fas fa-search"></i> 検索
+                    </button>
+                    <button class="btn btn-outline" id="reset-btn">
+                        <i class="fas fa-undo"></i> リセット
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <div class="results-header">
+                <div class="results-info">
+                    <h2>検索結果</h2>
+                    <p id="results-count">100件のエージェントが見つかりました</p>
+                </div>
+                <div class="sort-options">
+                    <label>並び順:</label>
+                    <select id="sort-by">
+                        <option value="rating">評価順</option>
+                        <option value="experience">経験順</option>
+                        <option value="success">成功実績順</option>
+                        <option value="recent">登録順</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Agent Cards Grid -->
+            <div class="agents-grid" id="agents-grid">
+                <!-- Dynamic content will be generated here -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <button class="btn btn-outline" disabled>前へ</button>
+                <span class="page-info">1 / 10</span>
+                <button class="btn btn-outline">次へ</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="images/logo/logo.svg" alt="AI Robotics Agent Network" class="footer-logo">
+                    <p>AI・ロボティクス業界専門エージェント検索プラットフォーム</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>求職者向け</h4>
+                    <ul>
+                        <li><a href="search.html">エージェント検索</a></li>
+                        <li><a href="index.html#specialties">専門分野</a></li>
+                        <li><a href="index.html#how-it-works">利用方法</a></li>
+                        <li><a href="search.html">エージェント一覧</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>エージェント向け</h4>
+                    <ul>
+                        <li><a href="register.html">エージェント登録</a></li>
+                        <li><a href="pricing.html">料金プラン</a></li>
+                        <li><a href="contact.html">サポート</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>企業情報</h4>
+                    <ul>
+                        <li><a href="contact.html">会社概要</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                        <li><a href="privacy.html">プライバシーポリシー</a></li>
+                        <li><a href="terms.html">利用規約</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Robotics Agent Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load JavaScript asynchronously -->
+    <script src="js/app.js" defer></script>
+</body>
+</html>

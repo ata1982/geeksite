@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ページが見つかりません - ギークリーチ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .error-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .error-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        .error-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .error-description {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: #ff6b35;
+            color: white;
+        }
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .search-suggestions {
+            background: white;
+            color: #333;
+            padding: 3rem 0;
+        }
+        .suggestions-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .suggestion-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .suggestion-card:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">ギークリーチ</div>
+            <nav class="header-nav">
+                <a href="consultants.html" class="header-link">エージェント紹介</a>
+                <a href="company-register.html" class="header-link">企業様向け</a>
+                <a href="pricing.html" class="header-link">料金プラン</a>
+                <a href="contact.html" class="header-link">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="error-hero">
+        <div class="error-content">
+            <div class="error-code">404</div>
+            <h1 class="error-title">ページが見つかりません</h1>
+            <p class="error-description">
+                お探しのページは存在しないか、移動した可能性があります。<br>
+                以下のリンクから目的のページをお探しください。
+            </p>
+            <div class="error-actions">
+                <a href="index.html" class="btn btn-primary">ホームに戻る</a>
+                <a href="contact.html" class="btn btn-outline">お問い合わせ</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="search-suggestions">
+        <div class="suggestions-grid">
+            <div class="suggestion-card">
+                <h3>ハイクラス転職</h3>
+                <p>年収2000万円超の厳選された求人について詳しく</p>
+                <a href="index.html" class="btn btn-primary" style="margin-top: 1rem;">詳細を見る</a>
+            </div>
+            <div class="suggestion-card">
+                <h3>エージェント紹介</h3>
+                <p>あなたにぴったりの転職エージェントを見つけましょう</p>
+                <a href="consultants.html" class="btn btn-primary" style="margin-top: 1rem;">エージェントを探す</a>
+            </div>
+            <div class="suggestion-card">
+                <h3>企業様向け</h3>
+                <p>ハイクラス人材の採用についてご相談ください</p>
+                <a href="company-register.html" class="btn btn-primary" style="margin-top: 1rem;">採用相談</a>
+            </div>
+            <div class="suggestion-card">
+                <h3>お問い合わせ</h3>
+                <p>ご質問やサポートが必要でしたらお気軽にどうぞ</p>
+                <a href="contact.html" class="btn btn-primary" style="margin-top: 1rem;">問い合わせる</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 404ページの分析データを送信
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_not_found', {
+                'page_location': window.location.href,
+                'page_referrer': document.referrer
+            });
+        }
+        
+        // 3秒後に自動でホームページへのリダイレクト提案
+        setTimeout(() => {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 2rem;
+                right: 2rem;
+                background: #333;
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                z-index: 1000;
+                cursor: pointer;
+            `;
+            notification.innerHTML = `
+                <div>3秒後にホームページに戻りますか？</div>
+                <button onclick="window.location.href='index.html'" style="background:#ff6b35;color:white;border:none;padding:0.5rem 1rem;border-radius:4px;margin-top:0.5rem;cursor:pointer;">はい</button>
+                <button onclick="this.parentNode.remove()" style="background:transparent;color:white;border:1px solid white;padding:0.5rem 1rem;border-radius:4px;margin-top:0.5rem;margin-left:0.5rem;cursor:pointer;">いいえ</button>
+            `;
+            document.body.appendChild(notification);
+        }, 3000);
+    </script>
+</body>
+</html>
