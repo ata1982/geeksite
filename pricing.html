@@ -1100,5 +1100,97 @@
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript for mobile menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                    
+                    // ハンバーガーアイコンのアニメーション
+                    const spans = menuToggle.querySelectorAll('span');
+                    spans.forEach((span, index) => {
+                        if (menuToggle.classList.contains('active')) {
+                            if (index === 0) span.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                            if (index === 1) span.style.opacity = '0';
+                            if (index === 2) span.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                        } else {
+                            span.style.transform = '';
+                            span.style.opacity = '';
+                        }
+                    });
+                    
+                    // スクロールを制御
+                    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+                });
+                
+                // メニューリンククリック時にメニューを閉じる
+                const menuLinks = mobileMenu.querySelectorAll('a');
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                        document.body.style.overflow = '';
+                        
+                        const spans = menuToggle.querySelectorAll('span');
+                        spans.forEach(span => {
+                            span.style.transform = '';
+                            span.style.opacity = '';
+                        });
+                    });
+                });
+                
+                // 画面外クリック時にメニューを閉じる
+                document.addEventListener('click', function(e) {
+                    if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        mobileMenu.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                        document.body.style.overflow = '';
+                        
+                        const spans = menuToggle.querySelectorAll('span');
+                        spans.forEach(span => {
+                            span.style.transform = '';
+                            span.style.opacity = '';
+                        });
+                    }
+                });
+                
+                // ESCキーでメニューを閉じる
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                        document.body.style.overflow = '';
+                        
+                        const spans = menuToggle.querySelectorAll('span');
+                        spans.forEach(span => {
+                            span.style.transform = '';
+                            span.style.opacity = '';
+                        });
+                    }
+                });
+                
+                // リサイズ時の処理
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 768) {
+                        mobileMenu.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                        document.body.style.overflow = '';
+                        
+                        const spans = menuToggle.querySelectorAll('span');
+                        spans.forEach(span => {
+                            span.style.transform = '';
+                            span.style.opacity = '';
+                        });
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
