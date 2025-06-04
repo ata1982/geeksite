@@ -1454,13 +1454,6 @@
                 </div>
                 
                 <form class="company-form" action="#" method="POST">
-                    <div class="form-progress">
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 70%;"></div>
-                        </div>
-                        <div class="progress-text">ステップ 1 / 3</div>
-                    </div>
-                    
                     <div class="form-row">
                         <div class="form-group">
                             <label for="company-name">会社名<span class="required">*</span></label>
@@ -1653,33 +1646,12 @@
             });
         });
         
-        // プログレスバーとフォームバリデーションの実装
+        // フォームバリデーションの実装
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.querySelector('.company-form');
-            const progressFill = document.querySelector('.progress-fill');
-            const progressText = document.querySelector('.progress-text');
             const formGroups = document.querySelectorAll('.form-group');
             const inputs = form.querySelectorAll('input, select, textarea');
             const submitButton = document.querySelector('.submit-button');
-            
-            let completedFields = 0;
-            const totalFields = inputs.length;
-            
-            // プログレスバーの更新
-            function updateProgress() {
-                const percentage = (completedFields / totalFields) * 100;
-                progressFill.style.width = percentage + '%';
-                progressText.textContent = `${Math.round(percentage)}% 完了 (${completedFields}/${totalFields}項目)`;
-                
-                // プログレスに応じてボタンの状態を更新
-                if (percentage === 100) {
-                    submitButton.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
-                    submitButton.innerHTML = '✓ 送信する';
-                } else {
-                    submitButton.style.background = 'linear-gradient(135deg, var(--secondary-gold), #c19b26)';
-                    submitButton.innerHTML = '送信する';
-                }
-            }
             
             // フィールドバリデーション
             function validateField(input) {
@@ -1713,23 +1685,6 @@
             
             // 各入力フィールドにイベントリスナーを追加
             inputs.forEach((input, index) => {
-                let wasValid = false;
-                
-                input.addEventListener('input', function() {
-                    const isValid = validateField(this);
-                    
-                    // プログレスカウントの更新
-                    if (isValid && this.value.trim() !== '' && !wasValid) {
-                        completedFields++;
-                        wasValid = true;
-                    } else if ((!isValid || this.value.trim() === '') && wasValid) {
-                        completedFields--;
-                        wasValid = false;
-                    }
-                    
-                    updateProgress();
-                });
-                
                 input.addEventListener('blur', function() {
                     validateField(this);
                 });
@@ -1808,59 +1763,7 @@
                     }, 500);
                 }
             });
-            
-            // 初期プログレス設定
-            updateProgress();
-            
-            // スクロール時のパララックス効果
-            window.addEventListener('scroll', function() {
-                const scrolled = window.pageYOffset;
-                const formSection = document.querySelector('.form-section');
-                const formRect = formSection.getBoundingClientRect();
-                
-                if (formRect.top < window.innerHeight && formRect.bottom > 0) {
-                    const parallaxElements = formSection.querySelectorAll('.company-form');
-                    parallaxElements.forEach(element => {
-                        const speed = scrolled * 0.05;
-                        element.style.transform = `translateY(${-speed}px)`;
-                    });
-                }
-            });
         });
-        
-        // CSS追加アニメーション
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideInRight {
-                from {
-                    opacity: 0;
-                    transform: translateX(100px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-            }
-            
-            .checkbox-group label {
-                transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            }
-            
-            .form-group input:valid:not(:placeholder-shown),
-            .form-group select:valid:not(:placeholder-shown),
-            .form-group textarea:valid:not(:placeholder-shown) {
-                border-color: #28a745;
-                background: linear-gradient(135deg, #ffffff 0%, #f8fff9 100%);
-            }
-            
-            .form-group input:invalid:not(:placeholder-shown),
-            .form-group select:invalid:not(:placeholder-shown),
-            .form-group textarea:invalid:not(:placeholder-shown) {
-                border-color: #dc3545;
-                background: linear-gradient(135deg, #ffffff 0%, #fff8f8 100%);
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
