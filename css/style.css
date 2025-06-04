@@ -1510,6 +1510,10 @@ img {
         height: 32px;
     }
     
+    .container {
+        padding: 0 0.5rem;
+    }
+    
     .hero .container {
         flex-direction: column;
     }
@@ -1606,7 +1610,7 @@ img {
 
 @media (max-width: 480px) {
     .container {
-        padding: 0 var(--space-md);
+        padding: 0 0.5rem;
     }
     
     .hero {
@@ -1624,76 +1628,15 @@ img {
     
     .hero-actions .btn {
         width: 100%;
-    }
-    
-    .section-title {
-        font-size: var(--text-3xl);
-    }
-    
-    .service-card,
-    .contact-form {
-        padding: var(--space-lg);
-    }
-    
-    .register-hero {
-        padding: var(--space-xl) 0;
-    }
-    
-    .register-hero .hero-title {
-        font-size: var(--text-2xl);
-    }
-    
-    .form-container {
-        padding: 0 var(--space-md);
-    }
-    
-    .registration-form {
-        padding: var(--space-lg);
-    }
-    
-    .form-actions .btn {
-        width: 100%;
-    }
-    
-    .search-header h1 {
-        font-size: var(--text-3xl);
-    }
-    
-    .advanced-search {
-        padding: var(--space-md);
-    }
-    
-    .agent-card {
-        padding: var(--space-md);
-    }
-    
-    .agent-header {
-        flex-direction: column;
-        text-align: center;
-        gap: var(--space-sm);
-    }
-    
-    .agent-basic-info {
-        order: 2;
-    }
-    
-    .agent-rating {
-        order: 3;
         text-align: center;
     }
     
-    .agent-avatar {
-        order: 1;
-        align-self: center;
-    }
-    
-    .agent-actions {
-        flex-direction: column;
-    }
-    
-    .agent-stats {
-        justify-content: space-around;
+    .search-container {
         padding: var(--space-sm);
+    }
+    
+    .search-input {
+        margin-bottom: var(--space-sm);
     }
 }
 
